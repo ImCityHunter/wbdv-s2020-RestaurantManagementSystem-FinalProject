@@ -8,7 +8,9 @@ export const getRecipe = (meal) => fetch(`https://edamam-food-and-grocery-databa
         "x-rapidapi-key": "cadf24a3e9msh93ccbd7382cf5ebp1f4487jsnfcd39507c869"
     }
 })
-    .then(response => response.json())
+    .then(response => {
+        return response.json()
+    })
     .catch(err => {
         console.log(err);
     });
