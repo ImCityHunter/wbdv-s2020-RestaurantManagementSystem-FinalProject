@@ -23,7 +23,6 @@ class FindRecipe extends React.Component {
             }))
         })
         this.findRecipe();
-
     }
 
 
