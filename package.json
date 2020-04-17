@@ -14,7 +14,11 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "@material-ui/lab": "^4.0.0-alpha.49",
+    "clsx": "latest",
+    "redux-thunk": "^2.3.0",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +40,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@material-ui/core": "^4.9.10",
+    "@material-ui/icons": "^4.9.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }
