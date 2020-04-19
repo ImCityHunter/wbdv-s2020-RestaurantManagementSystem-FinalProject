@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import clsx from "clsx";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -12,6 +12,8 @@ import {ShoppingCart} from "@material-ui/icons";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import AppBar from "@material-ui/core/AppBar";
 import {fade, makeStyles} from "@material-ui/core/styles";
+import {NavLink as Link, Route} from 'react-router-dom'
+import {useSelector} from "react-redux";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -95,11 +97,20 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
+    linkStyle: {
+        color: 'white'
+    }
 }))
 
 export default function Header(props) {
     const classes = useStyles()
+    const isLogin = useSelector(state => state.isLogin)
+    const user = useSelector(state => state.user)
     const {drawerStatus, handleDrawerOpen} = props
+
+    const getUserUrl = useCallback(() => {
+        return isLogin ? "/customer/profile" : "/login"
+    }, [isLogin, user])
     return (
         <AppBar position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: drawerStatus,})}>
             <Toolbar>
@@ -131,10 +142,15 @@ export default function Header(props) {
                 </div>
                 <div className={classes.grow}/>
                 <div className={classes.appBarSectionDesktop}>
-                    <IconButton
-                        color="inherit">
-                        <FaceIcon/>
-                    </IconButton>
+                    <Link to={{
+                        pathname: getUserUrl(),
+                        state: {isLogin: true}
+                    }}>
+                        <IconButton
+                            color="inherit" className={classes.linkStyle}>
+                            <FaceIcon/>
+                        </IconButton>
+                    </Link>
                     <IconButton
                         color="inherit">
                         <ExitToAppIcon color="error"/>

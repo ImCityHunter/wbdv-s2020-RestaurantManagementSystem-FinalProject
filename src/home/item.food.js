@@ -47,6 +47,7 @@ export default function ItemFood(props) {
         const filtered = shoppingCart.filter(item => item.foodId === food.food.foodId)
         return filtered.length === 0 ? 0 : filtered[0].count
     }, [shoppingCart])
+    const dispatch = useDispatch()
     const handleClick = useCallback((delta) => {
         const foodToAdd = {
             foodId: food.food.foodId,
@@ -55,8 +56,8 @@ export default function ItemFood(props) {
             thumb: imgUrl.thumb
         }
         delta === 1 ? dispatch(addShoppingCart(foodToAdd)) : dispatch(removeShoppingCart(foodToAdd))
-    }, [])
-    const dispatch = useDispatch()
+    }, [dispatch, food])
+
     return (
         <Grid item key={food.foodId} xs={12} sm={6} md={6} lg={4}>
             <Card className={classes.card}>

@@ -51,7 +51,7 @@ export default function MainContent(props) {
         <Container className={classes.cardGrid}>
             {/*wjc split the grid to left middle and right*/}
             <Grid container spacing={2}>
-                <Grid item sm={12} md={9} className="middle-content">
+                <Grid item sm={12} md={9}>
                     <Banner post={mainFeaturedPost}/>
                     <LeftPanelWhenSM/>
                     <Paper className={classes.paper}>

@@ -1,7 +1,7 @@
 import {
     ACTION_ADD_SHOPPING_CART,
     ACTION_REMOVE_SHOPPING_CART,
-    ACTION_SET_FOOD_LIST,
+    ACTION_SET_FOOD_LIST, ACTION_SET_IS_LOGIN, ACTION_SET_LOGIN_SER,
     ACTION_SET_SELECTED_CATEGORY
 } from "./actions";
 
@@ -32,7 +32,7 @@ export default {
                 if (filtered.length > 0) {
                     return state.map(item => {
                         if (item.foodId === payload.foodId) {
-                            item.count ++
+                            item.count++
                             return item
                         }
                         return item
@@ -47,13 +47,31 @@ export default {
                 } else {
                     return state.map(item => {
                         if (item.foodId === payload.foodId) {
-                            item.count --
+                            item.count--
                             return item
                         }
                         return item
                     })
                 }
             }
+            default:
+                return state
+        }
+    },
+    user(state = null, action) {
+        const {type, payload} = action
+        switch (type) {
+            case ACTION_SET_LOGIN_SER:
+                return payload
+            default:
+                return state
+        }
+    },
+    isLogin(state = false, action) {
+        const {type, payload} = action
+        switch (type) {
+            case ACTION_SET_IS_LOGIN:
+                return payload
             default:
                 return state
         }

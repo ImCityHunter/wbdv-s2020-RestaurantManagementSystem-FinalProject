@@ -30,3 +30,39 @@ export const photoUrls = photos.results.map(item => {
 export const vegetablesData = vegetables
 export const burgerData = burger
 export const fruitData = fruit
+
+// wjc for user service
+const user_url = "http://localhost:8080/users"
+export const login_url = user_url + "/login"
+export const register_url = user_url + "/register"
+export const update_url = user_url + "/update"
+
+
+export const foods = [
+    {
+        foodId: "food_a3pmtq6baezdjua13qgh2aly10nx",
+        count: 1,
+        label: "Vegetable Salt",
+        thumb: "https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjEyNzcxMH0"
+    },
+    {
+        foodId: "food_b4ypg91b20j5h9a55majabnferfe",
+        count: 1,
+        label: "Vegetable Renin",
+        thumb: "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjEyNzcxMH0"
+    },
+    {
+        foodId: "food_azp9kpnaz2ugspbgm4y9cb6klexy",
+        count: 1,
+        label: "Savory Vegetables",
+        thumb: "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjEyNzcxMH0"
+    },
+    {
+        oodId: "food_bb2qjrjamst0vmam39stubtkmrs4",
+        count: 1,
+        label: "Vegetable Stock",
+        thumb: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjEyNzcxMH0"
+
+    }
+]
+

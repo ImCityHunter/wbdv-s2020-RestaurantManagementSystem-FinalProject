@@ -78,7 +78,7 @@ export default function PopularList(props) {
     const dispatch = useDispatch()
     const handleClick = useCallback((food, delta) => {
         delta === -1 ? dispatch(removeShoppingCart(food)) : dispatch(addShoppingCart(food))
-    }, [])
+    }, [dispatch])
     return (
         <div className={classes.contentWrapper}>
             <div className={classes.contentTitleWrapper}>
@@ -92,7 +92,7 @@ export default function PopularList(props) {
                 <List className={classes.root}>
                     {
                         mostPopular.map((food, index) => {
-                            return <ListItem>
+                            return <ListItem key={index}>
                                 <ListItemAvatar>
                                     <Avatar src={food.thumb}>
                                         <ImageIcon/>

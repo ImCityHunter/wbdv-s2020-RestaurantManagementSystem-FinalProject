@@ -43,14 +43,15 @@ export default function LeftPanelWhenSM(props) {
     const classes = useStyles()
     const [selectedIndex, setSelectedIndex] = useState(0)
     const [expanded, setExpanded] = useState(false)
+    const handleChange = useCallback((status) => {
+        setExpanded(status)
+    }, [setExpanded])
+
     const handleListItemClick = useCallback((event, index) => {
         setSelectedIndex(index);
         handleChange(false)
-    }, [])
+    }, [handleChange])
 
-    const handleChange = useCallback((status) => {
-        setExpanded(status)
-    }, [])
 
     return <div className={classes.rightPanelWhenSM}>
         <ExpansionPanel expanded={expanded} onChange={() => handleChange(!expanded)}>
