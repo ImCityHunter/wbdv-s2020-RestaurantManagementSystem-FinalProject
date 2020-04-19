@@ -2,11 +2,11 @@ import React from "react";
 
 const MenuItemGridCard = ({item}) =>{
     return(
-        <div className={"row"}>
-            <div className={"col-3"}>{item.name}</div>
-            <div className={"col-7"}>{item.recipe}</div>
-            <div className={"col-2"}>{item.price}</div>
-        </div>
+            <ul className={"list-group list-group-horizontal"}>
+                <li className={"list-group-item col-3"}>{item.name}</li>
+                <li className={"list-group-item col-7"}>{item.recipe}</li>
+                <li className={"list-group-item col-2 text-center"}>{item.price}</li>
+            </ul>
     )
 }
 export default MenuItemGridCard;
