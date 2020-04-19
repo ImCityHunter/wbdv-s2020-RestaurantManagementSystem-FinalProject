@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jack.backend.dao.UserMapper">
+    <resultMap id="UserResultMap" type="com.jack.backend.models.User">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+    </resultMap>
+    <select id="get" resultMap="UserResultMap">
+        select id, username, password, nickname
+        from users
+        where id = #{id}
+    </select>
+    <select id="login" resultMap="UserResultMap">
+        select id, username, nickname
+        from users
+        where username = #{username}
+          and password = #{password}
+    </select>
+
+    <insert id="save">
+        insert into users (username, password, nickname)
+        values (#{username}, #{password}, #{nickname})
+    </insert>
+
+    <update id="update">
+        update users
+        set username = #{username},
+            password = #{password},
+            nickname=#{nickname}
+        where id = #{id}
+    </update>
+</mapper>
