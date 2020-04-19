@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jack.backend.dao.ProductMapper">
+    <resultMap id="BaseResultMapper" type="com.jack.backend.models.Product">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="price" property="price"/>
+        <result column="category" property="category"/>
+        <association property="restaurant" columnPrefix="rest_"
+                     javaType="com.jack.backend.models.Restaurant">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="query" resultMap="BaseResultMapper">
+        select product.id,
+               product.name,
+               product.description,
+               product.price,
+               product.category,
+               restaurant.id      as rest_id,
+               restaurant.name    as rest_name,
+               restaurant.address as rest_address
+        from products product
+                 join restaurants restaurant on restaurant.id = product.restaurant_id
+        where product.id = #{id}
+    </select>
+
+    <select id="queryAll" resultMap="BaseResultMapper">
+        select product.id,
+               product.name,
+               product.description,
+               product.price,
+               product.category,
+               restaurant.id      as rest_id,
+               restaurant.name    as rest_name,
+               restaurant.address as rest_address
+        from products product
+                 join restaurants restaurant on restaurant.id = product.restaurant_id
+    </select>
+
+    <select id="queryByRestaurant" resultMap="BaseResultMapper">
+        select product.id,
+               product.name,
+               product.description,
+               product.price,
+               product.category,
+               restaurant.id      as rest_id,
+               restaurant.name    as rest_name,
+               restaurant.address as rest_address
+        from products product
+                 join restaurants restaurant on restaurant.id = product.restaurant_id
+        where restaurant.id = #{id}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into products (name, description, price, category, restaurant_id)
+        values (#{name}, #{description}, #{price}, #{category}, #{restaurant.id})
+    </insert>
+</mapper>
