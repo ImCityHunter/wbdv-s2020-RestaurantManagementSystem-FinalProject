@@ -1,26 +1,44 @@
 import React from 'react';
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import {sideBarItems} from "../layout/SideBarItems";
-import MenuTabs from "./MenuTabs";
 import NavBar from "../layout/NavBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import PropTypes from "prop-types";
+import MenuItemsList from "./MenuItemsList";
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <Typography
+            component="div"
+            role="tabpanel"
+            hidden={value !== index}
+            id={`scrollable-auto-tabpanel-${index}`}
+            aria-labelledby={`scrollable-auto-tab-${index}`}
+            {...other}
+        >
+            {value === index && <Box p={3}>{children}</Box>}
+        </Typography>
+    );
+}
+
+TabPanel.propTypes = {
+    index: PropTypes.any.isRequired,
+    value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+    return {
+        id: `scrollable-auto-tab-${index}`,
+        'aria-controls': `scrollable-auto-tabpanel-${index}`,
+    };
+}
+
 
 const drawerWidth = 200;
 
@@ -72,17 +90,6 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
-    drawerPaperClose: {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(9),
-        },
-    },
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
@@ -107,6 +114,11 @@ const useStyles = makeStyles(theme => ({
 export default function MenuEditor() {
     const classes = useStyles();
 
+    const [value, setValue] = React.useState(0);
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -114,30 +126,47 @@ export default function MenuEditor() {
                 title = "Menu Editor"/>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
-                <MenuTabs />
-                <Container maxWidth="lg" className={classes.container}>
+                <AppBar position="static" color="default">
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        variant="scrollable"
+                        scrollButtons="auto"
+                        aria-label="scrollable auto tabs example">
+                        <Tab label="Appetizers" {...a11yProps(0)} />
+                        <Tab label="Main Courses" {...a11yProps(1)} />
+                        <Tab label="Sides" {...a11yProps(2)} />
+                        <Tab label="Deserts" {...a11yProps(3)} />
+                        <Tab label="Drinks" {...a11yProps(4)} />
+                        {/*{ menuCat.map(cat =>*/}
+                        {/*    <Tab key={index} label={cat} {...a11yProps(index++)} />*/}
+                        {/*)}*/}
+                        {/*<Tab label="Add" onClick={() => addItem()} {...a11yProps(menuCat.length)} />*/}
+                    </Tabs>
+                </AppBar>
 
-                    <Grid container spacing={3}>
-                        {/*/!* Chart *!/*/}
-                        {/*<Grid item xs={12} md={8} lg={9}>*/}
-                        {/*    <Paper className={fixedHeightPaper}>*/}
-                        {/*        <Chart />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>*/}
-                        {/*/!* Recent Deposits *!/*/}
-                        {/*<Grid item xs={12} md={4} lg={3}>*/}
-                        {/*    <Paper className={fixedHeightPaper}>*/}
-                        {/*        <Deposits />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>*/}
-                        {/*/!* Recent Orders *!/*/}
-                        {/*<Grid item xs={12}>*/}
-                        {/*    <Paper className={classes.paper}>*/}
-                        {/*        <Orders />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>*/}
-                    </Grid>
-                </Container>
+                <TabPanel value={value} index={0}>
+                    <MenuItemsList
+                    category="Appetizers"/>
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <MenuItemsList
+                        category="Main Courses"/>
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    <MenuItemsList
+                        category="Sides"/>
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    <MenuItemsList
+                        category="Deserts"/>
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                    <MenuItemsList
+                        category="Drinks"/>
+                </TabPanel>
             </main>
         </div>
     );

@@ -13,6 +13,9 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import {sideBarItems} from "./SideBarItems";
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import Tooltip from "@material-ui/core/Tooltip";
+import ListItem from "@material-ui/core/ListItem";
 
 
 const drawerWidth = 200;
@@ -113,11 +116,11 @@ export default function NavBar({title}) {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         {title}
                     </Typography>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
+                    <Tooltip title="Log Out">
+                        <IconButton color="inherit">
+                            <PowerSettingsNewIcon />
+                        </IconButton>
+                    </Tooltip>
                 </Toolbar>
             </AppBar>
             <Drawer
