@@ -16,5 +16,7 @@ public interface RestaurantOrderMapper {
                          @Param("productId") long productId,
                          @Param("amount") int amount);
 
-    int queryOrdersByRestaurantIdAndStatus(@Param("id") Long id, @Param("status") String status);
+    List<RestaurantOrder> queryOrdersByRestaurantIdAndStatus(@Param("id") Long id, @Param("status") String status);
+
+    int updateOrderStatus(@Param("id") Long id, @Param("status") String status);
 }

@@ -12,4 +12,6 @@ public interface RestaurantOrderService {
     int saveRestaurantOrderProduct(Long orderId, Long productId, int amount);
 
     List<RestaurantOrder> queryOrdersByRestaurantIdAndStatus(Long id, String status);
+
+    int orderComplete(Long restaurantId, Long orderId, String status);
 }

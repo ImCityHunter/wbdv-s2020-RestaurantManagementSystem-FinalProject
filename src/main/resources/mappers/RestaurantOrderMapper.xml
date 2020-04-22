@@ -18,6 +18,12 @@
                 #{completed})
     </insert>
 
+    <update id="updateOrderStatus">
+        update restaurant_order
+        set completed=#{status}
+        where id = #{id}
+    </update>
+
     <resultMap id="RestaurantOrderMapper" type="com.jack.backend.models.RestaurantOrder">
         <id column="id" property="id"/>
         <result column="date" property="date"/>
@@ -99,7 +105,7 @@
                restaurant.business_hours  as restaurant_business_hours
         from restaurant_order od
                  join restaurants restaurant on restaurant.id = od.restaurant_id
-        where od.id = #{id}
+        where restaurant.id = #{id}
           and od.completed = #{status}
     </select>
 

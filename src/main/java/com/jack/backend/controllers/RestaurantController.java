@@ -60,7 +60,8 @@ public class RestaurantController {
     public List<RestaurantOrder> getOrdersByRestaurantIdAndStatus(
             @PathVariable("id") Long id,
             @PathVariable("status") String status) {
-        return restaurantOrderService.queryOrdersByRestaurantIdAndStatus(id, status);
+        List<RestaurantOrder> orders = restaurantOrderService.queryOrdersByRestaurantIdAndStatus(id, status);
+        return orders;
     }
 
     @GetMapping("/login")
@@ -87,5 +88,12 @@ public class RestaurantController {
     @PostMapping("/orders")
     public int createNewOrder(@RequestBody RestaurantOrder order) {
         return restaurantOrderService.saveOrder(order);
+    }
+
+    @PutMapping("/{restaurantId}/orders/{orderId}")
+    public int updateOrder(@PathVariable("restaurantId") Long restaurantId,
+                           @PathVariable("orderId") Long orderId,
+                           @RequestParam("status") String status) {
+        return restaurantOrderService.orderComplete(restaurantId, orderId, status);
     }
 }

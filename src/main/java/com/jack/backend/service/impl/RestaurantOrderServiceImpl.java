@@ -31,6 +31,11 @@ public class RestaurantOrderServiceImpl implements RestaurantOrderService {
 
     @Override
     public List<RestaurantOrder> queryOrdersByRestaurantIdAndStatus(Long id, String status) {
-        return null;
+        return restaurantOrderMapper.queryOrdersByRestaurantIdAndStatus(id, status);
+    }
+
+    @Override
+    public int orderComplete(Long restaurantId, Long orderId, String status) {
+        return restaurantOrderMapper.updateOrderStatus(orderId, status);
     }
 }
