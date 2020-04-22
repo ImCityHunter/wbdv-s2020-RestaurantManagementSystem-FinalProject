@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jack.backend.dao.UserOrderMapper">
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into user_order
+        (date,
+         user_id,
+         total_price,
+         type,
+         completed)
+        values (#{date},
+                #{user.id},
+                #{totalPrice},
+                #{type},
+                #{completed})
+    </insert>
+
+    <insert id="saveOrderProduct">
+        insert into user_order_product (order_id, product_id, amount)
+        values (#{orderId}, #{productId}, #{amount})
+    </insert>
+
+    <resultMap id="BaseResultMap" type="com.jack.backend.models.UserOrder">
+        <id column="id" property="id"/>
+        <result column="date" property="date"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="type" property="type"/>
+        <result column="completed" property="completed"/>
+        <association property="user" column="user" columnPrefix="user_"
+                     javaType="com.jack.backend.models.User">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+            <result column="nickname" property="nickname"/>
+        </association>
+        <collection property="products"
+                    select="com.jack.backend.dao.ProductMapper.queryByUserOrder"
+                    column="id"
+                    ofType="com.jack.backend.models.Product"/>
+    </resultMap>
+
+    <select id="query" resultMap="BaseResultMap">
+        select od.id,
+               od.date,
+               od.total_price,
+               od.type,
+               od.completed,
+               user.id       as user_id,
+               user.username as user_username,
+               user.nickname as user_nickname,
+               user.password as user_password
+        from user_order od
+                 join users user on od.user_id = user.id
+    </select>
+
+    <select id="queryByUserId" resultMap="BaseResultMap">
+        select od.id,
+               od.date,
+               od.total_price,
+               od.type,
+               od.completed,
+               user.id       as user_id,
+               user.username as user_username,
+               user.nickname as user_nickname,
+               user.password as user_password
+        from user_order od
+                 join users user on od.user_id = user.id
+        where od.user_id = #{userId}
+    </select>
+</mapper>

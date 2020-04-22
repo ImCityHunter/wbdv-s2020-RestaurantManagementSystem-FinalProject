@@ -10,4 +10,8 @@ public interface RestaurantService {
     Restaurant query(Long id);
 
     List<Restaurant> queryAll();
+
+    Restaurant login(String username, String password);
+
+    int register(Restaurant restaurant);
 }

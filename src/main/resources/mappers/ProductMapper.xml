@@ -3,62 +3,157 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jack.backend.dao.ProductMapper">
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into products
+        (name,
+         price,
+         category,
+         calories,
+         ingredient,
+         description,
+         restaurant_id)
+        values (#{name},
+                #{price},
+                #{category},
+                #{calories},
+                #{ingredient},
+                #{description},
+                #{restaurant.id})
+    </insert>
+
     <resultMap id="BaseResultMapper" type="com.jack.backend.models.Product">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
-        <result column="description" property="description"/>
         <result column="price" property="price"/>
         <result column="category" property="category"/>
-        <association property="restaurant" columnPrefix="rest_"
+        <result column="calories" property="calories"/>
+        <result column="ingredient" property="ingredient"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+    <sql id="product_sql">
+        product.id,
+        product.name,
+        product.price,
+        product.category,
+        product.calories,
+        product.ingredient,
+        product.description
+    </sql>
+
+    <select id="queryByRestaurant" resultMap="BaseResultMapper">
+        select
+        <include refid="product_sql"/>
+        from products product
+        where product.restaurant_id = #{id}
+    </select>
+
+    <resultMap id="BaseResultWithAmountMapper" type="com.jack.backend.models.Product">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="category" property="category"/>
+        <result column="calories" property="calories"/>
+        <result column="ingredient" property="ingredient"/>
+        <result column="description" property="description"/>
+        <result column="product_amount" property="amount"/>
+    </resultMap>
+
+    <select id="queryByRestaurantOrder" resultMap="BaseResultWithAmountMapper">
+        select product.id,
+               product.name,
+               product.price,
+               product.category,
+               product.calories,
+               product.ingredient,
+               product.description,
+               rop.amount as product_amount
+        from products product
+                 join restaurant_order_product rop on product.id = rop.product_id
+        where rop.order_id = #{orderId}
+    </select>
+
+    <resultMap id="BaseResultWithRestaurantMapper" type="com.jack.backend.models.Product">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="category" property="category"/>
+        <result column="calories" property="calories"/>
+        <result column="ingredient" property="ingredient"/>
+        <result column="description" property="description"/>
+        <association property="restaurant" columnPrefix="restaurant_"
                      javaType="com.jack.backend.models.Restaurant">
             <id column="id" property="id"/>
-            <result column="name" property="name"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+            <result column="restaurant_name" property="restaurantName"/>
+            <result column="phone_number" property="phoneNumber"/>
+            <result column="email" property="email"/>
+            <result column="address" property="address"/>
+            <result column="description" property="description"/>
+            <result column="business_hours" property="businessHours"/>
         </association>
     </resultMap>
 
-    <select id="query" resultMap="BaseResultMapper">
-        select product.id,
-               product.name,
-               product.description,
-               product.price,
-               product.category,
-               restaurant.id      as rest_id,
-               restaurant.name    as rest_name,
-               restaurant.address as rest_address
+    <sql id="restaurant_sql">
+        restaurant.id              as restaurant_id,
+        restaurant.username        as restaurant_username,
+        restaurant.password        as restaurant_password,
+        restaurant.restaurant_name as restaurant_restaurant_name,
+        restaurant.phone_number    as restaurant_phone_number,
+        restaurant.email           as restaurant_email,
+        restaurant.address         as restaurant_address,
+        restaurant.description     as restaurant_description,
+        restaurant.business_hours  as restaurant_business_hours
+    </sql>
+
+    <select id="query" resultMap="BaseResultWithRestaurantMapper">
+        select
+        <include refid="product_sql"/>,
+        <include refid="restaurant_sql"/>
         from products product
-                 join restaurants restaurant on restaurant.id = product.restaurant_id
+        join restaurants restaurant on restaurant.id = product.restaurant_id
         where product.id = #{id}
     </select>
 
-    <select id="queryAll" resultMap="BaseResultMapper">
-        select product.id,
-               product.name,
-               product.description,
-               product.price,
-               product.category,
-               restaurant.id      as rest_id,
-               restaurant.name    as rest_name,
-               restaurant.address as rest_address
+    <select id="queryAll" resultMap="BaseResultWithRestaurantMapper">
+        select
+        <include refid="product_sql"/>,
+        <include refid="restaurant_sql"/>
         from products product
-                 join restaurants restaurant on restaurant.id = product.restaurant_id
+        join restaurants restaurant on restaurant.id = product.restaurant_id
     </select>
 
-    <select id="queryByRestaurant" resultMap="BaseResultMapper">
-        select product.id,
-               product.name,
-               product.description,
-               product.price,
-               product.category,
-               restaurant.id      as rest_id,
-               restaurant.name    as rest_name,
-               restaurant.address as rest_address
-        from products product
-                 join restaurants restaurant on restaurant.id = product.restaurant_id
-        where restaurant.id = #{id}
-    </select>
+    <resultMap id="OrderProductResultMapper" type="com.jack.backend.models.Product">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="category" property="category"/>
+        <result column="calories" property="calories"/>
+        <result column="ingredient" property="ingredient"/>
+        <result column="description" property="description"/>
+        <result column="product_amount" property="amount"/>
+        <association property="restaurant" columnPrefix="restaurant_"
+                     javaType="com.jack.backend.models.Restaurant">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+            <result column="restaurant_name" property="restaurantName"/>
+            <result column="phone_number" property="phoneNumber"/>
+            <result column="email" property="email"/>
+            <result column="address" property="address"/>
+            <result column="description" property="description"/>
+            <result column="business_hours" property="businessHours"/>
+        </association>
+    </resultMap>
 
-    <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into products (name, description, price, category, restaurant_id)
-        values (#{name}, #{description}, #{price}, #{category}, #{restaurant.id})
-    </insert>
+    <select id="queryByUserOrder" resultMap="OrderProductResultMapper">
+        select
+        <include refid="product_sql"/>,
+        uop.amount as product_amount
+        from products product
+        join user_order_product uop on product.id = uop.product_id
+        join restaurants restaurant on restaurant.id = product.restaurant_id
+        where uop.order_id = #{orderId}
+    </select>
 </mapper>

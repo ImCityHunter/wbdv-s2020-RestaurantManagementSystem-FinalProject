@@ -32,12 +32,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> queryAll() {
-        return null;
+        return productMapper.queryAll();
     }
 
     @Override
     public List<Product> queryAllByRestaurantId(Long restaurantId) {
-        return null;
+        return productMapper.queryByRestaurant(restaurantId);
     }
 
     @Override

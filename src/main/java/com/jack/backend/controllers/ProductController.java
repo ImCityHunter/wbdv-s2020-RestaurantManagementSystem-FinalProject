@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/products")
 public class ProductController {
 
@@ -32,6 +33,7 @@ public class ProductController {
 
     @GetMapping("/all")
     public List<Product> getAllProducts() {
+        System.out.println("query all products");
         return productService.queryAll();
     }
 

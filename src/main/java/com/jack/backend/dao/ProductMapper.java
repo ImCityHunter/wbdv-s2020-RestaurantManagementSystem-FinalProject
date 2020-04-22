@@ -13,4 +13,8 @@ public interface ProductMapper {
     List<Product> queryByRestaurant(Long restaurantId);
 
     int save(Product product);
+
+    List<Product> queryByUserOrder(Long orderId);
+
+    List<Product> queryByRestaurantOrder(Long orderId);
 }

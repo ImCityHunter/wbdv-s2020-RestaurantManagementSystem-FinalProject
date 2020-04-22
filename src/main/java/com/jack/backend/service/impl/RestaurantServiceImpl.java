@@ -40,4 +40,14 @@ public class RestaurantServiceImpl implements RestaurantService {
     public List<Restaurant> queryAll() {
         return null;
     }
+
+    @Override
+    public Restaurant login(String username, String password) {
+        return restaurantMapper.login(username, password);
+    }
+
+    @Override
+    public int register(Restaurant restaurant) {
+        return restaurantMapper.save(restaurant);
+    }
 }
