@@ -27,7 +27,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public int save(Restaurant restaurant) {
+    public Restaurant save(Restaurant restaurant) {
         return restaurantMapper.save(restaurant);
     }
 
@@ -47,7 +47,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public int register(Restaurant restaurant) {
+    public Restaurant register(Restaurant restaurant) {
         return restaurantMapper.save(restaurant);
     }
 }

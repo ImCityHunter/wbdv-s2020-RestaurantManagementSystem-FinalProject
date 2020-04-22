@@ -67,7 +67,7 @@ public class RestaurantController {
     }
 
     @PostMapping("/register")
-    public int register(@RequestBody Restaurant restaurant) {
+    public Restaurant register(@RequestBody Restaurant restaurant) {
         return restaurantService.register(restaurant);
     }
 

@@ -4,7 +4,7 @@ import com.jack.backend.models.Restaurant;
 import org.apache.ibatis.annotations.Param;
 
 public interface RestaurantMapper {
-    int save(Restaurant restaurant);
+    Restaurant save(Restaurant restaurant);
 
     int update(Restaurant restaurant);
 
