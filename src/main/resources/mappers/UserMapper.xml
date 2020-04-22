@@ -22,7 +22,7 @@
           and password = #{password}
     </select>
 
-    <insert id="save">
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
         insert into users (username, password, nickname)
         values (#{username}, #{password}, #{nickname})
     </insert>

@@ -75,4 +75,16 @@ create table user_order_product
     product_id bigint  not null,
     amount     integer not null
 ) engine = InnoDB
-  character set = utf8
+  character set = utf8;
+  
+  
+  create table users
+  (
+      id       bigint      not null auto_increment,
+      username varchar(50) not null,
+      password varchar(50) not null,
+      nickname varchar(50) not null,
+      primary key (id)
+  ) engine = InnoDB
+    character set = utf8
+    auto_increment = 1;
