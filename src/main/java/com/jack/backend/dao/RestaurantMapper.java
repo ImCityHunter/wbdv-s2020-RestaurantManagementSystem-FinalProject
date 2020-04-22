@@ -3,6 +3,8 @@ package com.jack.backend.dao;
 import com.jack.backend.models.Restaurant;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface RestaurantMapper {
     int save(Restaurant restaurant);
 
@@ -12,4 +14,6 @@ public interface RestaurantMapper {
     Restaurant query(Long id);
 
     Restaurant login(@Param("username") String username, @Param("password") String password);
+
+    List<Restaurant> queryAll();
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/restaurant")
 public class RestaurantController {
 
@@ -34,9 +35,15 @@ public class RestaurantController {
         this.restaurantOrderService = service;
     }
 
+    @GetMapping("/")
+    public List<Restaurant> getAll() {
+        return restaurantService.queryAll();
+    }
+
     @GetMapping("/{id}")
     public Restaurant get(@PathVariable("id") Long id) {
-        return restaurantService.query(id);
+        Restaurant restaurant = restaurantService.query(id);
+        return restaurant;
     }
 
     @GetMapping("/{id}/products")

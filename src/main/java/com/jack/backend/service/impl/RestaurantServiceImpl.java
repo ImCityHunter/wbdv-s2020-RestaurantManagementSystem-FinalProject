@@ -33,12 +33,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant query(Long id) {
-        return null;
+        return restaurantMapper.query(id);
     }
 
     @Override
     public List<Restaurant> queryAll() {
-        return null;
+        return restaurantMapper.queryAll();
     }
 
     @Override

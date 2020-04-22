@@ -142,8 +142,11 @@
     </select>
 
     <select id="queryAll" resultMap="BaseResultWithRestaurantMapper">
-        select *
-        from products;
+        select
+        <include refid="product_sql"/>,
+        <include refid="restaurant_sql"/>
+        from products product
+        join restaurants restaurant on restaurant.id = product.restaurant_id;
     </select>
 
     <select id="queryAllProducts" resultMap="BaseResultWithRestaurantMapper">

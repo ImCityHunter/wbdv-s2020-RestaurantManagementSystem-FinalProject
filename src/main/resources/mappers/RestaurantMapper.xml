@@ -60,4 +60,9 @@
           and password = #{password}
     </select>
 
+    <select id="queryAll" resultMap="BaseResultMapper">
+        select *
+        from restaurants;
+    </select>
+
 </mapper>
