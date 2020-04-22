@@ -17,4 +17,5 @@ public class Product {
     private String description;
     private Restaurant restaurant;
     private int amount;
+    private String img;
 }

@@ -26,8 +26,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product query(Long id) {
-        return null;
+    public Product query(long id) {
+        return productMapper.query(id);
     }
 
     @Override
@@ -44,4 +44,16 @@ public class ProductServiceImpl implements ProductService {
     public int addNewProduct(Product product) {
         return productMapper.save(product);
     }
+
+    @Override
+    public int update(Product product) {
+        return productMapper.update(product);
+    }
+
+    @Override
+    public int delete(long id) {
+        return productMapper.delete(id);
+    }
+
+
 }

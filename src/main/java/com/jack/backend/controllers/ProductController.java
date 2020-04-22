@@ -38,7 +38,19 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public int addNewProduct(@RequestBody Product product) {
-        return productService.addNewProduct(product);
+    public Product addNewProduct(@RequestBody Product product) {
+        int result = productService.addNewProduct(product);
+        return product;
+    }
+
+    @PutMapping("/{id}")
+    public int updateProduct(@PathVariable("id") Long id, @RequestBody Product product) {
+        product.setId(id);
+        return productService.update(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public int deleteProduct(@PathVariable("id") long id) {
+        return productService.delete(id);
     }
 }

@@ -55,8 +55,10 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public int register(@RequestBody User user) {
-        return userService.register(user);
+    public User register(@RequestBody User user) {
+        int result = userService.register(user);
+        System.out.println(user.toString());
+        return user;
     }
 
     @PostMapping("/update")

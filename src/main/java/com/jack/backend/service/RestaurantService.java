@@ -5,7 +5,7 @@ import com.jack.backend.models.Restaurant;
 import java.util.List;
 
 public interface RestaurantService {
-    Restaurant save(Restaurant restaurant);
+    int save(Restaurant restaurant);
 
     Restaurant query(Long id);
 
@@ -13,5 +13,7 @@ public interface RestaurantService {
 
     Restaurant login(String username, String password);
 
-    Restaurant register(Restaurant restaurant);
+    int register(Restaurant restaurant);
+
+    int update(Restaurant restaurant);
 }

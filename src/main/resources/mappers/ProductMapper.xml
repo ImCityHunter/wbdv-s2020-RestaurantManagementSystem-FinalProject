@@ -11,6 +11,7 @@
          calories,
          ingredient,
          description,
+         img,
          restaurant_id)
         values (#{name},
                 #{price},
@@ -18,8 +19,27 @@
                 #{calories},
                 #{ingredient},
                 #{description},
+                #{img},
                 #{restaurant.id})
     </insert>
+
+    <update id="update">
+        update products
+        set name          = #{name},
+            price         = #{price},
+            category      = #{category},
+            calories      = #{calories},
+            ingredient    = #{ingredient},
+            description   = #{description},
+            img           = #{img},
+            restaurant_id = #{restaurant.id}
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from products
+        where id = ${id}
+    </delete>
 
     <resultMap id="BaseResultMapper" type="com.jack.backend.models.Product">
         <id column="id" property="id"/>
@@ -29,6 +49,7 @@
         <result column="calories" property="calories"/>
         <result column="ingredient" property="ingredient"/>
         <result column="description" property="description"/>
+        <result column="img" property="img"/>
     </resultMap>
 
     <sql id="product_sql">
@@ -38,7 +59,8 @@
         product.category,
         product.calories,
         product.ingredient,
-        product.description
+        product.description,
+        product.img
     </sql>
 
     <select id="queryByRestaurant" resultMap="BaseResultMapper">
@@ -57,6 +79,7 @@
         <result column="ingredient" property="ingredient"/>
         <result column="description" property="description"/>
         <result column="product_amount" property="amount"/>
+        <result column="img" property="img"/>
     </resultMap>
 
     <select id="queryByRestaurantOrder" resultMap="BaseResultWithAmountMapper">
@@ -67,6 +90,7 @@
                product.calories,
                product.ingredient,
                product.description,
+               product.img,
                rop.amount as product_amount
         from products product
                  join restaurant_order_product rop on product.id = rop.product_id
@@ -81,6 +105,7 @@
         <result column="calories" property="calories"/>
         <result column="ingredient" property="ingredient"/>
         <result column="description" property="description"/>
+        <result column="img" property="img"/>
         <association property="restaurant" columnPrefix="restaurant_"
                      javaType="com.jack.backend.models.Restaurant">
             <id column="id" property="id"/>
@@ -117,11 +142,13 @@
     </select>
 
     <select id="queryAll" resultMap="BaseResultWithRestaurantMapper">
-        select
-        <include refid="product_sql"/>,
-        <include refid="restaurant_sql"/>
-        from products product
-        join restaurants restaurant on restaurant.id = product.restaurant_id
+        select *
+        from products;
+    </select>
+
+    <select id="queryAllProducts" resultMap="BaseResultWithRestaurantMapper">
+        select *
+        from products;
     </select>
 
     <resultMap id="OrderProductResultMapper" type="com.jack.backend.models.Product">
@@ -133,6 +160,7 @@
         <result column="ingredient" property="ingredient"/>
         <result column="description" property="description"/>
         <result column="product_amount" property="amount"/>
+        <result column="img" property="img"/>
         <association property="restaurant" columnPrefix="restaurant_"
                      javaType="com.jack.backend.models.Restaurant">
             <id column="id" property="id"/>
