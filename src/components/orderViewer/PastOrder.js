@@ -23,6 +23,8 @@ export default function PastOrder() {
 
     const pastOrderList = useSelector(state => state.pastOrderList)
 
+    console.log(pastOrderList)
+
     return (
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
@@ -41,7 +43,7 @@ export default function PastOrder() {
                             <TableCell component="th" scope="row">
                                 {pastOrder.id}
                             </TableCell>
-                            <TableCell align="center">{pastOrder.date}</TableCell>
+                            <TableCell align="center">{pastOrder.date.slice(0,10)}</TableCell>
                             {/*<TableCell align="center">{pastOrder.customerId}</TableCell>*/}
                             <TableCell align="center">{pastOrder.totalPrice}</TableCell>
                             <TableCell align="center">{pastOrder.type}</TableCell>

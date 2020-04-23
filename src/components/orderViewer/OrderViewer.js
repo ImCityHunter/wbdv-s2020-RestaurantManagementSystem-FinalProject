@@ -3,6 +3,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import Typography from "@material-ui/core/Typography";
 
 import NavBar from "../layout/NavBar";
 import CurrentOrder from "./CurrentOrder";
@@ -10,7 +12,7 @@ import PastOrder from "./PastOrder";
 import {useParams} from 'react-router'
 import OrderService from "../../service/OrderService";
 import {useSelector, useDispatch} from "react-redux";
-import {setOrderCompleted, setCurrentOrderList, setPastOrderList, setOrderList} from "../../actions/orderActions";
+import { setCurrentOrderList, setPastOrderList } from "../../actions/orderActions";
 
 
 const useStyles = makeStyles(theme => ({
@@ -30,6 +32,12 @@ const useStyles = makeStyles(theme => ({
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(4),
     },
+    paper: {
+        padding: theme.spacing(2),
+        display: 'flex',
+        overflow: 'auto',
+        flexDirection: 'column',
+    },
 }));
 
 
@@ -41,20 +49,28 @@ export default function OrderViewer() {
 
     const currentOrderList = useSelector(state => state.currentOrderList)
     const pastOrderList = useSelector(state => state.pastOrderList)
-    const orderList = useSelector(state => state.orderList)
 
     const dispatch = useDispatch();
 
+    const [count, setCount] = useState(0)
+
     useEffect(() => {
-
-        OrderService.getPastOrder(restaurantId)
-            .then(response => dispatch(setPastOrderList(response)))
-        OrderService.getCurrentOrder(restaurantId)
-            .then(response => dispatch(setCurrentOrderList(response)))
-    }, [restaurantId])
-
-    console.log(currentOrderList)
-    console.log(pastOrderList)
+        if (currentOrderList.length>0 || pastOrderList.length>0) {
+            const interval = setInterval(() => {
+                OrderService.getPastOrder(restaurantId)
+                    .then(response => dispatch(setPastOrderList(response)))
+                OrderService.getCurrentOrder(restaurantId)
+                    .then(response => dispatch(setCurrentOrderList(response)))
+        }, 5000);
+            return () => clearInterval(interval)}
+        else {
+            OrderService.getPastOrder(restaurantId)
+                .then(response => dispatch(setPastOrderList(response)))
+            OrderService.getCurrentOrder(restaurantId)
+                .then(response => dispatch(setCurrentOrderList(response)))
+            setCount(count + 1)
+        }
+    }, [restaurantId, count])
 
     return (
         <div className={classes.root}>
@@ -65,9 +81,23 @@ export default function OrderViewer() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
-                    <CurrentOrder />
+                    <Container component={Paper}>
+                        <br/>
+                        <Typography variant="h5">
+                            Current Order
+                        </Typography>
+                        <br/>
+                        <CurrentOrder />
+                    </Container>
                     <div className={classes.appBarSpacer}/>
-                    <PastOrder />
+                    <Container component={Paper}>
+                        <br/>
+                        <Typography variant="h5">
+                            Completed Order
+                        </Typography>
+                        <br/>
+                        <PastOrder />
+                    </Container>
                 </Container>
             </main>
         </div>

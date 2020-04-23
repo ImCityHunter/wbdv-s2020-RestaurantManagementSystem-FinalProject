@@ -22,10 +22,10 @@ const orderReducer = {
         const {type, payload} = action
         switch (type) {
             case SET_ORDER_COMPLETED:
-                return {
+                return [
                     ...state,
                     payload
-                }
+                ]
             case SET_PAST_ORDER_LIST:
                 return payload
             default:

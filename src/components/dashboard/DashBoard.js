@@ -13,6 +13,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { useParams } from 'react-router'
 import NavBar from "../layout/NavBar";
 import OrderService from "../../service/OrderService";
+import {setCurrentOrderList, setPastOrderList} from "../../actions/orderActions";
+import {useDispatch, useSelector} from "react-redux";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -60,15 +62,25 @@ export default function Dashboard() {
     let params = useParams();
     const restaurantId = params.rid;
 
-    const [curOrderNum, setCurOrderNum] = useState(0);
+    const currentOrderList = useSelector(state => state.currentOrderList)
+    const dispatch = useDispatch();
+
+    const [count, setCount] = useState(0)
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        if (currentOrderList.length>0) {
+            const interval = setInterval(() => {
+                OrderService.getCurrentOrder(restaurantId)
+                    .then(response => dispatch(setCurrentOrderList(response)))
+            }, 5000);
+            return () => clearInterval(interval)}
+        else {
             OrderService.getCurrentOrder(restaurantId)
-                .then(response => setCurOrderNum(response.length))
-        }, 5000);
-        return () => clearInterval(interval);
-    },[restaurantId])
+                .then(response => dispatch(setCurrentOrderList(response)))
+            setCount(count + 1)
+        }
+    }, [restaurantId, count])
+
 
     return (
         <div className={classes.root}>
@@ -112,8 +124,8 @@ export default function Dashboard() {
                                             Current Orders
                                         </Typography>
                                         <br/>
-                                        <Typography variant="subtitle1" color="textSecondary">
-                                            {curOrderNum}
+                                        <Typography variant="h5" color="textSecondary">
+                                            {currentOrderList.length}
                                         </Typography>
                                     </CardContent>
                                 </div>
