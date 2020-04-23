@@ -7,6 +7,8 @@ import com.jack.backend.service.ProductService;
 import com.jack.backend.service.RestaurantOrderService;
 import com.jack.backend.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -65,13 +67,13 @@ public class RestaurantController {
     }
 
     @GetMapping("/login")
-    public Restaurant login(@RequestParam("username") String username,
-                            @RequestParam("password") String password) {
+    public ResponseEntity<Restaurant> login(@RequestParam("username") String username,
+                                            @RequestParam("password") String password) {
         Restaurant restaurant = restaurantService.login(username, password);
         if (null != restaurant) {
             restaurant.setPassword("xxx");
         }
-        return restaurant;
+        return ResponseEntity.status(restaurant != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST).body(restaurant);
     }
 
     @PostMapping("/register")
