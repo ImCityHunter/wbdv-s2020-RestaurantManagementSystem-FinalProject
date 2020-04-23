@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -10,6 +10,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import DoneIcon from '@material-ui/icons/Done';
+import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from "@material-ui/core/IconButton";
 import OrderService from "../../service/OrderService";
 import {
@@ -60,17 +61,20 @@ export default function CurrentOrder () {
                 <Grid item xs={12} sm={6} md={4} lg={3} key={order.id}>
                     <Paper className={classes.paper}>
                         <Box display="flex">
-                            <IconButton onClick={() => completeOrder(order)} >
-                                <DoneIcon />
-                            </IconButton>
+                            <Tooltip title="Click to complete the order">
+                                <IconButton onClick={() => completeOrder(order)} >
+                                    <DoneIcon />
+                                </IconButton>
+                            </Tooltip>
+
                             <Typography component="h4" variant="subtitle1" color="primary" alient="center">
                                 <div>
-                                    {order.date.slice(11,19)}
+                                    Placed: {order.date.slice(11,19)}
                                 </div>
                             </Typography>
                         </Box>
 
-                        <Table size="small">
+                        <Table size="small" stickyHeader>
                             <TableHead >
                                 <TableRow>
                                     <TableCell align="left">Item</TableCell>

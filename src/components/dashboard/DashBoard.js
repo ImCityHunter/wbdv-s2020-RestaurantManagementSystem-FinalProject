@@ -13,8 +13,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { useParams } from 'react-router'
 import NavBar from "../layout/NavBar";
 import OrderService from "../../service/OrderService";
-import {setCurrentOrderList, setPastOrderList} from "../../actions/orderActions";
+import {setCurrentOrderList, setOrderList, setPastOrderList} from "../../actions/orderActions";
 import {useDispatch, useSelector} from "react-redux";
+import moment from "moment";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -62,25 +63,41 @@ export default function Dashboard() {
     let params = useParams();
     const restaurantId = params.rid;
 
-    const currentOrderList = useSelector(state => state.currentOrderList)
+    const currentOrderList = useSelector(state => state.currentOrderList);
+    const orderList = useSelector(state => state.orderList);
     const dispatch = useDispatch();
 
     const [count, setCount] = useState(0)
 
+    const date = new Date();
+    const today = moment(date).format( 'YYYY-MM-DD')
+
+    let todayTotalSale = 0;
+
     useEffect(() => {
-        if (currentOrderList.length>0) {
+        if (orderList.length>0 && todayTotalSale > 0) {
             const interval = setInterval(() => {
+                OrderService.getAllOrder(restaurantId)
+                    .then(response => dispatch(setOrderList(response)))
                 OrderService.getCurrentOrder(restaurantId)
                     .then(response => dispatch(setCurrentOrderList(response)))
             }, 5000);
             return () => clearInterval(interval)}
         else {
+            OrderService.getAllOrder(restaurantId)
+                .then(response => dispatch(setOrderList(response)))
             OrderService.getCurrentOrder(restaurantId)
                 .then(response => dispatch(setCurrentOrderList(response)))
-            setCount(count + 1)
         }
-    }, [restaurantId, count])
+    }, [restaurantId])
 
+    const getTodayTotalSale = () => {
+        const todayOrderList = orderList.filter(order => order.date.slice(0, 10) === today );
+        todayOrderList.map((order) => {
+            todayTotalSale += order.totalPrice
+        })
+        return todayTotalSale
+    }
 
     return (
         <div className={classes.root}>
@@ -105,8 +122,8 @@ export default function Dashboard() {
                                             Today's Sales
                                         </Typography>
                                         <br/>
-                                        <Typography variant="subtitle1" color="textSecondary">
-                                            $
+                                        <Typography variant="h5" color="textSecondary">
+                                            $ {getTodayTotalSale()}
                                         </Typography>
                                     </CardContent>
                                 </div>

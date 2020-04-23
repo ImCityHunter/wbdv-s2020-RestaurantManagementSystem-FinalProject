@@ -55,7 +55,7 @@ export default function OrderViewer() {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        if (currentOrderList.length>0 || pastOrderList.length>0) {
+        if (currentOrderList.length>0 && pastOrderList.length>0) {
             const interval = setInterval(() => {
                 OrderService.getPastOrder(restaurantId)
                     .then(response => dispatch(setPastOrderList(response)))
@@ -68,9 +68,8 @@ export default function OrderViewer() {
                 .then(response => dispatch(setPastOrderList(response)))
             OrderService.getCurrentOrder(restaurantId)
                 .then(response => dispatch(setCurrentOrderList(response)))
-            setCount(count + 1)
         }
-    }, [restaurantId, count])
+    }, [restaurantId])
 
     return (
         <div className={classes.root}>
@@ -97,6 +96,7 @@ export default function OrderViewer() {
                         </Typography>
                         <br/>
                         <PastOrder />
+                        <br/>
                     </Container>
                 </Container>
             </main>

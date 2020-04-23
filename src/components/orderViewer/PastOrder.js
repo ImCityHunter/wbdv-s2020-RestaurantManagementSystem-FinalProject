@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,10 +7,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router";
-import OrderService from "../../service/OrderService";
-import {setCurrentOrderList, setPastOrderList} from "../../actions/orderActions";
+import { useSelector } from "react-redux";
+
 
 const useStyles = makeStyles({
     table: {
@@ -22,8 +20,6 @@ export default function PastOrder() {
     const classes = useStyles();
 
     const pastOrderList = useSelector(state => state.pastOrderList)
-
-    console.log(pastOrderList)
 
     return (
         <TableContainer component={Paper}>

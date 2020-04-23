@@ -8,7 +8,6 @@ import {
 
 const orderReducer = {
     orderList(state = [], action) {
-        console.log("foodList reducer:", state, action, action.type)
         const {type, payload} = action
         switch(type) {
             case SET_ORDER_LIST:
