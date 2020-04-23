@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Container from '@material-ui/core/Container';
@@ -7,9 +7,9 @@ import Container from '@material-ui/core/Container';
 import NavBar from "../layout/NavBar";
 import CurrentOrder from "./CurrentOrder";
 import PastOrder from "./PastOrder";
-import { useParams } from 'react-router'
+import {useParams} from 'react-router'
 import OrderService from "../../service/OrderService";
-import { useSelector, useDispatch } from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {setOrderCompleted, setCurrentOrderList, setPastOrderList, setOrderList} from "../../actions/orderActions";
 
 
@@ -73,30 +73,30 @@ export default function OrderViewer() {
                 // dispatch(setCurrentOrderList(orders));
                 // dispatch(setPastOrderList(orders))
             })
-    },[restaurantId])
+    }, [restaurantId])
 
     // console.log(currentOrderList)
     // console.log(pastOrderList)
 
-    console.log(orderList)
+    console.log("currentOrderList:", orderList)
 
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <NavBar
-                restaurantId = {restaurantId}
-                title = "Order Viewer"/>
+                restaurantId={restaurantId}
+                title="Order Viewer"/>
             <main className={classes.content}>
-                <div className={classes.appBarSpacer} />
+                <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
-                <CurrentOrder
-                    currentOrderList={currentOrderList}
-                    completeOrder={completeOrder}/>
-                <div className={classes.appBarSpacer} />
-                <PastOrder
-                    pastOrderList={pastOrderList}
-                    completeOrder={completeOrder}/>
+                    <CurrentOrder
+                        currentOrderList={currentOrderList}
+                        completeOrder={completeOrder}/>
+                    <div className={classes.appBarSpacer}/>
+                    <PastOrder
+                        pastOrderList={pastOrderList}
+                        completeOrder={completeOrder}/>
                 </Container>
             </main>
         </div>

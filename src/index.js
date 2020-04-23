@@ -3,19 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {combineReducers, createStore} from "redux";
-import orderReducer from "./reducer/orderReducer";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+import reducers from "./reducers";
 
-const rootReducer = combineReducers({
-    orderReducer
-})
-
-const store = createStore(rootReducer);
+const store = createStore(
+    combineReducers(reducers),
+    {
+        orderList: [],
+        currentOrderList: [],
+        pastOrderList: []
+    },
+    applyMiddleware(thunk)
+)
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App/>
     </Provider>,
     document.getElementById('root'));
 
