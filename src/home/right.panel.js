@@ -21,6 +21,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {addShoppingCart, removeShoppingCart} from "../actions";
 import Button from "@material-ui/core/Button";
+import {postOrder} from "../service/user.service";
 
 const useStyles = makeStyles((theme) => ({
     contentWrapper: {
@@ -79,6 +80,7 @@ const StyledBadge = withStyles((theme) => ({
 export default function ShoppingCart(props) {
     const classes = useStyles()
     const shoppingCart = useSelector(state => state.shoppingCart)
+    const user = useSelector(state => state.user)
     const nothingAlert = (
         <Alert severity="info" className={clsx(classes.nothingAlert, {[classes.hidden]: shoppingCart.length})}>
             No Item Selected!
@@ -88,6 +90,10 @@ export default function ShoppingCart(props) {
     const handleClick = useCallback((food, delta) => {
         delta === -1 ? dispatch(removeShoppingCart(food)) : dispatch(addShoppingCart(food))
     }, [dispatch])
+
+    const placeOrder = useCallback(() => {
+        postOrder(user, shoppingCart)
+    }, [user, shoppingCart])
     return (
         <div className={classes.contentWrapper}>
             <div className={classes.contentTitleWrapper}>
@@ -107,15 +113,15 @@ export default function ShoppingCart(props) {
                                         <ImageIcon/>
                                     </Avatar>
                                 </ListItemAvatar>
-                                <Tooltip title={food.label} aria-label="add">
-                                    <ListItemText primary={food.label.substr(0, 7) + '...'}
+                                <Tooltip title={food.name} aria-label="add">
+                                    <ListItemText primary={food.name.substr(0, 7) + '...'}
                                                   className={classes.shoppingItemText}
-                                                  secondary={"Quan: " + food.count}/>
+                                                  secondary={"Quan: " + food.amount}/>
                                 </Tooltip>
                                 <ListItemSecondaryAction>
                                     <IconButton edge="end" aria-label="delete" size="small"
                                                 onClick={() => handleClick(food, 1)}>
-                                        <StyledBadge badgeContent={food.count} color="primary">
+                                        <StyledBadge badgeContent={food.amount} color="primary">
                                             <AddIcon/>
                                         </StyledBadge>
                                     </IconButton>
@@ -132,7 +138,8 @@ export default function ShoppingCart(props) {
             {nothingAlert}
             <Divider variant="middle" className={classes.divider}/>
             <div className={classes.buttonMenu}>
-                <Button variant="contained" color="primary" className={classes.buttonWrapper}>
+                <Button variant="contained" color="primary" className={classes.buttonWrapper}
+                        onClick={() => placeOrder()}>
                     CheckOut
                 </Button>
                 <Button variant="contained" color="secondary">

@@ -28,11 +28,11 @@ export default {
         const {type, payload} = action
         switch (type) {
             case ACTION_ADD_SHOPPING_CART: {
-                const filtered = state.filter(item => item.foodId === payload.foodId)
+                const filtered = state.filter(item => item.id === payload.id)
                 if (filtered.length > 0) {
                     return state.map(item => {
-                        if (item.foodId === payload.foodId) {
-                            item.count++
+                        if (item.id === payload.id) {
+                            item.amount++
                             return item
                         }
                         return item
@@ -41,13 +41,13 @@ export default {
                 return [payload, ...state]
             }
             case ACTION_REMOVE_SHOPPING_CART: {
-                const filtered = state.filter(item => item.foodId === payload.foodId)
-                if (filtered[0].count === 1) {
-                    return state.filter(item => item.foodId !== payload.foodId)
+                const filtered = state.filter(item => item.id === payload.id)
+                if (filtered[0].amount === 1) {
+                    return state.filter(item => item.id !== payload.id)
                 } else {
                     return state.map(item => {
-                        if (item.foodId === payload.foodId) {
-                            item.count--
+                        if (item.id === payload.id) {
+                            item.amount--
                             return item
                         }
                         return item

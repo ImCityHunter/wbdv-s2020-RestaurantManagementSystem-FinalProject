@@ -107,11 +107,12 @@ export default function Home(props) {
     const selectedCategory = useSelector(state => state.selectedCategory)
     const dispatch = useDispatch()
     useEffect(() => {
-        // findFoodsByCategory(selectedCategory)
-        //     .then(foodList => {
-        //         dispatch(setFoodList(foodList.hints))
-        //     })
-        dispatch(setFoodList(findFakeFoodsByCategory(selectedCategory).hints))
+        findFoodsByCategory(selectedCategory)
+            .then(foodList => {
+                console.log("home food list", foodList)
+                dispatch(setFoodList(foodList))
+            })
+        // dispatch(setFoodList(findFakeFoodsByCategory(selectedCategory).hints))
     }, [selectedCategory])
 
     const handleDrawerClose = () => {

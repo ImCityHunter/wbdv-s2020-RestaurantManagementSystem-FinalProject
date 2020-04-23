@@ -39,27 +39,34 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
 export default function ItemFood(props) {
     const classes = useStyles();
     const {food, imgUrl} = props
     const shoppingCart = useSelector(state => state.shoppingCart)
     const getCount = useCallback(() => {
-        const filtered = shoppingCart.filter(item => item.foodId === food.food.foodId)
+        const filtered = shoppingCart.filter(item => item.foodId === food.id)
         return filtered.length === 0 ? 0 : filtered[0].count
     }, [shoppingCart])
     const dispatch = useDispatch()
     const handleClick = useCallback((delta) => {
         const foodToAdd = {
-            foodId: food.food.foodId,
-            count: 1,
-            label: food.food.label,
+            id: food.id,
+            name: food.name,
+            price: food.price,
+            category: food.category,
+            calories: food.calories,
+            ingredient: food.ingredient,
+            description: food.description,
+            restaurant: food.restaurant,
+            amount: 1,
             thumb: imgUrl.thumb
         }
         delta === 1 ? dispatch(addShoppingCart(foodToAdd)) : dispatch(removeShoppingCart(foodToAdd))
     }, [dispatch, food])
 
     return (
-        <Grid item key={food.foodId} xs={12} sm={6} md={6} lg={4}>
+        <Grid item key={food.id} xs={12} sm={6} md={6} lg={4}>
             <Card className={classes.card}>
                 <CardMedia
                     className={classes.cardMedia}
@@ -67,12 +74,12 @@ export default function ItemFood(props) {
                     title="Image title"/>
                 <CardContent className={classes.cardContent}>
                     <Typography variant="h6" noWrap={true}>
-                        {food.food.label}
+                        {food.name}
                     </Typography>
                     <div>
                         {
                             ["ENERC_KCAL", "PROCNT", "FAT", "CHOCOF", "FIBTG"].map((item, index) => {
-                                let number = food.food.nutrients[item]
+                                let number = 100
                                 if (number) {
                                     number = number.toString()
                                     number = number.substr(0, number.indexOf('.') + 2)

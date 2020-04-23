@@ -1,7 +1,7 @@
 import {burgerData, DEV_URL, fruitData, vegetablesData} from "../constants";
 
 export const findFoodsByCategory = (category) => {
-    return fetch(DEV_URL + "/" + category)
+    return fetch(DEV_URL + "/products/all")
         .then(response => response.json())
 }
 

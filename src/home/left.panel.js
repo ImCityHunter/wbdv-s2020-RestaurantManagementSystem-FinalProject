@@ -45,17 +45,15 @@ function LeftCategory(props) {
     const dispatch = useDispatch()
     return (
         <List component="nav">
-            {
-                categories.map(category => {
-                    return <ListItem className={clsx({[classes.selected]: category.key === selectedCategory})}
-                                     button key={category.key} onClick={() => dispatch(setSelectedCategory(category.key))}>
-                        <ListItemIcon>
-                            <Avatar src={category.src} className={classes.iconLarge}/>
-                        </ListItemIcon>
-                        <ListItemText primary={category.name} className={classes.itemText}/>
-                    </ListItem>
-                })
-            }
+            {categories.map(category => {
+                return <ListItem className={clsx({[classes.selected]: category.key === selectedCategory})}
+                                 button key={category.key} onClick={() => dispatch(setSelectedCategory(category.key))}>
+                    <ListItemIcon>
+                        <Avatar src={category.src} className={classes.iconLarge}/>
+                    </ListItemIcon>
+                    <ListItemText primary={category.name} className={classes.itemText}/>
+                </ListItem>
+            })}
         </List>
     )
 }

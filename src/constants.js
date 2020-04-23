@@ -11,7 +11,7 @@ import vegetables from './resources/vegetables'
 import burger from './resources/burger'
 import fruit from './resources/fruit'
 
-export const DEV_URL = "http://localhost:4000/api";
+export const DEV_URL = "https://web5610-final-project-backend.herokuapp.com/";
 export const URL = "";
 export const categories = [
     {id: 1, name: 'Veges', src: image1, key: 'vegetables'},
@@ -32,11 +32,13 @@ export const burgerData = burger
 export const fruitData = fruit
 
 // wjc for user service
-const user_url = "http://localhost:8080/users"
-export const login_url = user_url + "/login"
+const dev_url = "http://localhost:8080"
+const user_url = "https://web5610-final-project-backend.herokuapp.com"   //https://web5610-final-project-backend.herokuapp.com/users/login
+export const login_url = user_url + "/users/login"
 export const register_url = user_url + "/register"
 export const update_url = user_url + "/update"
 
+export const getUserPostOrderUrl = (userId) => dev_url + '/users/' + userId + '/order'
 
 export const foods = [
     {

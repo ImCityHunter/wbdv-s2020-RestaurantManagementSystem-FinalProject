@@ -9,8 +9,12 @@ export default createStore(
     {
         foodList: [],
         selectedCategory: "vegetables",
-        shoppingCart: foods,
-        user: null,
+        shoppingCart: [],
+        user: {
+            id: 1,
+            username: 'jack',
+            password: 'wjc123'
+        },
         isLogin: false
     },
     applyMiddleware(thunk)
