@@ -1,9 +1,3 @@
-
-
-
-
-
-
 const menu = [
         { name:'item 1', recipe: 'audi, honda', price: '$15', id: '123'},
         { name:'item 2', recipe: 'coke, sprite', price: '$15', id: '124'},

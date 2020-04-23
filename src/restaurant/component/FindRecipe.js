@@ -1,5 +1,5 @@
 import React from "react";
-import recipeService from "../../service/RecipeService";
+import recipeService from "../../service/MenuService";
 class FindRecipe extends React.Component {
     constructor(props) {
         super(props);

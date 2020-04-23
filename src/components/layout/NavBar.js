@@ -4,18 +4,15 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
-import Badge from "@material-ui/core/Badge";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import Drawer from "@material-ui/core/Drawer";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
-import {sideBarItems} from "./SideBarItems";
+import SideBarItems from "./SideBarItems";
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import Tooltip from "@material-ui/core/Tooltip";
-import ListItem from "@material-ui/core/ListItem";
 
 
 const drawerWidth = 200;
@@ -91,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function NavBar({title}) {
+export default function NavBar({title, restaurantId}) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const handleDrawerOpen = () => {
@@ -135,7 +132,10 @@ export default function NavBar({title}) {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>{sideBarItems}</List>
+                <List>
+                    <SideBarItems
+                        restaurantId={restaurantId}/>
+                </List>
             </Drawer>
         </div>
     );

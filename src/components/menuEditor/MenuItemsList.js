@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -15,10 +15,17 @@ import Button from "@material-ui/core/Button";
 import ClearIcon from '@material-ui/icons/Clear';
 import SaveIcon from '@material-ui/icons/Save';
 import Typography from "@material-ui/core/Typography";
-import RecipeService from "../../service/RecipeService";
+import MenuService from "../../service/MenuService";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
+import Tooltip from "@material-ui/core/Tooltip";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
 
 
 const useStyles = makeStyles(theme => ({
@@ -35,110 +42,197 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-function createData(itemId, itemName, unitPrice, category, calories, ingredient, description) {
-    return { itemId, itemName, unitPrice, category, calories, ingredient, description };
-}
 
-export default function MenuItemsList({category}) {
-
+export default function MenuItemsList({category, restaurantId}) {
     const classes = useStyles();
 
-    const menuCat = category;
+    const [mealsList, setMealsList] = React.useState([]);
 
-    const [rows, setRows] = React.useState([createData('1001', 'Broccoli', 8.99, 'Sides', 12, 'Broccoli', 'Steamed')]);
+    useEffect(() => {
+        let mounted = true;
+        MenuService.getMenuItemsByRestaurantId(restaurantId)
+            .then(response => {
+                if (mounted)
+                setMealsList(response.filter(item => item.category === category))
+            });
+        return () => mounted = false;
+    },[restaurantId, category])
+
+    const [menuItem, setMenuItem] = React.useState({
+        id: '',
+        name: '',
+        price: '',
+        category: category,
+        calories: '',
+        ingredient: '',
+        description: '',
+        img: '',
+        restaurant: {
+            id: 1
+        }
+    })
+
+    const handleMenuItemChange = (event) => {
+        setMenuItem({
+            ...menuItem, [event.target.name]: event.target.value
+        })
+    }
 
     const [searchName, setSearchName] = React.useState('');
     const handleSearchNameChange = (event) => {
         setSearchName(event.target.value);
     };
 
-    const [ingredient, setIngredient] = React.useState('');
-    const handleIngredientChange = (event) => {
-        setIngredient(event.target.value);
-    };
-
-    const [itemName, setItemName] = React.useState('');
-    const handleItemNameChange = (event) => {
-        setItemName(event.target.value);
-    };
-
-    const [calories, setCalories] = React.useState('');
-    const handleCaloriesChange = (event) => {
-        setCalories(event.target.value);
-    };
-
-    const [unitPrice, setUnitPrice] = React.useState('');
-    const handleUnitPriceChange = (event) => {
-        setUnitPrice(event.target.value);
-    }
-
-    const [description, setDescription] = React.useState('');
-    const handleDescriptionChange = (event) => {
-        setDescription(event.target.value);
-    }
-
-    // const [mealsList, setMealsList] = React.useState([]);
-    // const handleMealsListChange = (event) => {
-    //     setMealsList(event.target.value);
-    // }
-
+    const [editing, setEditing] = React.useState(false)
 
     const searchItem = (itemName) => {
-        RecipeService.getRecipe(itemName)
-            .then(results => {
-                console.log(results)
-                setItemName(results.hints[0].food.label);
-                setIngredient((results.hints[0].food.foodContentsLabel)?results.hints[0].food.foodContentsLabel: '');
-                setCalories(((results.hints[0].food.nutrients.ENERC_KCAL)?results.hints[0].food.nutrients.ENERC_KCAL: 0).toFixed(2));
-
-            })
-            // .then(results => results.hints.map(item =>
-            //     mealsList.push({
-            //         itemId: item.food.foodId,
-            //         itemName: item.food.label,
-            //         ingredient: (item.food.foodContentsLabel)?item.food.foodContentsLabel: '',
-            //         calories: (item.food.nutrients.ENERC_KCAL)?item.food.nutrients.ENERC_KCAL: '',
-            //     }) )
-            // ).then(r => console.log(mealsList))
+        if (itemName) {
+            MenuService.getRecipe(itemName)
+                .then(results => {
+                    if (results) {
+                        setMenuItem({
+                            ...menuItem,
+                            name: results.hints[0].food.label,
+                            calories: ((results.hints[0].food.nutrients.ENERC_KCAL)?results.hints[0].food.nutrients.ENERC_KCAL: 0).toFixed(2).toString(),
+                            ingredient: (results.hints[0].food.foodContentsLabel)?results.hints[0].food.foodContentsLabel: ''
+                        });
+                    }
+                })
+        } else alert("Please enter a valid item name!")
     }
 
-    const addItem = (itemId, itemName, unitPrice, category, calories, ingredient, description) => {
-        if (itemName) {
-            setRows([...rows,
-                createData(itemId, itemName, unitPrice, category, calories, ingredient, description)])
-            clearForm();
+    const addItem = (menuItem) => {
+        if (menuItem.name) {
+            MenuService.createMenuItem(menuItem)
+                .then(() => MenuService.getMenuItemsByRestaurantId(restaurantId))
+                .then(response => {
+                    setMealsList(response.filter(item => item.category === category))
+                }).then(() => {
+                    clearForm();
+                    setEditing(false);
+                })
         }
     }
 
+    const updateItem = (menuItem) =>
+        MenuService.updateMenuItem(menuItem.id, menuItem)
+            .then(() => MenuService.getMenuItemsByRestaurantId(restaurantId))
+            .then(response => {
+                setMealsList(response.filter(item => item.category === category))
+            }).then(() => {
+            clearForm();
+            setEditing(false);
+        })
+
+    const deleteItem = (itemId) =>
+        MenuService.deleteMenuItem(itemId)
+            .then(() => MenuService.getMenuItemsByRestaurantId(restaurantId))
+            .then(response => {
+                setMealsList(response.filter(item => item.category === category))
+            })
+
+
     const editItem = (item) => {
-        setItemName(item.itemName);
-        setUnitPrice(item.unitPrice);
-        setCalories(item.calories);
-        setIngredient(item.ingredient);
-        setDescription(item.description);
+        setEditing(true);
+        setMenuItem({
+            ...menuItem,
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            calories: item.calories,
+            ingredient: item.ingredient,
+            description: item.description,
+            img: item.img
+        })
     }
 
     const clearForm = () => {
-        setItemName('');
-        setUnitPrice('');
-        setCalories('');
-        setIngredient('');
-        setDescription('');
+        setMenuItem({
+            ...menuItem,
+            name: '',
+            price: '',
+            calories: '',
+            ingredient: '',
+            description: '',
+            img: ''
+        })
     }
+
+    const [open, setOpen] = React.useState(false);
+    const [scroll, setScroll] = React.useState('paper');
+
+    const handleClickOpen = () => () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const descriptionElementRef = React.useRef(null);
+    React.useEffect(() => {
+        if (open) {
+            const { current: descriptionElement } = descriptionElementRef;
+            if (descriptionElement !== null) {
+                descriptionElement.focus();
+            }
+        }
+    }, [open]);
 
     return (
         <Container className={classes.container}>
+            <div>
+                <Button onClick={handleClickOpen('paper')}>scroll=paper</Button>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    fullScreen={true}
+                    maxWidth={'sm'}
+                    scroll="paper"
+                    aria-labelledby="scroll-dialog-title"
+                    aria-describedby="scroll-dialog-description"
+                >
+                    <DialogTitle id="scroll-dialog-title">Select Online Recipe</DialogTitle>
+                    <DialogContent dividers={scroll === 'paper'}>
+                        <TableContainer component={Paper}>
+                            <Table className={classes.table} aria-label="simple table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Item Name</TableCell>
+                                        <TableCell align="right">Ingredient</TableCell>
+                                        <TableCell align="right">Calories</TableCell>
+                                    </TableRow>
+                                </TableHead>
+
+                            </Table>
+                        </TableContainer>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Cancel
+                        </Button>
+                        <Button onClick={handleClose} color="primary">
+                            Select
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+
+
+
             <Grid container spacing={1} alignItems="flex-end">
                 <Grid item>
                     <Typography variant="h5">
-                        Search Item :
+                        Search Online Database :
                     </Typography>
                 </Grid>
                 <Grid item>
                     <TextField id="standard-basic" label="Item Name" onChange={handleSearchNameChange} />
                 </Grid>
                 <Grid item>
-                    <SearchIcon onClick={()=>searchItem(searchName)}/>
+                    <Tooltip title="Search" placement="right">
+                        <SearchIcon onClick={()=>searchItem(searchName)}/>
+                    </Tooltip>
                 </Grid>
             </Grid>
             <div className={classes.appBarSpacer} />
@@ -148,10 +242,10 @@ export default function MenuItemsList({category}) {
                     <TextField
                         required
                         id="itemName"
-                        name="itemName"
+                        name="name"
                         label="Item Name"
-                        value={itemName}
-                        onChange={handleItemNameChange}
+                        value={menuItem.name}
+                        onChange={handleMenuItemChange}
                         fullWidth
                     >
                     </TextField>
@@ -160,10 +254,10 @@ export default function MenuItemsList({category}) {
                     <TextField
                         required
                         id="unitPrice"
-                        name="unitPrice"
+                        name="price"
                         label="Unit Price"
-                        value={unitPrice}
-                        onChange={handleUnitPriceChange}
+                        value={menuItem.price}
+                        onChange={handleMenuItemChange}
                         InputProps={{
                             startAdornment: <InputAdornment position="start">$</InputAdornment>,
                         }}
@@ -178,7 +272,7 @@ export default function MenuItemsList({category}) {
                         id="category"
                         name="category"
                         label="Category"
-                        value={menuCat}
+                        value={menuItem.category}
                         disabled
                         fullWidth
                     />
@@ -189,8 +283,8 @@ export default function MenuItemsList({category}) {
                         id="calories"
                         name="calories"
                         label="Calories"
-                        value={calories}
-                        onChange={handleCaloriesChange}
+                        value={menuItem.calories}
+                        onChange={handleMenuItemChange}
                         InputProps={{
                             endAdornment: <InputAdornment position="end">kcal</InputAdornment>,
 
@@ -204,8 +298,8 @@ export default function MenuItemsList({category}) {
                         id="ingredient"
                         name="ingredient"
                         label="Ingredient"
-                        value={ingredient}
-                        onChange={handleIngredientChange}
+                        value={menuItem.ingredient}
+                        onChange={handleMenuItemChange}
                         fullWidth
                     />
                 </Grid>
@@ -214,24 +308,48 @@ export default function MenuItemsList({category}) {
                         id="description"
                         name="description"
                         label="Description"
-                        value={description}
-                        onChange={handleDescriptionChange}
+                        value={menuItem.description}
+                        onChange={handleMenuItemChange}
                         fullWidth
                     />
                 </Grid>
-
+                <Grid item xs={12}>
+                    <TextField
+                        id="foodPhoto"
+                        name="img"
+                        label="Food Photo"
+                        value={menuItem.img}
+                        onChange={handleMenuItemChange}
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">URL:</InputAdornment>,
+                        }}
+                        fullWidth
+                    />
+                </Grid>
                 <Grid item xs={12}>
                     <div>
-                        <Button
+                        {!editing &&<Button
+                            variant="contained"
+                            color="primary"
+                            className={classes.button}
+                            size="large"
+                            startIcon={<AddIcon />}
+                            onClick={()=>addItem(menuItem)}
+                        >
+                            Add Item
+                        </Button>}
+                        {editing &&<Button
                             variant="contained"
                             color="primary"
                             className={classes.button}
                             size="large"
                             startIcon={<SaveIcon />}
-                            onClick={()=>addItem(1, itemName, unitPrice, menuCat, calories, ingredient, description)}
+                            onClick={()=>updateItem(menuItem)}
+
+                            // onClick={()=>addItem(1, itemName, unitPrice, menuCat, calories, ingredient, description)}
                         >
-                            Save
-                        </Button>
+                            Update Item
+                        </Button>}
                         <Button
                             variant="contained"
                             color="secondary"
@@ -264,20 +382,20 @@ export default function MenuItemsList({category}) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
-                            <TableRow key={row.itemId}>
+                        {mealsList.map(meal => (
+                            <TableRow key={meal.id}>
                                 <TableCell component="th" scope="row">
-                                    {row.itemId}
+                                    {meal.id}
                                 </TableCell>
-                                <TableCell align="center">{row.itemName}</TableCell>
-                                <TableCell align="center">{row.unitPrice}</TableCell>
-                                <TableCell align="center">{row.category}</TableCell>
-                                <TableCell align="center">{row.calories}</TableCell>
-                                <TableCell align="center">{row.ingredient}</TableCell>
-                                <TableCell align="center">{row.description}</TableCell>
+                                <TableCell align="center">{meal.name}</TableCell>
+                                <TableCell align="center">{meal.price}</TableCell>
+                                <TableCell align="center">{meal.category}</TableCell>
+                                <TableCell align="center">{meal.calories}</TableCell>
+                                <TableCell align="center">{meal.ingredient}</TableCell>
+                                <TableCell align="center">{meal.description}</TableCell>
                                 <TableCell align="center">
-                                    <EditIcon className={classes.button} fontSize="small" color="primary" onClick={() => editItem(row)} />
-                                    <DeleteIcon className={classes.button} fontSize="small" color="secondary" />
+                                    <EditIcon className={classes.button} fontSize="small" color="primary" onClick={() => editItem(meal)} />
+                                    <DeleteIcon className={classes.button} fontSize="small" color="secondary" onClick={() => deleteItem(meal.id)} />
                                 </TableCell>
                             </TableRow>
                         ))}

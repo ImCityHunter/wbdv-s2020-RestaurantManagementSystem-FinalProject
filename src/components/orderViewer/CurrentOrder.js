@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -10,8 +10,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import DoneIcon from '@material-ui/icons/Done';
 import IconButton from "@material-ui/core/IconButton";
-
-
 
 const useStyles = makeStyles(theme => ({
     appBarSpacer: theme.mixins.toolbar,
@@ -33,37 +31,20 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function CurrentOrder () {
+export default function CurrentOrder ({currentOrderList, completeOrder}) {
     const classes = useStyles();
-    let currentOrderList = [{
-        orderId: 'oid',
-        orderDate: 'od',
-        customerId: 'cid',
-        saleAmount: 'sa',
-        products: [{
-            productId: '123',
-            item: 'Calamari',
-            unit: 1
-        },{
-            productId: '234',
-            item: 'Broccoli',
-            unit: 2
-        }],
-        miscellaneous: 'dine-in',
-        fulfilled: false}];
 
     return (
         <Grid container spacing={3}>
-            {currentOrderList.map(order =>
-                <Grid item xs={12} sm={4} md={3} lg={2} key={order.orderId}>
+            {currentOrderList && currentOrderList.map(order =>
+                <Grid item xs={12} sm={4} md={3} lg={2} key={order.id}>
                     <Paper className={classes.paper}>
                         <Typography component="h4" variant="subtitle1" color="primary" alient="center">
-                            <IconButton >
+                            <IconButton onClick={() => completeOrder(order)} >
                                 <DoneIcon />
                             </IconButton>
-                            {order.orderId}
+                            {order.id}
                         </Typography>
-
                         <Table size="small">
                             <TableHead>
                                 <TableRow>
@@ -73,9 +54,9 @@ export default function CurrentOrder () {
                             </TableHead>
                             <TableBody>
                                 {order.products.map((product) => (
-                                    <TableRow key={product.productId}>
-                                        <TableCell>{product.item}</TableCell>
-                                        <TableCell>{product.unit}</TableCell>
+                                    <TableRow key={product.id}>
+                                        <TableCell>{product.name}</TableCell>
+                                        <TableCell>{product.amount}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

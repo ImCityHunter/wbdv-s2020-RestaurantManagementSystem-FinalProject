@@ -1,91 +1,27 @@
-import React from 'react';
-import clsx from 'clsx';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
+
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
+
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import {sideBarItems} from "../layout/SideBarItems";
-import SideBarDrawer from "../layout/NavBar";
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import { useParams } from 'react-router'
 import NavBar from "../layout/NavBar";
-// import Chart from './Chart';
-// import Deposits from './Deposits';
-// import Orders from './Orders';
-
-const drawerWidth = 200;
+import OrderService from "../../service/OrderService";
 
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
     },
-    toolbar: {
-        backgroundColor: "#2979ff",
-        paddingRight: 24, // keep right padding when drawer closed
-    },
-    toolbarIcon: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
-        ...theme.mixins.toolbar,
-    },
-    appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-    },
-    appBarShift: {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    menuButton: {
-        marginRight: 36,
-    },
-    menuButtonHidden: {
-        display: 'none',
-    },
     title: {
         flexGrow: 1,
     },
-    drawerPaper: {
-        position: 'relative',
-        whiteSpace: 'nowrap',
-        width: drawerWidth,
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    drawerPaperClose: {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(9),
-        },
-    },
+
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
@@ -105,39 +41,90 @@ const useStyles = makeStyles(theme => ({
     fixedHeight: {
         height: 240,
     },
+    cover: {
+        width: 140,
+        height: 151
+    },
+    details: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    cardContent: {
+        flex: '1 0 auto',
+    },
 }));
 
 export default function Dashboard() {
     const classes = useStyles();
+
+    let params = useParams();
+    const restaurantId = params.rid;
+
+    const [curOrderNum, setCurOrderNum] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            OrderService.getCurrentOrder(restaurantId)
+                .then(response => setCurOrderNum(response.length))
+        }, 5000);
+        return () => clearInterval(interval);
+    },[restaurantId])
+
     return (
         <div className={classes.root}>
             <CssBaseline />
             <NavBar
+                restaurantId = {restaurantId}
                 title = "DashBoard"/>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
 
                 <Container maxWidth="lg" className={classes.container}>
-
                     <Grid container spacing={3}>
-                        {/*/!* Chart *!/*/}
-                        {/*<Grid item xs={12} md={8} lg={9}>*/}
-                        {/*    <Paper className={fixedHeightPaper}>*/}
-                        {/*        <Chart />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>*/}
-                        {/*/!* Recent Deposits *!/*/}
-                        {/*<Grid item xs={12} md={4} lg={3}>*/}
-                        {/*    <Paper className={fixedHeightPaper}>*/}
-                        {/*        <Deposits />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>*/}
-                        {/*/!* Recent Orders *!/*/}
-                        {/*<Grid item xs={12}>*/}
-                        {/*    <Paper className={classes.paper}>*/}
-                        {/*        <Orders />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>*/}
+                        <Grid item xs={12} sm={6}>
+                            <Card className={classes.root} >
+                                <CardMedia
+                                    className={classes.cover}
+                                    image="https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                                />
+                                <div className={classes.details}>
+                                    <CardContent className={classes.cardContent}>
+                                        <Typography component="h5" variant="h5">
+                                            Today's Sales
+                                        </Typography>
+                                        <br/>
+                                        <Typography variant="subtitle1" color="textSecondary">
+                                            $
+                                        </Typography>
+                                    </CardContent>
+                                </div>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Card className={classes.root} >
+                                <CardMedia
+                                    className={classes.cover}
+                                    image="https://images.unsplash.com/photo-1529003600303-bd51f39627fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                                />
+                                <div className={classes.details}>
+                                    <CardContent className={classes.cardContent}>
+                                        <Typography component="h5" variant="h5">
+                                            Current Orders
+                                        </Typography>
+                                        <br/>
+                                        <Typography variant="subtitle1" color="textSecondary">
+                                            {curOrderNum}
+                                        </Typography>
+                                    </CardContent>
+                                </div>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+
+                            </Paper>
+                        </Grid>
+
                     </Grid>
                 </Container>
             </main>

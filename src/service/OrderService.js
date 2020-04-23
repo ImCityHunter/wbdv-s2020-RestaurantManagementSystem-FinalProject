@@ -1,17 +1,31 @@
+// const getCurrentOrder = (restaurantId) =>
+//     fetch('', {
+//         "method": "GET",
+//     }).then(response => response.json())
+//
+// const getPastOrder = (restaurantId) =>
+//     fetch(`https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurantId}/orders/completed`, {
+//         "method": "GET",
+//     }).then(response => response.json())
+
+const getAllOrder = (restaurantId) =>
+    fetch(`https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurantId}/orders`, {
+        "method": "GET",
+    }).then(response => response.json())
+
 const getCurrentOrder = (restaurantId) =>
-    fetch('', {
+    fetch(`https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurantId}/orders/incomplete`, {
         "method": "GET",
     }).then(response => response.json())
 
 const getPastOrder = (restaurantId) =>
-    fetch('', {
+    fetch(`https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurantId}/orders/completed`, {
         "method": "GET",
     }).then(response => response.json())
 
-const updateOrderStatus = (orderId, order) =>
-    fetch(`${orderId}`, {
+const updateOrderStatus = (restaurantId, orderId) =>
+    fetch(`https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurantId}/orders/${orderId}?status=completed`, {
         method: 'PUT',
-        body: JSON.stringify(order),
         headers: {
             "content-type": "application/json"
         }
@@ -22,5 +36,6 @@ const updateOrderStatus = (orderId, order) =>
 export default {
     getCurrentOrder,
     getPastOrder,
+    getAllOrder,
     updateOrderStatus
 }

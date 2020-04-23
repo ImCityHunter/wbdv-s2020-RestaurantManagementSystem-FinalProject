@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -16,6 +16,12 @@ import Paper from '@material-ui/core/Paper';
 import Typography from "@material-ui/core/Typography";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
+import ClearIcon from "@material-ui/icons/Clear";
+import { useParams } from 'react-router'
+import RestaurantService from "../../service/RestaurantService";
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -46,6 +52,9 @@ const useStyles = makeStyles(theme => ({
     table: {
         minWidth: 650,
     },
+    button: {
+        margin: theme.spacing(1),
+    }
 }));
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -53,30 +62,74 @@ const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 export default function InfoEditor() {
     const classes = useStyles();
 
-    const [restaurantInfo, setRestaurantInfo] = React.useState({
-        restaurantName: '',
-        contactNumber: '',
-        address: '',
-        about: '',
-        businessHour: {
-            Mon: '',
-            Tue: '',
-            Wed: '',
-            Thu: '',
-            Fri: '',
-            Sat: '',
-            Sun: ''
-        }
-    })
+    let params = useParams();
+    const restaurantId = params.rid;
 
-    const [contactNumber, setContactNumber] = React.useState('');
-    const handleContactNumberChange = (event) => {
-        setContactNumber(event.target.value);
+    const [restaurantInfo, setRestaurantInfo] = React.useState({
+        id: restaurantId,
+        restaurantName: '',
+        phoneNumber: '',
+        email: '',
+        address: '',
+        description: '',
+        businessHours: ''
+    })
+    const handleRestaurantInfoChange = (event) =>
+        setRestaurantInfo({
+            ...restaurantInfo, [event.target.name]: event.target.value
+        })
+
+    useEffect(() => {
+        RestaurantService.getRestaurantInfo(restaurantId)
+            .then(response =>
+                setRestaurantInfo(response))
+    },[restaurantId])
+
+    const updateRestaurantInfo = (restaurantInfo) =>
+        RestaurantService.updateRestaurantInfo(restaurantInfo)
+            .then(() => RestaurantService.getRestaurantInfo(restaurantInfo.id))
+            .then(response => {
+                setRestaurantInfo(response)
+            })
+
+
+    const clearRestaurantInfo = () =>
+        setRestaurantInfo({
+            id: '',
+            restaurantName: '',
+            phoneNumber: '',
+            email: '',
+            address: '',
+            description: '',
+            businessHours: ''
+        })
+
+
+
+    const [openTime, setOpenTime] = React.useState({
+        Mon: '08:30',
+        Tue: '08:30',
+        Wed: '08:30',
+        Thu: '08:30',
+        Fri: '08:30',
+        Sat: '08:30',
+        Sun: '08:30'
+    });
+    const handleOpenTimeChange = (event) => {
+        setOpenTime(event.target.value);
     };
 
-    const [selectedTime, setSelectedTime] = React.useState(new Date('2014-08-18T21:11:54'));
-    const handleTimeChange = (time) => {
-        setSelectedTime(time);
+    const [closeTime, setcloseTime] = React.useState({
+        Mon: '21:30',
+        Tue: '21:30',
+        Wed: '21:30',
+        Thu: '21:30',
+        Fri: '21:30',
+        Sat: '21:30',
+        Sun: '21:30'
+    });
+    const handleCloseTimeChange = (event) => {
+        setcloseTime(event.target.value);
     };
 
     const[businessClosed, setBusinessClosed] = React.useState({
@@ -92,25 +145,50 @@ export default function InfoEditor() {
         setBusinessClosed({
             ...businessClosed, [event.target.name]: event.target.checked
         })
-        console.log(businessClosed)
     };
-
 
     return (
         <div className={classes.root}>
             <CssBaseline />
             <NavBar
+                restaurantId = {restaurantId}
                 title = "Restaurant Information Editor"/>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
+                            <div>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.button}
+                                    size="large"
+                                    startIcon={<SaveIcon />}
+                                    onClick={()=>updateRestaurantInfo(restaurantInfo)}
+                                >
+                                    Save
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.button}
+                                    size="large"
+                                    startIcon={<ClearIcon />}
+                                    onClick={clearRestaurantInfo}
+                                >
+                                    Clear
+                                </Button>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12}>
                             <TextField
                                 required
-                                id="companyName"
-                                name="companyName"
-                                label="Company name"
+                                id="restaurantName"
+                                name="restaurantName"
+                                label="Restaurant name"
+                                value={restaurantInfo.restaurantName}
+                                onChange={handleRestaurantInfoChange}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -118,9 +196,11 @@ export default function InfoEditor() {
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 required
-                                id="contactNumber"
-                                name="contactNumber"
+                                id="phoneNumber"
+                                name="phoneNumber"
                                 label="Contact Number"
+                                value={restaurantInfo.phoneNumber}
+                                onChange={handleRestaurantInfoChange}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -128,9 +208,11 @@ export default function InfoEditor() {
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 required
-                                id="emailAddress"
-                                name="emailAddress"
+                                id="email"
+                                name="email"
                                 label="Email Address"
+                                value={restaurantInfo.email}
+                                onChange={handleRestaurantInfoChange}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -139,60 +221,22 @@ export default function InfoEditor() {
                         <Grid item xs={12}>
                             <TextField
                                 required
-                                id="address1"
-                                name="address1"
-                                label="Address line 1"
+                                id="address"
+                                name="address"
+                                label="Address line"
+                                value={restaurantInfo.address}
+                                onChange={handleRestaurantInfoChange}
                                 fullWidth
                                 variant="outlined"
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                id="address2"
-                                name="address2"
-                                label="Address line 2"
-                                fullWidth
-                                variant="outlined"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="city"
-                                name="city"
-                                label="City"
-                                fullWidth
-                                variant="outlined"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField id="state" name="state" label="State/Province/Region" fullWidth variant="outlined" />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="zip"
-                                name="zip"
-                                label="Zip / Postal code"
-                                fullWidth
-                                variant="outlined"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="country"
-                                name="country"
-                                label="Country"
-                                fullWidth
-                                variant="outlined"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                id="about"
-                                name="about"
+                                id="description"
+                                name="description"
                                 label="About the Company"
+                                value={restaurantInfo.description}
+                                onChange={handleRestaurantInfoChange}
                                 variant="outlined"
                                 multiline
                                 rows={4}
@@ -207,17 +251,17 @@ export default function InfoEditor() {
                                 <Table aria-label="simple table">
                                     <TableBody>
                                         {days.map(day => {
-                                            console.log(businessClosed.day)
                                             return (
-                                                <TableRow>
+                                                <TableRow key={day}>
                                                     <TableCell align="center">{day}</TableCell>
                                                     <TableCell align="center">
                                                         <TextField
                                                             id="time"
-                                                            label="Alarm clock"
+                                                            label="Open Time"
                                                             type="time"
-                                                            defaultValue="07:30"
-                                                            disabled={businessClosed.day}
+                                                            value={openTime[day]}
+                                                            onChange={handleOpenTimeChange}
+                                                            disabled={businessClosed[day]}
                                                             InputLabelProps={{
                                                                 shrink: true,
                                                             }}
@@ -230,10 +274,11 @@ export default function InfoEditor() {
                                                     <TableCell align="center">
                                                         <TextField
                                                             id="time"
-                                                            label="Alarm clock"
+                                                            label="Close Time"
                                                             type="time"
-                                                            defaultValue="21:30"
-                                                            disabled={businessClosed.day}
+                                                            value={closeTime[day]}
+                                                            onChange={handleCloseTimeChange}
+                                                            disabled={businessClosed[day]}
                                                             InputLabelProps={{
                                                                 shrink: true,
                                                             }}
@@ -248,7 +293,7 @@ export default function InfoEditor() {
                                                                 <Checkbox
                                                                     color="primary"
                                                                     name={day}
-                                                                    checked={businessClosed.day}
+                                                                    checked={businessClosed[day]}
                                                                     onChange={handleBusinessClosedChange}
                                                                 />}
                                                             label="Closed"
@@ -256,9 +301,7 @@ export default function InfoEditor() {
                                                     </TableCell>
                                                 </TableRow>
                                             )
-                                        }
-
-                                        )}
+                                        })}
                                     </TableBody>
                                 </Table>
                             </TableContainer>

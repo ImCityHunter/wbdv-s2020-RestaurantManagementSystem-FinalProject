@@ -9,6 +9,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import PropTypes from "prop-types";
 import MenuItemsList from "./MenuItemsList";
+import { useParams } from 'react-router'
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -114,6 +116,9 @@ const useStyles = makeStyles(theme => ({
 export default function MenuEditor() {
     const classes = useStyles();
 
+    let params = useParams();
+    const restaurantId = params.rid;
+
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -123,6 +128,7 @@ export default function MenuEditor() {
         <div className={classes.root}>
             <CssBaseline />
             <NavBar
+                restaurantId = {restaurantId}
                 title = "Menu Editor"/>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
@@ -149,22 +155,27 @@ export default function MenuEditor() {
 
                 <TabPanel value={value} index={0}>
                     <MenuItemsList
-                    category="Appetizers"/>
+                        restaurantId = {restaurantId}
+                        category="Appetizers"/>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <MenuItemsList
+                        restaurantId = {restaurantId}
                         category="Main Courses"/>
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     <MenuItemsList
+                        restaurantId = {restaurantId}
                         category="Sides"/>
                 </TabPanel>
                 <TabPanel value={value} index={3}>
                     <MenuItemsList
+                        restaurantId = {restaurantId}
                         category="Deserts"/>
                 </TabPanel>
                 <TabPanel value={value} index={4}>
                     <MenuItemsList
+                        restaurantId = {restaurantId}
                         category="Drinks"/>
                 </TabPanel>
             </main>

@@ -1,5 +1,5 @@
 import React from "react";
-import recipeService from "../../service/RecipeService";
+import recipeService from "../../service/MenuService";
 import SearchItem from "./SearchItem";
 import ShowSearchItems from "./ShowSearchItems";
 class EditMenu extends React.Component {
