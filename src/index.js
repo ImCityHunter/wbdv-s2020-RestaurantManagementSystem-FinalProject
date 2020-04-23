@@ -6,10 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
-import reducers from "./reducers";
+import orderReducer from "./reducer/orderReducer";
 
 const store = createStore(
-    combineReducers(reducers),
+    combineReducers(orderReducer),
     {
         orderList: [],
         currentOrderList: [],

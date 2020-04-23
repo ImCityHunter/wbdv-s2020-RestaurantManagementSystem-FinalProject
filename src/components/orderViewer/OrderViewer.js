@@ -39,47 +39,22 @@ export default function OrderViewer() {
     let params = useParams();
     const restaurantId = params.rid;
 
-    const orderList = useSelector(state => state.orderList);
-    // const currentOrderList = useSelector(state => state.orderList);
-    // const pastOrderList = useSelector(state => state.orderList);
+    const currentOrderList = useSelector(state => state.currentOrderList)
+    const pastOrderList = useSelector(state => state.pastOrderList)
+    const orderList = useSelector(state => state.orderList)
+
     const dispatch = useDispatch();
 
-    const [currentOrderList, setCurrentOrderList] = useState([]);
-
-    const [pastOrderList, setPastOrderList] = useState([]);
-
-    const completeOrder = (orderCompleted) => {
-        // OrderService.updateOrderStatus(restaurantId, orderCompleted.id)
-        //     .then(() => pastOrderList.push(orderCompleted))
-        //     .then(() => {
-        //     setCurrentOrderList(currentOrderList.filter(order => order.id !== orderCompleted.id));
-        // })
-        OrderService.updateOrderStatus(restaurantId, orderCompleted.id)
-            .then(state => dispatch(setOrderCompleted(orderCompleted)))
-    }
-
     useEffect(() => {
-        // OrderService.getCurrentOrder()
-        // OrderService.getPastOrder(restaurantId)
-        //     .then(response => {
-        //         console.log(response)
-        //         setPastOrderList(response)
-        //     })
-        OrderService.getAllOrder(restaurantId)
-            .then(orders => {
-                // setCurrentOrderList(response.filter(order => order.completed === "incomplete"))
-                // setPastOrderList(response.filter(order => order.completed === "completed"))
-                dispatch(setOrderList(orders))
-                // dispatch(setCurrentOrderList(orders));
-                // dispatch(setPastOrderList(orders))
-            })
+
+        OrderService.getPastOrder(restaurantId)
+            .then(response => dispatch(setPastOrderList(response)))
+        OrderService.getCurrentOrder(restaurantId)
+            .then(response => dispatch(setCurrentOrderList(response)))
     }, [restaurantId])
 
-    // console.log(currentOrderList)
-    // console.log(pastOrderList)
-
-    console.log("currentOrderList:", orderList)
-
+    console.log(currentOrderList)
+    console.log(pastOrderList)
 
     return (
         <div className={classes.root}>
@@ -90,13 +65,9 @@ export default function OrderViewer() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
-                    <CurrentOrder
-                        currentOrderList={currentOrderList}
-                        completeOrder={completeOrder}/>
+                    <CurrentOrder />
                     <div className={classes.appBarSpacer}/>
-                    <PastOrder
-                        pastOrderList={pastOrderList}
-                        completeOrder={completeOrder}/>
+                    <PastOrder />
                 </Container>
             </main>
         </div>

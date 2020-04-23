@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -10,6 +10,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import DoneIcon from '@material-ui/icons/Done';
 import IconButton from "@material-ui/core/IconButton";
+import OrderService from "../../service/OrderService";
+import {setCurrentOrderList, setOrderCompleted, setPastOrderList} from "../../actions/orderActions";
+import {useDispatch, useSelector} from "react-redux";
+import {useParams} from "react-router";
 
 const useStyles = makeStyles(theme => ({
     appBarSpacer: theme.mixins.toolbar,
@@ -31,8 +35,19 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function CurrentOrder ({currentOrderList, completeOrder}) {
+export default function CurrentOrder () {
     const classes = useStyles();
+
+    let params = useParams();
+    const restaurantId = params.rid;
+
+    const currentOrderList = useSelector(state => state.currentOrderList)
+    const dispatch = useDispatch();
+
+    const completeOrder = (orderCompleted) => {
+        OrderService.updateOrderStatus(restaurantId, orderCompleted.id)
+            .then(state => dispatch(setOrderCompleted(orderCompleted)))
+    }
 
     return (
         <Grid container spacing={3}>

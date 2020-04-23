@@ -1,12 +1,12 @@
 import {
-    REMOVE_COMPLETED_ORDER,
-    SET_ORDER_COMPLETED,
     SET_ORDER_LIST,
     SET_CURRENT_ORDER_LIST,
-    SET_PAST_ORDER_LIST
-} from "./actions/orderActions";
+    SET_PAST_ORDER_LIST,
+    SET_ORDER_COMPLETED,
+    REMOVE_COMPLETED_ORDER
+} from "../actions/orderActions";
 
-const reducers = {
+const orderReducer = {
     orderList(state = [], action) {
         console.log("foodList reducer:", state, action, action.type)
         const {type, payload} = action
@@ -22,7 +22,10 @@ const reducers = {
         const {type, payload} = action
         switch (type) {
             case SET_ORDER_COMPLETED:
-                return state.push(payload)
+                return {
+                    ...state,
+                    payload
+                }
             case SET_PAST_ORDER_LIST:
                 return payload
             default:
@@ -42,5 +45,4 @@ const reducers = {
     }
 }
 
-
-export default reducers
+export default orderReducer
