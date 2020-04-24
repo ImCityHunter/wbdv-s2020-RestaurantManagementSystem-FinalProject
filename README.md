@@ -18,6 +18,23 @@ This project uses material UI, and uses some of its template on its [website](ht
 `Customers`: able to add and order <br/>
 `Restaurant Owners`: able to edit its' restaurant's name, menu, open hours, etc. <br/>
 
+## Sample Accounts
+
+`customer`: username: customer, password: customer, type: customer <br />
+`restuarnt`: username: foodmax, password: foodmax, type: restaurant <br />
+specific information can be found in our backend <br />
+
+## BackEnd
+Our [backend](https://web5610-final-project-backend.herokuapp.com/) uses mybatis. <br />
+
+Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
+https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurant_id}/orders <br/>
+
+Find Info about a specific Customer: 
+
+https://web5610-final-project-backend.herokuapp.com/users/${user_id} <br />
+
+
 
 
 
