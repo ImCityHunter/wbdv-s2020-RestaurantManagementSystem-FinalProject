@@ -14,7 +14,7 @@ Project Name: Restaurant Menu Management System <br />
 
 ## Summary
 This web application is full a stack application. It uses React Hooks and Material UI for the front-end development. As for the backend,
-we use SpringMVC and MyBatis. Some pages of front-end uses templates for the official website of [Material UI] (https://material-ui.com/).
+we use SpringMVC and MyBatis. Some pages of front-end uses templates for the official website of [Material UI](https://material-ui.com/).
 The recipe data comes from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database).  <br />
 This project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer). We have also found out that there are few functions that run perfectly when run locally, but act weird on heroku. We are doing our best to overcome. <br />
 Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5yPesEgzk-D3D3yEQ1pdv0/edit) is also written; however, due to simplicity of grading and checking bugs, we took out the encryption and decryption for password. <br />
