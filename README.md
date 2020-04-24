@@ -13,9 +13,11 @@ Project Name: Restaurant Menu Management System <br />
 [Previous Prototype](https://e-menu-management.herokuapp.com/)
 
 ## Summary
-This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database) to retrieve some information about a searched meal.  <br />
+This web application is full a stack application. It uses React Hooks and Material UI for the front-end development. As for the backend,
+we use SpringMVC and MyBatis. Some pages of front-end uses templates for the official website of [Material UI] (https://material-ui.com/).
+The recipe data comes from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database).  <br />
 This project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer). We have also found out that there are few functions that run perfectly when run locally, but act weird on heroku. We are doing our best to overcome. <br />
-Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5yPesEgzk-D3D3yEQ1pdv0/edit) is also written; howevever, due to simplicity of grading and checking bugs, we took out the encryption and decryption for password. <br />
+Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5yPesEgzk-D3D3yEQ1pdv0/edit) is also written; however, due to simplicity of grading and checking bugs, we took out the encryption and decryption for password. <br />
 
 #### The reasons we use a third party API
 We use a third party API, [Edamam Food and Grocery Database](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database). This API contains a lot of information regarding to meals around the world. This API is used to help restaurants to build their menu faster. This API contains information about a meal's ingredient, image, food calories, etc. 
@@ -66,7 +68,7 @@ Instruction on how to access and view our backend is discussed below <br />
 
 
 #### BackEnd
-Our backend uses mybatis. <br />
+Our backend uses SpringMVC and myBatis. <br />
 codes is [here](https://github.com/yu2749luca/wbdv-s2020-RestaurantManagementSystem-FinalProject/tree/backend)<br />
 Use the following link to have visual: https://web5610-final-project-backend.herokuapp.com <br />
 Add the following path after this above link to see specific data that you desire to see<br />
@@ -80,19 +82,31 @@ Add the following path after this above link to see specific data that you desir
 
   - Find Menu about all the menu items of a restaruant <br />
   add `/restaurant/${rid}/products` <br />
+  
+  - Restaurant Login GET
+    add `/restaurant/login?username=xxx&password=xxx`
+    
+  - Restaurant Register POST
+    add `/restaurant/register` please do remember to put register info in the request body
 
 - Customer
   - Find Info about a specific Customer:  use `6` as user id <br />
   add `/users/${user_id}` <br />
-  
+  - Customer Login GET
+    add `/users/login?username=xxx&password=xxx`
+    
+  - Customer Register POST
+    add `/users/register` please do remember to put register info in the request body.
+   
+  - User orders GET
+    add `/users/{userId}/orders`
+
 - Meal/Product  
   - Find Info about all products <br />
   add `/products/all` <br />
 
   - Find Info about a specific item/meal/product: use `151` as an sample <br />
   add `/products/${product_id}`
-
-
 #### Database
 Our database is therefore also launched on heroku. In order to have a better visual for our database, a third party software such as [SQL workbench](https://dev.mysql.com/) is needed. And the link to our database is here: `jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0a098ba37876f06serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true`
 
