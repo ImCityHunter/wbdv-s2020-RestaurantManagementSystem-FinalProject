@@ -42,7 +42,7 @@ add `/restaurant/${restaurant_id}` <br />
 - Find Info about all the orders of a restaurant: <br />
 add `/restaurant/${restaurant_id}/orders` <br />
 
-- Find Info about a specific Customer:  use `1` as user id <br />
+- Find Info about a specific Customer:  use `6` as user id <br />
 add `/users/${user_id}` <br />
 
 
