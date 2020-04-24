@@ -1,0 +1,851 @@
+{
+  "text": "vegetables",
+  "parsed": [],
+  "hints": [
+    {
+      "food": {
+        "foodId": "food_bitqzx8b319psvbib2dufarphbxy",
+        "label": "vegetables",
+        "nutrients": {
+          "ENERC_KCAL": 72.0,
+          "PROCNT": 3.33,
+          "FAT": 0.52,
+          "CHOCDF": 13.47,
+          "FIBTG": 4.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/f3f/f3fa6996eba331be219778406f67a5a3.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pack",
+          "label": "Pack"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_byry1vabvkcpoobsf6xb8aru73vh",
+        "label": "Babyfood, vegetables, garden vegetable, strained",
+        "nutrients": {
+          "ENERC_KCAL": 32.0,
+          "PROCNT": 2.3,
+          "FAT": 0.2,
+          "CHOCDF": 6.8,
+          "FIBTG": 1.5
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_jar",
+          "label": "Jar"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_aigcmzcbps07jwb7hcuciad15ure",
+        "label": "babyfood, vegetables, mix vegetables junior",
+        "nutrients": {
+          "ENERC_KCAL": 36.0,
+          "PROCNT": 1.4,
+          "FAT": 0.4,
+          "CHOCDF": 8.2,
+          "FIBTG": 1.5
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_jar",
+          "label": "Jar"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon",
+          "label": "Tablespoon"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b89kf45bp8r4oqaoz4hmfau5wivx",
+        "label": "babyfood, vegetables, mix vegetables strained",
+        "nutrients": {
+          "ENERC_KCAL": 36.0,
+          "PROCNT": 1.0,
+          "FAT": 0.5,
+          "CHOCDF": 8.25,
+          "FIBTG": 1.5
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_jar",
+          "label": "Jar"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bh10621buadyehbk99ib2bd17o3y",
+        "label": "Vegetables",
+        "nutrients": {
+          "ENERC_KCAL": 69.01427481042127,
+          "PROCNT": 1.533650551342695,
+          "FAT": 4.600951654028085,
+          "CHOCDF": 7.668252756713475,
+          "FIBTG": 1.533650551342695
+        },
+        "brand": "Roti",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_ag6s6dvau7vztsaw1hb5qalb00qz",
+        "label": "Vegetables",
+        "nutrients": {
+          "ENERC_KCAL": 22.123893805309734,
+          "PROCNT": 1.7699115044247788,
+          "FAT": 0.0,
+          "CHOCDF": 4.424778761061948,
+          "FIBTG": 1.7699115044247788
+        },
+        "brand": "Mimi's Cafe",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bb2qjrjamst0vmam39stubtkmrs4",
+        "label": "Vegetable Stock",
+        "nutrients": {
+          "ENERC_KCAL": 0.963321264,
+          "PROCNT": 0.030342269,
+          "FAT": 0.037668371,
+          "CHOCDF": 0.150307177,
+          "FIBTG": 0.04224718400000001
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_teaspoon",
+          "label": "Teaspoon"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon",
+          "label": "Tablespoon"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a7n85rqb8thw32auwq9sobnbd0d2",
+        "label": "Vegetable Shortening",
+        "nutrients": {
+          "ENERC_KCAL": 917.0,
+          "PROCNT": 0.0,
+          "FAT": 100.0,
+          "CHOCDF": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bt1mzi2ah2sfg8bv7no1qai83w8s",
+        "label": "vegetable oil",
+        "nutrients": {
+          "ENERC_KCAL": 884.0,
+          "PROCNT": 0.0,
+          "FAT": 100.0,
+          "CHOCDF": 0.0,
+          "FIBTG": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/6e5/6e51a63a6300a8ea1b4c4cc68dfaba33.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon",
+          "label": "Tablespoon"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_default"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_azp9kpnaz2ugspbgm4y9cb6klexy",
+        "label": "Savory Vegetables",
+        "nutrients": {
+          "ENERC_KCAL": 55.15789473684211,
+          "PROCNT": 2.951052631578947,
+          "FAT": 0.8381286549707603,
+          "CHOCDF": 8.819707602339182,
+          "FIBTG": 2.128654970760234
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "Chicken Broth; vegetables"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b4ypg91b20j5h9a55majabnferfe",
+        "label": "Vegetable Renin",
+        "nutrients": {
+          "ENERC_KCAL": 0.0,
+          "PROCNT": 0.0,
+          "FAT": 0.0,
+          "CHOCDF": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a3pmtq6baezdjua13qgh2aly10nx",
+        "label": "Vegetable Salt",
+        "nutrients": {
+          "ENERC_KCAL": 0.0,
+          "PROCNT": 0.0,
+          "FAT": 0.0,
+          "CHOCDF": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b09sefzbxhadaean73nm0apif5dt",
+        "label": "canned vegetables",
+        "nutrients": {
+          "ENERC_KCAL": 49.0,
+          "PROCNT": 2.59,
+          "FAT": 0.25,
+          "CHOCDF": 9.26,
+          "FIBTG": 3.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_can",
+          "label": "Can"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_anr6fyyaq3kaztb6an13va45c6sf",
+        "label": "vegetable juice",
+        "nutrients": {
+          "ENERC_KCAL": 19.0,
+          "PROCNT": 0.93,
+          "FAT": 0.31,
+          "CHOCDF": 3.87,
+          "FIBTG": 0.5
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_can",
+          "label": "Can"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_fluid_ounce",
+          "label": "Fluid ounce"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_aiokv4mbux1suxaw1tzeaa37i66k",
+        "label": "Vegetable Dip",
+        "nutrients": {
+          "ENERC_KCAL": 219.60669085188943,
+          "PROCNT": 2.2142782193899233,
+          "FAT": 20.995542573839906,
+          "CHOCDF": 6.049297284589035,
+          "FIBTG": 1.3437035084884672
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "Vegetable; Mayonnaise; sour cream"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a734yusb2bzlala8p0ivralk0cn1",
+        "label": "Chinese Vegetables",
+        "nutrients": {
+          "ENERC_KCAL": 95.88773765633313,
+          "PROCNT": 1.9374739759916975,
+          "FAT": 7.636340572910181,
+          "CHOCDF": 6.383520176327252,
+          "FIBTG": 2.1570783641413946
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "soy sauce; green beans; vegetable oil; chicken stock; sugar"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_aibguvpazukb8ub6vommaarn5ei2",
+        "label": "Vegetable Biryani",
+        "nutrients": {
+          "ENERC_KCAL": 155.35754523190303,
+          "PROCNT": 3.685556005257599,
+          "FAT": 4.609744962798486,
+          "CHOCDF": 24.79098217871435,
+          "FIBTG": 1.6771177602006309
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "Basmati Rice; Mixed Vegetable; Green Peas; Onion; Chillies; Salt; Cumin Seeds; Cloves; Black Pepper; Yogurt; Vegetable Oil; mint; coriander leaves"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bkia6u8bechqpsb7odwm1b6o8m6r",
+        "label": "Cajun Vegetables",
+        "nutrients": {
+          "ENERC_KCAL": 97.39101815787396,
+          "PROCNT": 2.7939862655100325,
+          "FAT": 4.8310552608368535,
+          "CHOCDF": 11.883563073543028,
+          "FIBTG": 3.046938628959658
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "frozen vegetable; green beans; mushrooms; butter; olive oil; corn; seasoning"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_adfzhh1blv9y5dau8zqe6b84rju1",
+        "label": "Vegetable Jambalaya",
+        "nutrients": {
+          "ENERC_KCAL": 76.64545665444219,
+          "PROCNT": 2.3356250043677402,
+          "FAT": 1.101053917261975,
+          "CHOCDF": 14.76581959163978,
+          "FIBTG": 1.6759263688223827
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "vegetable oil; onion; green pepper; garlic; long grain rice; vegetable broth; corn; Worcestershire sauce; red pepper; black-eyed peas; can stewed tomatoes"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a1ght4iaiyksoga8fgxeua1bk57m",
+        "label": "Vegetable Latkes",
+        "nutrients": {
+          "ENERC_KCAL": 103.10259430512139,
+          "PROCNT": 2.7400751487312753,
+          "FAT": 3.4606814852957823,
+          "CHOCDF": 15.912893823475851,
+          "FIBTG": 2.8885901072881874
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "carrots; parsnips; potato; scallions; all-purpose flour; Salt; black pepper; eggs; vegetable oil"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    }
+  ],
+  "_links": {
+    "next": {
+      "title": "Next page",
+      "href": "https://api.edamam.com/api/food-database/parser?session=40&app_key=69d004c3e3c5b967261e625baea627fc&app_id=85b409cf&ingr=vegetables"
+    }
+  }
+}
