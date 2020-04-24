@@ -35,13 +35,13 @@ Our backend uses mybatis. <br />
 link is here https://web5610-final-project-backend.herokuapp.com <br />
 
 Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
-add `restaurant/${restaurant_id}` <br />
+add `/restaurant/${restaurant_id}` <br />
 
 Find Info about all the orders of a restaurant: <br />
-add `restaurant/${restaurant_id}/orders` <br />
+add `/restaurant/${restaurant_id}/orders` <br />
 
 Find Info about a specific Customer:  use `1` as user id <br />
-add `users/${user_id}` <br />
+add `/users/${user_id}` <br />
 
 
 
