@@ -5,11 +5,14 @@ Teammates / Github: <br />
 HoKang Yu, yu2749luca <br />
 Jiangchuan Wang,  agreeableness (Project Leader)<br />
 Jinyang Zheng, Sjyzheng <br />
+
 ## Summary
 This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database) to retrieve some information about a searched meal.  <br />
 Project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer) <br />
 Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5yPesEgzk-D3D3yEQ1pdv0/edit) is also written; howevever, due to simplicity of grading and checking bugs, we took out the encryption and decryption for password. <br />
 
+### The reasons we use a third party API
+We use a third party API, [Edamam Food and Grocery Database](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database). This API contains a lot of information regarding to meals around the world. This API is used to help restaurants to build their menu faster. This API contains information about a meal's ingredient, image, food calories, etc. 
 
 #### Restaurant Menu Management System
 
