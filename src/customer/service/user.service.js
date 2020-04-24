@@ -4,7 +4,7 @@ import {
     restaurantRegisterUrl,
     userRegisterUrl,
     userLoginUrl,
-    restaurantLoginUrl, userOrderUrl, getUserOrderUrl
+    restaurantLoginUrl, getUserOrderUrl
 } from "../../constants";
 
 export const login = (username, password, role) => {
