@@ -1,4 +1,4 @@
-# wbdv-spring2020-Team2-FinalProject
+# wbdv-spring2020-Team2-FinalProject/Restaurant Menu Management System
 [Description](https://docs.google.com/document/d/15MdexRhb_bj57tCSDTYnTVwqin9Y62oLSSEQn9sO9ZE/edit) <br />
 
 Teammates / Github: <br />
@@ -14,9 +14,8 @@ Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5y
 #### The reasons we use a third party API
 We use a third party API, [Edamam Food and Grocery Database](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database). This API contains a lot of information regarding to meals around the world. This API is used to help restaurants to build their menu faster. This API contains information about a meal's ingredient, image, food calories, etc. 
 
-#### Restaurant Menu Management System
-
-`Elevator Pitch`: Here and there, we see some restaurants willing to invest money to make their own apps to order food in store. But small restaurants still rely on using paper menus for in-store customers. We are designing a web for small restaurants owners to create their own digital menus for in-store customers. Thus, restaurants can log in to create their own menus. Customers will also create their own profile pages and they can view various restaurants’ menus when customers sit in, restaurants will give the customer an “id”  in order to order at that restaurant. 
+#### Elevator Pitch
+Here and there, we see some restaurants willing to invest money to make their own apps to order food in store. But small restaurants still rely on using paper menus for in-store customers. We are designing a web for small restaurants owners to create their own digital menus for in-store customers. Thus, restaurants can log in to create their own menus. Customers will also create their own profile pages and they can view various restaurants’ menus when customers sit in, restaurants will give the customer an “id”  in order to order at that restaurant. 
 
 #### Users: Customers/Restaurant Owners/Anonymous users
 `Anonymous users`: able to see what regular customers can see, but cannot make the final order <br/>
