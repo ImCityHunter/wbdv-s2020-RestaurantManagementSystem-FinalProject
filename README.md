@@ -3,7 +3,7 @@
 
 Teammates / Github: <br />
 HoKang Yu, yu2749luca <br />
-Jiangchuan Wang,  agreeableness <br />
+Jiangchuan Wang,  agreeableness (Project Leader)<br />
 Jinyang Zheng, Sjyzheng <br />
 ## Summary
 This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database) to retrieve some information about a searched meal.  <br />
