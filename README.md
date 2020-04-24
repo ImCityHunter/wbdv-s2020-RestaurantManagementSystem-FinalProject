@@ -8,6 +8,7 @@ Jinyang Zheng, Sjyzheng <br />
 ## Summary
 This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database) to retrieve some information about a searched meal.  <br />
 Project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer) <br />
+Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5yPesEgzk-D3D3yEQ1pdv0/edit) is also written; howevever, due to simplicity of grading and checking bugs, we took out the encryption and decryption for password. <br />
 
 
 #### Restaurant Menu Management System
