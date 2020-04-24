@@ -93,12 +93,6 @@ export default function MenuItemsList({category, restaurantId}) {
                 .then(results => {
                     if (results) {
                         setSearchResults(results.hints.filter(items => items.food.foodContentsLabel))
-                        // setMenuItem({
-                        //     ...menuItem,
-                        //     name: results.hints[0].food.label,
-                        //     calories: ((results.hints[0].food.nutrients.ENERC_KCAL)?results.hints[0].food.nutrients.ENERC_KCAL: 0).toFixed(2).toString(),
-                        //     ingredient: (results.hints[0].food.foodContentsLabel)?results.hints[0].food.foodContentsLabel: ''
-                        // });
                     }
                 })
                 .then(() => setOpen(true))
@@ -117,6 +111,7 @@ export default function MenuItemsList({category, restaurantId}) {
                     })
                     return true;
                 }
+                return false;
             })
         }
         setOpen(false);
@@ -183,11 +178,6 @@ export default function MenuItemsList({category, restaurantId}) {
     }
 
     const [open, setOpen] = React.useState(false);
-    const [scroll, setScroll] = React.useState('paper');
-
-    const handleClickOpen = () => () => {
-        setOpen(true);
-    };
 
     const handleClose = () => {
         setOpen(false);
@@ -207,8 +197,6 @@ export default function MenuItemsList({category, restaurantId}) {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
-    console.log(searchResults)
-
     const [rowSelected, setRowSelected] = React.useState('')
     const handleRowSelectedChange = (event, itemId) =>
         setRowSelected(itemId)
@@ -226,7 +214,7 @@ export default function MenuItemsList({category, restaurantId}) {
                     aria-describedby="scroll-dialog-description"
                 >
                     <DialogTitle id="scroll-dialog-title">Select Online Recipe</DialogTitle>
-                    <DialogContent dividers={scroll === 'paper'}>
+                    <DialogContent dividers={true}>
                         <TableContainer component={Paper}>
                             <Table stickyHeader className={classes.table} aria-label="simple table">
                                 <TableHead>

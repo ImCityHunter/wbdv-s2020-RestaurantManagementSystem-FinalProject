@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -13,7 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { useParams } from 'react-router'
 import NavBar from "../layout/NavBar";
 import OrderService from "../../service/OrderService";
-import {setCurrentOrderList, setOrderList, setPastOrderList} from "../../actions/orderActions";
+import {setCurrentOrderList, setOrderList} from "../../actions/orderActions";
 import {useDispatch, useSelector} from "react-redux";
 import moment from "moment";
 
@@ -66,8 +66,6 @@ export default function Dashboard() {
     const currentOrderList = useSelector(state => state.currentOrderList);
     const orderList = useSelector(state => state.orderList);
     const dispatch = useDispatch();
-
-    const [count, setCount] = useState(0)
 
     const date = new Date();
     const today = moment(date).format( 'YYYY-MM-DD')

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -52,8 +52,6 @@ export default function OrderViewer() {
 
     const dispatch = useDispatch();
 
-    const [count, setCount] = useState(0)
-
     useEffect(() => {
         if (currentOrderList.length>0 && pastOrderList.length>0) {
             const interval = setInterval(() => {
@@ -80,23 +78,21 @@ export default function OrderViewer() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
-                    <Container component={Paper}>
+                    <Container component={Paper} className={classes.container}>
                         <br/>
-                        <Typography variant="h5">
+                        <Typography variant="h5" align="center">
                             Current Order
                         </Typography>
                         <br/>
                         <CurrentOrder />
                     </Container>
                     <div className={classes.appBarSpacer}/>
-                    <Container component={Paper}>
-                        <br/>
-                        <Typography variant="h5">
+                    <Container component={Paper} className={classes.container}>
+                        <Typography variant="h5" align="center">
                             Completed Order
                         </Typography>
                         <br/>
                         <PastOrder />
-                        <br/>
                     </Container>
                 </Container>
             </main>

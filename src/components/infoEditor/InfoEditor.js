@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+const days = [{day: 'Mon', index: 0}, {day: 'Tue', index: 1}, {day: 'Wed', index: 2}, {day: 'Thu', index: 3}, {day: 'Fri', index: 4}, {day: 'Sat', index: 5}, {day: 'Sun', index: 6}]
 
 export default function InfoEditor() {
     const classes = useStyles();
@@ -79,11 +79,31 @@ export default function InfoEditor() {
             ...restaurantInfo, [event.target.name]: event.target.value
         })
 
+    const [businessHours, setBusinessHours] = React.useState(['','','','','','','','','','','','','','']);
+
+    const handleBusinessHours = (event, index) =>{
+        setBusinessHours(businessHours.slice(0,index).concat(event.target.value, businessHours.slice(index+1)))
+    }
+
     useEffect(() => {
         RestaurantService.getRestaurantInfo(restaurantId)
-            .then(response =>
-                setRestaurantInfo(response))
-    },[restaurantId])
+            .then(response => {
+                setRestaurantInfo(response)}
+                ).then(() => {
+                    console.log(restaurantInfo)
+                    if (restaurantInfo.businessHours.length>0)
+                    setBusinessHours(restaurantInfo.businessHours.split(","))
+        })
+    },[restaurantInfo.id])
+
+    useEffect(() => {
+            setRestaurantInfo({
+                ...restaurantInfo,
+                businessHours: businessHours.join()
+            })
+    }, [businessHours])
+
+
 
     const updateRestaurantInfo = (restaurantInfo) =>
         RestaurantService.updateRestaurantInfo(restaurantInfo)
@@ -95,57 +115,24 @@ export default function InfoEditor() {
 
     const clearRestaurantInfo = () =>
         setRestaurantInfo({
-            id: '',
+            ...restaurantInfo,
             restaurantName: '',
             phoneNumber: '',
             email: '',
             address: '',
             description: '',
-            businessHours: ''
         })
 
-
-
-    const [openTime, setOpenTime] = React.useState({
-        Mon: '08:30',
-        Tue: '08:30',
-        Wed: '08:30',
-        Thu: '08:30',
-        Fri: '08:30',
-        Sat: '08:30',
-        Sun: '08:30'
-    });
-    const handleOpenTimeChange = (event) => {
-        setOpenTime(event.target.value);
+    const handleBusinessClosedChange = (event, index) => {
+        if (businessHours[index].charAt(0) !== '*') {
+            setBusinessHours(businessHours.slice(0,index).concat( ['*'+businessHours[index]], ['*'+businessHours[index+1]], businessHours.slice(index+2)))
+        } else {
+            setBusinessHours(businessHours.slice(0,index).concat( [businessHours[index].slice(1)], [businessHours[index+1].slice(1)], businessHours.slice(index+2)))
+        }
     };
 
-    const [closeTime, setcloseTime] = React.useState({
-        Mon: '21:30',
-        Tue: '21:30',
-        Wed: '21:30',
-        Thu: '21:30',
-        Fri: '21:30',
-        Sat: '21:30',
-        Sun: '21:30'
-    });
-    const handleCloseTimeChange = (event) => {
-        setcloseTime(event.target.value);
-    };
+    console.log(businessHours)
 
-    const[businessClosed, setBusinessClosed] = React.useState({
-        Mon: false,
-        Tue: false,
-        Wed: false,
-        Thu: false,
-        Fri: false,
-        Sat: false,
-        Sun: false
-    });
-    const handleBusinessClosedChange = (event) => {
-        setBusinessClosed({
-            ...businessClosed, [event.target.name]: event.target.checked
-        })
-    };
 
     return (
         <div className={classes.root}>
@@ -155,158 +142,159 @@ export default function InfoEditor() {
                 title = "Restaurant Information Editor"/>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12}>
-                            <div>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.button}
-                                    size="large"
-                                    startIcon={<SaveIcon />}
-                                    onClick={()=>updateRestaurantInfo(restaurantInfo)}
-                                >
-                                    Save
-                                </Button>
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    className={classes.button}
-                                    size="large"
-                                    startIcon={<ClearIcon />}
-                                    onClick={clearRestaurantInfo}
-                                >
-                                    Clear
-                                </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                required
-                                id="restaurantName"
-                                name="restaurantName"
-                                label="Restaurant name"
-                                value={restaurantInfo.restaurantName}
-                                onChange={handleRestaurantInfoChange}
-                                fullWidth
-                                variant="outlined"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="phoneNumber"
-                                name="phoneNumber"
-                                label="Contact Number"
-                                value={restaurantInfo.phoneNumber}
-                                onChange={handleRestaurantInfoChange}
-                                fullWidth
-                                variant="outlined"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                id="email"
-                                name="email"
-                                label="Email Address"
-                                value={restaurantInfo.email}
-                                onChange={handleRestaurantInfoChange}
-                                fullWidth
-                                variant="outlined"
-                            />
-                        </Grid>
+                <Container maxWidth="lg" className={classes.container} >
+                    <Container component={Paper} className={classes.container}>
+                        <Grid container spacing={3}>
+                            <Grid item xs={12}>
+                                <div>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        className={classes.button}
+                                        size="large"
+                                        startIcon={<SaveIcon />}
+                                        onClick={()=>updateRestaurantInfo(restaurantInfo)}
+                                    >
+                                        Save
+                                    </Button>
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        className={classes.button}
+                                        size="large"
+                                        startIcon={<ClearIcon />}
+                                        onClick={clearRestaurantInfo}
+                                    >
+                                        Clear
+                                    </Button>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    id="restaurantName"
+                                    name="restaurantName"
+                                    label="Restaurant name"
+                                    value={restaurantInfo.restaurantName}
+                                    onChange={handleRestaurantInfoChange}
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    required
+                                    id="phoneNumber"
+                                    name="phoneNumber"
+                                    label="Contact Number"
+                                    value={restaurantInfo.phoneNumber}
+                                    onChange={handleRestaurantInfoChange}
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    required
+                                    id="email"
+                                    name="email"
+                                    label="Email Address"
+                                    value={restaurantInfo.email}
+                                    onChange={handleRestaurantInfoChange}
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Grid>
 
-                        <Grid item xs={12}>
-                            <TextField
-                                required
-                                id="address"
-                                name="address"
-                                label="Address line"
-                                value={restaurantInfo.address}
-                                onChange={handleRestaurantInfoChange}
-                                fullWidth
-                                variant="outlined"
-                            />
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    id="address"
+                                    name="address"
+                                    label="Address line"
+                                    value={restaurantInfo.address}
+                                    onChange={handleRestaurantInfoChange}
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="description"
+                                    name="description"
+                                    label="About the Company"
+                                    value={restaurantInfo.description}
+                                    onChange={handleRestaurantInfoChange}
+                                    variant="outlined"
+                                    multiline
+                                    rows={4}
+                                    fullWidth
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                id="description"
-                                name="description"
-                                label="About the Company"
-                                value={restaurantInfo.description}
-                                onChange={handleRestaurantInfoChange}
-                                variant="outlined"
-                                multiline
-                                rows={4}
-                                fullWidth
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TableContainer component={Paper}>
-                                <Typography variant="h6" align="center">
-                                    Business Hours
-                                </Typography>
-                                <Table aria-label="simple table">
-                                    <TableBody>
-                                        {days.map(day => {
-                                            return (
-                                                <TableRow key={day}>
-                                                    <TableCell align="center">{day}</TableCell>
-                                                    <TableCell align="center">
-                                                        <TextField
-                                                            id="time"
-                                                            label="Open Time"
-                                                            type="time"
-                                                            value={openTime[day]}
-                                                            onChange={handleOpenTimeChange}
-                                                            disabled={businessClosed[day]}
-                                                            InputLabelProps={{
-                                                                shrink: true,
-                                                            }}
-                                                            inputProps={{
-                                                                step: 300, // 5 min
-                                                            }}
-                                                        />
-                                                    </TableCell>
-                                                    <TableCell align="center">To</TableCell>
-                                                    <TableCell align="center">
-                                                        <TextField
-                                                            id="time"
-                                                            label="Close Time"
-                                                            type="time"
-                                                            value={closeTime[day]}
-                                                            onChange={handleCloseTimeChange}
-                                                            disabled={businessClosed[day]}
-                                                            InputLabelProps={{
-                                                                shrink: true,
-                                                            }}
-                                                            inputProps={{
-                                                                step: 300, // 5 min
-                                                            }}
-                                                        />
-                                                    </TableCell>
-                                                    <TableCell align="center">
-                                                        <FormControlLabel
-                                                            control={
-                                                                <Checkbox
-                                                                    color="primary"
-                                                                    name={day}
-                                                                    checked={businessClosed[day]}
-                                                                    onChange={handleBusinessClosedChange}
-                                                                />}
-                                                            label="Closed"
-                                                        />
-                                                    </TableCell>
-                                                </TableRow>
-                                            )
-                                        })}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                        </Grid>
-                    </Grid>
+                    </Container>
+                    <br/>
+                        <TableContainer component={Paper} className={classes.container}>
+                            <Typography variant="h5" align="center">
+                                Business Hours
+                            </Typography>
+                            <Table aria-label="simple table">
+                                <TableBody>
+                                    {days.map(day => {
+                                        return (
+                                            <TableRow key={day.index}>
+                                                <TableCell align="center">{day.day}</TableCell>
+                                                <TableCell align="center">
+                                                    <TextField
+                                                        id="time"
+                                                        label="Open Time"
+                                                        type="time"
+                                                        value={( businessHours[(day.index)*2].charAt(0) === '*') ? businessHours[(day.index)*2].slice(1) : businessHours[(day.index)*2]}
+                                                        onChange={event => handleBusinessHours(event, (day.index) * 2)}
+                                                        disabled={(businessHours[(day.index)*2]).charAt(0) === '*' && (businessHours[(day.index)*2+1]).charAt(0) === '*'}
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }}
+                                                        inputProps={{
+                                                            step: 300, // 5 min
+                                                        }}
+                                                    />
+                                                </TableCell>
+                                                <TableCell align="center">To</TableCell>
+                                                <TableCell align="center">
+                                                    <TextField
+                                                        id="time"
+                                                        label="Close Time"
+                                                        type="time"
+                                                        value={( businessHours[(day.index)*2+1].charAt(0) === '*') ? businessHours[(day.index)*2+1].slice(1) : businessHours[(day.index)*2+1]}
+                                                        onChange={event => handleBusinessHours(event, (day.index)*2+1)}
+                                                        disabled={(businessHours[(day.index)*2]).charAt(0) === '*' && (businessHours[(day.index)*2+1]).charAt(0) === '*'}
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }}
+                                                        inputProps={{
+                                                            step: 300, // 5 min
+                                                        }}
+                                                    />
+                                                </TableCell>
+                                                <TableCell align="center">
+                                                    <FormControlLabel
+                                                        control={
+                                                            <Checkbox
+                                                                color="primary"
+                                                                name={day.day}
+                                                                checked={(businessHours[(day.index)*2]).charAt(0) === '*' && (businessHours[(day.index)*2+1]).charAt(0) === '*'}
+                                                                onChange={event => handleBusinessClosedChange(event, (day.index)*2)}
+                                                            />}
+                                                        label="Closed"
+                                                    />
+                                                </TableCell>
+                                            </TableRow>
+                                        )
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                 </Container>
             </main>
         </div>
