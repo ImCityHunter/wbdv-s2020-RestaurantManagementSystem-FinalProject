@@ -189,13 +189,18 @@ export default function Dashboard() {
                                 </div>
                             </Card>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <TableContainer component={Paper}>
+                                <br/>
+                                <Typography variant="h5" align="center">
+                                    Popular Dishes
+                                </Typography>
+                                <hr/>
                                 <Table className={classes.table} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>Item Name</TableCell>
-                                            <TableCell align="center">Amount</TableCell>
+                                            <TableCell align="right">Amount</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -204,7 +209,7 @@ export default function Dashboard() {
                                                 <TableCell component="th" scope="row">
                                                     {name}
                                                 </TableCell>
-                                                <TableCell align="center">{amount}</TableCell>
+                                                <TableCell align="right">{amount}</TableCell>
                                             </TableRow>
                                         ))}
                                     </TableBody>
