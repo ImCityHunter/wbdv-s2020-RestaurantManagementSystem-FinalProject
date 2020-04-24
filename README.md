@@ -6,7 +6,7 @@ HoKang Yu, yu2749luca <br />
 Jiangchuan Wang,  agreeableness <br />
 Jinyang Zheng, Sjyzheng <br />
 ## Summary
-This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database).  <br />
+This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database) to retrieve some information about a searched meal.  <br />
 Project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer) <br />
 
 
@@ -16,8 +16,8 @@ Project is launched on Heroku at [here](https://restaurant-management-menu.herok
 
 #### Users: Customers/Restaurant Owners/Anonymous users
 `Anonymous users`: able to see what regular customers can see, but cannot make the final order <br/>
-`Customers`: able to add and order <br/>
-`Restaurant Owners`: able to edit its' restaurant's name, menu, open hours, etc. <br/>
+`Customers`: able to add an order <br/>
+`Restaurant Owners`: able to edit its' restaurant's name, menu, open hours, etc. We uses an API as listed above to help restuarant owner to find template of its meal's default information. However, we also allows restaurants owners to change those information. And all the information is then added our database<br/>
 
 
 ## Testing Information
@@ -51,13 +51,15 @@ Add the following path after this above link to see specific data that you desir
   add `/users/${user_id}` <br />
   
 - Meal/Product  
-
   - Find Info about all products <br />
   add `/products/all` <br />
 
   - Find Info about a specific item/meal/product: use `151` as an sample <br />
   add `/products/${product_id}`
 
+
+#### Database
+Our database is therefore also launched on heroku. The specific information is here `jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0a098ba37876f06serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true`
 
 
 
