@@ -41,7 +41,10 @@ Add the following path after this above link to see specific data that you desir
    add `/restaurant/${restaurant_id}` <br />
 
   - Find Info about all the orders of a restaurant: <br />
-add `/restaurant/${restaurant_id}/orders` <br />
+  add `/restaurant/${restaurant_id}/orders` <br />
+
+  - Find Menu about all the menu items of a restaruant <br />
+  add `/restaurant/${rid}/products` <br />
 
 - Customer
   - Find Info about a specific Customer:  use `6` as user id <br />
