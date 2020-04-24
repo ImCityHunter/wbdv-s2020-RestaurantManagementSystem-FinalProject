@@ -95,8 +95,8 @@ Our database is therefore also launched on heroku. The specific information is h
 ## Future Improvement
 There are several features that we'd like to add in the future, but not a priority at the moment comparing to fixing some bugs. <br />
 
-First: adding a notification for a restaurant, after recieving a new order <br />
-Second: at the moment, a customer can make a order from multiple restaurants. in the future, an order from a customer should be only related to one restaurant. <br />
+- First: adding a notification for a restaurant, after recieving a new order <br />
+- Second: at the moment, a customer can make a order from multiple restaurants. in the future, an order from a customer should be only related to one restaurant. <br />
 
 
 
