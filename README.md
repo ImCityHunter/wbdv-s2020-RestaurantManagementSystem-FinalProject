@@ -26,7 +26,9 @@ Project is launched on Heroku at [here](https://restaurant-management-menu.herok
 
 `customer`: username: customer, password: customer, type: customer <br />
 `restuarnt`: username: foodmax, password: foodmax, type: restaurant <br />
-specific information can be found in our backend <br />
+specific information about an individual can be found in our backend <br />
+
+After logging in, each type should have different ways to navigate the dashboard. customers shall have the same dashboard as anonymous users, and restaurant owners shall be able to see what items were sold today. For the restaurant owners, they can edit and change their menu.
 
 #### BackEnd
 Our backend uses mybatis. <br />
