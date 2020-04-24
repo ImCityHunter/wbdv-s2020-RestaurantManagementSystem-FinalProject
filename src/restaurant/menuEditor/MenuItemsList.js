@@ -166,6 +166,7 @@ export default function MenuItemsList({category, restaurantId}) {
     }
 
     const clearForm = () => {
+        setSearchName('')
         setMenuItem({
             ...menuItem,
             name: '',

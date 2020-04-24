@@ -113,7 +113,7 @@ export default function NavBar({title, restaurantId}) {
                         <MenuIcon/>
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        {title}
+                        Restaurant Manger {title}
                     </Typography>
                     <Tooltip title="Log Out">
                         <IconButton color="inherit" onClick={() => {

@@ -1,11 +1,14 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
 import routes from "./routes";
 
 export default function App(props) {
     const {history} = props
     return (
         <Router history={history}>
+            <Route path="/" render={() => {
+                return <Redirect to="/customer"/>
+            }}/>
             {
                 routes.map((route, key) => {
                     if (route.exact) {

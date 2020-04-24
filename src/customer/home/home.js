@@ -105,7 +105,6 @@ export default function Home(props) {
             setOpen(true);
         }
     }, []);
-
     // wjc 解构 props里面的内容
     const selectedCategory = useSelector(state => state.selectedCategory)
     const dispatch = useDispatch()
@@ -162,14 +161,6 @@ export default function Home(props) {
                 <Divider/>
                 <LeftCategory/>
                 <Divider/>
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                            <ListItemText primary={text}/>
-                        </ListItem>
-                    ))}
-                </List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar}/>
@@ -180,7 +171,7 @@ export default function Home(props) {
                 }
                 <footer className={classes.footer}>
                     <Typography variant="h6" align="center" gutterBottom>
-                        NEU Food Hunting
+                        Restaurant Manager
                     </Typography>
                     <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                         Northeastern University Students

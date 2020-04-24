@@ -16,6 +16,12 @@ import OrderService from "../service/OrderService";
 import {setCurrentOrderList, setOrderList} from "../../actions";
 import {useDispatch, useSelector} from "react-redux";
 import moment from "moment";
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import TableBody from "@material-ui/core/TableBody";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -72,22 +78,25 @@ export default function Dashboard() {
 
     let todayTotalSale = 0;
 
-    useEffect(() => {
-        if (orderList.length>0 && todayTotalSale > 0) {
-            const interval = setInterval(() => {
-                OrderService.getAllOrder(restaurantId)
-                    .then(response => dispatch(setOrderList(response)))
-                OrderService.getCurrentOrder(restaurantId)
-                    .then(response => dispatch(setCurrentOrderList(response)))
-            }, 5000);
-            return () => clearInterval(interval)}
-        else {
-            OrderService.getAllOrder(restaurantId)
-                .then(response => dispatch(setOrderList(response)))
-            OrderService.getCurrentOrder(restaurantId)
-                .then(response => dispatch(setCurrentOrderList(response)))
+    const [counter, setCounter] = React.useState(1)
+
+    let itemList = new Map();
+    const [popularDishes, setPopularDishes] = React.useState(new Map());
+
+    const getPopularDish = () => {
+        const orderProductList = orderList.map(order => order.products)
+        for (let products of orderProductList) {
+            for (let product of products) {
+                if (!itemList.has(product.name)) {
+                    itemList.set(product.name, product.amount);
+                } else {
+                    itemList.set(product.name, itemList.get(product.name)+product.amount)
+                }
+            }
         }
-    }, [restaurantId])
+        const sortMap = new Map([...itemList.entries()].sort((a,b) => b[1] - a[1]))
+        setPopularDishes(sortMap);
+    }
 
     const getTodayTotalSale = () => {
         const todayOrderList = orderList.filter(order => order.date.slice(0, 10) === today );
@@ -97,18 +106,42 @@ export default function Dashboard() {
         return todayTotalSale
     }
 
+    useEffect(() => {
+        if (orderList.length>0 || todayTotalSale > 0) {
+            const interval = setInterval(() => {
+                OrderService.getAllOrder(restaurantId)
+                    .then(response => dispatch(setOrderList(response)))
+                OrderService.getCurrentOrder(restaurantId)
+                    .then(response => dispatch(setCurrentOrderList(response)))
+                getPopularDish();
+            }, 5000);
+            return () => clearInterval(interval)}
+        else {
+            OrderService.getAllOrder(restaurantId)
+                .then(response => dispatch(setOrderList(response)))
+            OrderService.getCurrentOrder(restaurantId)
+                .then(response => dispatch(setCurrentOrderList(response)))
+            setCounter(-counter)
+        }
+    }, [restaurantId, counter, popularDishes])
+
+
+    // const [itemList, setItemList] = React.useState([])
+
+
+
     return (
         <div className={classes.root}>
             <CssBaseline />
             <NavBar
                 restaurantId = {restaurantId}
-                title = "DashBoard"/>
+                title = "Dashboard"/>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
 
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <Card className={classes.root} >
                                 <CardMedia
                                     className={classes.cover}
@@ -127,7 +160,7 @@ export default function Dashboard() {
                                 </div>
                             </Card>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <Card className={classes.root} >
                                 <CardMedia
                                     className={classes.cover}
@@ -146,9 +179,28 @@ export default function Dashboard() {
                                 </div>
                             </Card>
                         </Grid>
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper}>
-                            </Paper>
+                        <Grid item xs={12} sm={6}>
+                            <TableContainer component={Paper}>
+                                <Table className={classes.table} aria-label="simple table">
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Item Name</TableCell>
+                                            <TableCell align="center">Amount</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {Array.from(popularDishes).map(([name, amount]) => (
+                                            <TableRow key={name}>
+                                                <TableCell component="th" scope="row">
+                                                    {name}
+                                                </TableCell>
+                                                <TableCell align="center">{amount}</TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+
                         </Grid>
 
                     </Grid>

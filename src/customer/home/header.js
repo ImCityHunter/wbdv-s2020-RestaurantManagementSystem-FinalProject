@@ -200,7 +200,7 @@ export default function Header(props) {
                     <MenuIcon/>
                 </IconButton>
                 <Typography variant="h6" noWrap className={classes.appBarTitle}>
-                    NEU Food Hunting
+                    Restaurant Manager
                 </Typography>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>

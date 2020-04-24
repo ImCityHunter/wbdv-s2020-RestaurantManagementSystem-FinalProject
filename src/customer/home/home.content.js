@@ -42,7 +42,10 @@ const useStyles = makeStyles((theme) => ({
     },
     dialogCheckout: {
         minWidth: '500px !important'
-    }
+    },
+    categoryMenu: {
+        marginBottom: theme.spacing(2)
+    },
 }))
 const mainFeaturedPost = {
     title: 'Eat Healthy!',
@@ -71,7 +74,9 @@ export default function MainContent(props) {
             <Grid container spacing={2}>
                 <Grid item sm={12} md={9}>
                     <Banner post={mainFeaturedPost}/>
-                    <LeftPanelWhenSM/>
+                    <div className={classes.categoryMenu}>
+                        <LeftPanelWhenSM/>
+                    </div>
                     <Paper className={classes.paper}>
                         <ListFood/>
                     </Paper>

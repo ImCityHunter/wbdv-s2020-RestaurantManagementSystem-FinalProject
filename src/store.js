@@ -7,7 +7,7 @@ export default createStore(
     combineReducers(reducers),
     {
         foodList: [],
-        selectedCategory: "vegetables",
+        selectedCategory: "Appetizers",
         shoppingCart: [],
         orders: [],
         user: undefined,

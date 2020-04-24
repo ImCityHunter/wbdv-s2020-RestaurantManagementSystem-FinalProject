@@ -15,6 +15,10 @@ import Badge from "@material-ui/core/Badge";
 import {useDispatch, useSelector} from "react-redux";
 import {addShoppingCart, removeShoppingCart} from "../../actions";
 import {useHistory} from "react-router";
+import CardHeader from "@material-ui/core/CardHeader";
+import Avatar from "@material-ui/core/Avatar";
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -36,8 +40,18 @@ const useStyles = makeStyles((theme) => ({
     cardChip: {
         marginRight: theme.spacing(0.5),
         marginBottom: theme.spacing(0.5),
-        marginTop: theme.spacing(1),
-    }
+        marginTop: theme.spacing(0.5),
+        marginLeft: theme.spacing(1)
+    },
+    foodTitle: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'start',
+        alignText: 'center',
+    },
+    avatar: {
+        backgroundColor: red[500],
+    },
 }));
 
 
@@ -78,29 +92,34 @@ export default function ItemFood(props) {
     return (
         <Grid item key={food.id} xs={12} sm={6} md={6} lg={4}>
             <Card className={classes.card}>
+                <CardHeader
+                    avatar={
+                        <Avatar aria-label="recipe" className={classes.avatar}>
+                            {food.restaurant.restaurantName.substr(0, 1)}
+                        </Avatar>}
+                    action={<IconButton>
+                        <MoreVertIcon/>
+                    </IconButton>}
+                    title={food.restaurant.restaurantName}
+                    subheader={food.restaurant.address.substr(0, 30)}
+                />
                 <CardMedia
                     className={classes.cardMedia}
                     image={imgUrl.small}
                     title="Image title"/>
                 <CardContent className={classes.cardContent}>
-                    <Typography variant="h6" noWrap={true}>
-                        {food.name}
-                    </Typography>
+                    <div className={classes.foodTitle}>
+                        <Typography variant="h6" noWrap={true}>
+                            {food.name}
+                        </Typography>
+                        <Chip label={"Calories: " + food.calories}
+                              className={classes.cardChip} size="small"
+                              color={"primary"}/>
+                    </div>
                     <div>
-                        {
-                            ["ENERC_KCAL", "PROCNT", "FAT", "CHOCOF", "FIBTG"].map((item, index) => {
-                                let number = 100
-                                if (number) {
-                                    number = number.toString()
-                                    number = number.substr(0, number.indexOf('.') + 2)
-                                } else {
-                                    number = "0"
-                                }
-                                return <Chip key={item} label={item + ": " + number}
-                                             className={classes.cardChip} size="small"
-                                             color={index % 2 === 0 ? "primary" : 'secondary'} variant="outlined"/>
-                            })
-                        }
+                        <Typography variant={"caption"}>
+                            {food.ingredient}
+                        </Typography>
                     </div>
                 </CardContent>
                 <CardActions>
