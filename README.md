@@ -6,7 +6,8 @@ HoKang Yu, yu2749luca <br />
 Jiangchuan Wang,  agreeableness <br />
 Jinyang Zheng, Sjyzheng <br />
 ## Summary
-This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database). 
+This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database).  <br />
+Project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer) <br />
 
 
 ## Restaurant Menu Management System
