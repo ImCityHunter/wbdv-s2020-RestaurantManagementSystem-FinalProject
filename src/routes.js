@@ -26,7 +26,7 @@ const routes = [
                 component: Profile
             }
         ]
-    }, // added this route
+    }, // added this route, in order for 無登入帳好者使用
     {
         path: "/customer",
         component: Home,
