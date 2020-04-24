@@ -1,6 +1,3 @@
-
-
-
 export const getRecipe = (meal) => fetch(`https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=${meal}`, {
     "method": "GET",
     "headers": {

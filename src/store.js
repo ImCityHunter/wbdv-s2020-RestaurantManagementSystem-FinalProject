@@ -2,7 +2,6 @@ import thunk from "redux-thunk";
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 
 import reducers from "./reducers";
-import {foods} from "./constants";
 
 export default createStore(
     combineReducers(reducers),
@@ -10,11 +9,8 @@ export default createStore(
         foodList: [],
         selectedCategory: "vegetables",
         shoppingCart: [],
-        user: {
-            id: 1,
-            username: 'jack',
-            password: 'wjc123'
-        },
+        orders: [],
+        user: undefined,
         isLogin: false
     },
     applyMiddleware(thunk)

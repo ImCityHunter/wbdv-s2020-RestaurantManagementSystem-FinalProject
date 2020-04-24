@@ -19,9 +19,8 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import Badge from "@material-ui/core/Badge";
 import Tooltip from "@material-ui/core/Tooltip";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {addShoppingCart, removeShoppingCart} from "../actions";
+import {addShoppingCart, clearCart, removeShoppingCart} from "../actions";
 import Button from "@material-ui/core/Button";
-import {postOrder} from "../service/user.service";
 
 const useStyles = makeStyles((theme) => ({
     contentWrapper: {
@@ -65,6 +64,15 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonWrapper: {
         marginRight: theme.spacing(1)
+    },
+    listItem: {
+        [theme.breakpoints.up('xs')]: {
+            minWidth: '160px'
+        },
+    },
+    listWrapper: {
+        overflowY: "scroll",
+        maxHeight: '320px'
     }
 }))
 
@@ -78,6 +86,7 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 export default function ShoppingCart(props) {
+    const {showTitle, showBottomMenu, wrapTitleText, checkoutFunc} = props
     const classes = useStyles()
     const shoppingCart = useSelector(state => state.shoppingCart)
     const user = useSelector(state => state.user)
@@ -92,57 +101,61 @@ export default function ShoppingCart(props) {
     }, [dispatch])
 
     const placeOrder = useCallback(() => {
-        postOrder(user, shoppingCart)
+        checkoutFunc()
+        // postOrder(user, shoppingCart)
     }, [user, shoppingCart])
+    const clearShoppingList = useCallback(() => {
+        dispatch(clearCart())
+    })
     return (
         <div className={classes.contentWrapper}>
-            <div className={classes.contentTitleWrapper}>
+            <div className={clsx({[classes.contentTitleWrapper]: showTitle, [classes.hidden]: !showTitle})}>
                 <ShoppingCartIcon/>
                 <Typography variant="h6" gutterBottom className={classes.contentTitle}>
                     Shopping Cart
                 </Typography>
             </div>
-            <Divider variant="middle" className={classes.divider}/>
-            <div>
-                <List className={classes.root}>
-                    {
-                        shoppingCart.map((food, index) => {
-                            return <ListItem key={index}>
-                                <ListItemAvatar>
-                                    <Avatar src={food.thumb}>
-                                        <ImageIcon/>
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <Tooltip title={food.name} aria-label="add">
-                                    <ListItemText primary={food.name.substr(0, 7) + '...'}
-                                                  className={classes.shoppingItemText}
-                                                  secondary={"Quan: " + food.amount}/>
-                                </Tooltip>
-                                <ListItemSecondaryAction>
-                                    <IconButton edge="end" aria-label="delete" size="small"
-                                                onClick={() => handleClick(food, 1)}>
-                                        <StyledBadge badgeContent={food.amount} color="primary">
-                                            <AddIcon/>
-                                        </StyledBadge>
-                                    </IconButton>
-                                    <IconButton edge="end" aria-label="delete" size="small" color="secondary"
-                                                onClick={() => handleClick(food, -1)}>
-                                        <RemoveIcon/>
-                                    </IconButton>
-                                </ListItemSecondaryAction>
-                            </ListItem>
-                        })
-                    }
+            <Divider variant="middle" className={clsx({[classes.divider]: showTitle, [classes.hidden]: !showTitle})}/>
+            {shoppingCart.length > 0 &&
+            <div className={classes.listWrapper}>
+                <List>
+                    {shoppingCart.map((food, index) => {
+                        return <ListItem key={index} className={classes.listItem}>
+                            <ListItemAvatar>
+                                <Avatar src={food.thumb}>
+                                    <ImageIcon/>
+                                </Avatar>
+                            </ListItemAvatar>
+                            <Tooltip title={food.name} aria-label="add">
+                                <ListItemText primary={wrapTitleText ? food.name.substr(0, 7) + '...' : food.name}
+                                              className={classes.shoppingItemText}
+                                              secondary={"Quan: " + food.amount}/>
+                            </Tooltip>
+                            <ListItemSecondaryAction>
+                                <IconButton edge="end" aria-label="delete" size="small"
+                                            onClick={() => handleClick(food, 1)}>
+                                    <StyledBadge badgeContent={food.amount} color="primary">
+                                        <AddIcon/>
+                                    </StyledBadge>
+                                </IconButton>
+                                <IconButton edge="end" aria-label="delete" size="small" color="secondary"
+                                            onClick={() => handleClick(food, -1)}>
+                                    <RemoveIcon/>
+                                </IconButton>
+                            </ListItemSecondaryAction>
+                        </ListItem>
+                    })}
                 </List>
-            </div>
-            {nothingAlert}
-            <Divider variant="middle" className={classes.divider}/>
-            <div className={classes.buttonMenu}>
+            </div>}
+            {shoppingCart.length === 0 && nothingAlert}
+            <Divider variant="middle"
+                     className={clsx({[classes.divider]: showBottomMenu, [classes.hidden]: !showBottomMenu})}/>
+            <div className={clsx({[classes.hidden]: !showBottomMenu, [classes.buttonMenu]: showBottomMenu})}>
                 <Button variant="contained" color="primary" className={classes.buttonWrapper}
                         onClick={() => placeOrder()}>
                     CheckOut
                 </Button>
-                <Button variant="contained" color="secondary">
+                <Button variant="contained" color="secondary" onClick={() => clearShoppingList()}>
                     Clear
                 </Button>
             </div>

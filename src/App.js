@@ -11,13 +11,13 @@ export default function App(props) {
                     if (route.exact) {
                         return <Route key={key} exact path={route.path}
                                       render={props => (
-                                          <route.component {...props} routes={route.routes}/>
+                                          <route.component {...props} history={history} routes={route.routes}/>
                                       )}/>
                     } else {
                         return <Route key={key}
                                       path={route.path}
                                       render={props => (
-                                          <route.component {...props} routes={route.routes}/>
+                                          <route.component {...props} history={history} routes={route.routes}/>
                                       )}/>
                     }
                 })

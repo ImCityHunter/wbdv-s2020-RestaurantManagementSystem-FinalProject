@@ -9,6 +9,12 @@ import LeftPanelWhenSM from "./left.panel.sm";
 import Banner from "./banner";
 import clsx from "clsx";
 import PopularList from "./list.popular";
+import DialogContent from "@material-ui/core/DialogContent";
+import Dialog from "@material-ui/core/Dialog";
+import Checkout from "../checkout/checkout.";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogActions from "@material-ui/core/DialogActions";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {},
@@ -34,7 +40,9 @@ const useStyles = makeStyles((theme) => ({
             display: 'block',
         },
     },
-
+    dialogCheckout: {
+        minWidth: '500px !important'
+    }
 }))
 const mainFeaturedPost = {
     title: 'Eat Healthy!',
@@ -47,6 +55,16 @@ const mainFeaturedPost = {
 
 export default function MainContent(props) {
     const classes = useStyles()
+    const [checkoutDialogOpen, setCheckoutDialogOpen] = React.useState(false)
+    const [checkoutDialogScroll, setCheckoutDialogScroll] = React.useState('paper');
+    const handleCheckoutDialogOpen = () => {
+        setCheckoutDialogOpen(true);
+        setCheckoutDialogScroll("paper");
+    };
+
+    const handleCheckoutDialogClose = () => {
+        setCheckoutDialogOpen(false);
+    };
     return (
         <Container className={classes.cardGrid}>
             {/*wjc split the grid to left middle and right*/}
@@ -63,10 +81,35 @@ export default function MainContent(props) {
                         <PopularList/>
                     </Paper>
                     <Paper className={clsx(classes.secondFixedPanel)}>
-                        <ShoppingCart/>
+                        <ShoppingCart showTitle={true} showBottomMenu={true} checkoutFunc={handleCheckoutDialogOpen}/>
                     </Paper>
                 </Grid>
             </Grid>
+            <Dialog fullWidth={true}
+                    open={checkoutDialogOpen}
+                    onClose={handleCheckoutDialogClose}>
+                <DialogContent dividers={checkoutDialogScroll === 'paper'}>
+                    <div className={classes.dialogCheckout}>
+                        <Checkout/>
+                    </div>
+                </DialogContent>
+            </Dialog>
+
+            <Dialog fullWidth={true}
+                    maxWidth={false}
+                    open={checkoutDialogOpen}
+                    onClose={handleCheckoutDialogClose}
+                    scroll={checkoutDialogScroll}>
+                <DialogTitle id="scroll-dialog-title">Checkout</DialogTitle>
+                <DialogContent dividers={checkoutDialogScroll === 'paper'}>
+                    <Checkout/>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCheckoutDialogClose} color="primary">
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Container>
     )
 }

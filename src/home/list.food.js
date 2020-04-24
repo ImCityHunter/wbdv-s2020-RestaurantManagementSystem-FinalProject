@@ -32,11 +32,14 @@ const useStyles = makeStyles((theme) => ({
 export default function ListFood(props) {
     const classes = useStyles()
     const foodList = useSelector(state => state.foodList)
+    const getRandomUrl = () => {
+        return photoUrls[Math.floor(Math.random() * photoUrls.length)]
+    }
     return (
         <Container className={classes.cardGrid} maxWidth="md">
             <Grid container spacing={4}>
                 {
-                    foodList.map((food, index) => <ItemFood food={food} key={index} imgUrl={photoUrls[index]}/>)
+                    foodList.map((food, index) => <ItemFood food={food} key={index} imgUrl={getRandomUrl()}/>)
                 }
             </Grid>
         </Container>

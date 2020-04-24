@@ -1,16 +1,30 @@
-import {getUserPostOrderUrl, login_url, register_url, update_url} from "../constants";
+import {
+    getUserPostOrderUrl,
+    getUpdateUrl,
+    restaurantRegisterUrl,
+    userRegisterUrl,
+    userLoginUrl,
+    restaurantLoginUrl, userOrderUrl, getUserOrderUrl
+} from "../constants";
 
-export const login = (username, password) => {
-    const url = new URL(login_url)
-    const params = {username: username, password: password}
-    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-    return fetch(url).then(response => response.json())
+export const login = (username, password, role) => {
+    var url = new URL(role === "customer" ? userLoginUrl : restaurantLoginUrl)
+    var params = {username: username, password: password}
+    url.search = new URLSearchParams(params).toString();
+    return fetch(url)
+        .then(response => response.ok ? response.json() : undefined)
 }
 
-export const register = (user) => {
-    return fetch(register_url, {
+export const register = (user, role) => {
+    let body = {
+        username: role.username,
+        password: role.password
+    }
+    const name = role === "customer" ? "restaurantName" : "nickname"
+    body[name] = user.name
+    return fetch(role === "customer" ? userRegisterUrl : restaurantRegisterUrl, {
         method: "POST",
-        body: JSON.stringify(user),
+        body: JSON.stringify(body),
         headers: {
             "content-type": "application/json"
         }
@@ -18,7 +32,7 @@ export const register = (user) => {
 }
 
 export const updateUser = (user) => {
-    return fetch(update_url, {
+    return fetch(getUpdateUrl(user.id), {
         method: "POST",
         body: JSON.stringify(user),
         headers: {
@@ -27,9 +41,18 @@ export const updateUser = (user) => {
     }).then(response => response.json())
 }
 
+export const getUserOrders = (userId) => {
+    const url = getUserOrderUrl(userId)
+    return fetch(url)
+        .then(response => response.json())
+}
+
 export const postOrder = (user, shoppingList) => {
+    if (shoppingList.length === 0)
+        return
+    const date = new Date().toISOString().slice(0, 19).replace(' ', 'T')
     const order = {
-        "date": "2020-03-28T10:11:12",
+        "date": date,
         "totalPrice": "100",
         "type": "take-out",
         "completed": "incomplete",

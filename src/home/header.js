@@ -8,12 +8,23 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import FaceIcon from "@material-ui/icons/Face";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import {ShoppingCart} from "@material-ui/icons";
+import LocalMallIcon from '@material-ui/icons/LocalMall';
 import MoreIcon from "@material-ui/icons/MoreVert";
 import AppBar from "@material-ui/core/AppBar";
 import {fade, makeStyles} from "@material-ui/core/styles";
-import {NavLink as Link, Route} from 'react-router-dom'
-import {useSelector} from "react-redux";
+import {NavLink as Link, Route, useHistory} from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ShoppingCart from "./right.panel";
+import {setLogin, setLoginUser} from "../actions";
+import Checkout from "../checkout/checkout.";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -99,18 +110,81 @@ const useStyles = makeStyles(theme => ({
     },
     linkStyle: {
         color: 'white'
+    },
+    menuItem: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+    menuItemText: {
+        padding: '0.5rem 1rem'
+    },
+    dialogWrapper: {
+        // width: '300px !important'
     }
 }))
 
 export default function Header(props) {
+    const history = useHistory()
     const classes = useStyles()
     const isLogin = useSelector(state => state.isLogin)
     const user = useSelector(state => state.user)
     const {drawerStatus, handleDrawerOpen} = props
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const dispatch = useDispatch()
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
 
     const getUserUrl = useCallback(() => {
         return isLogin ? "/customer/profile" : "/login"
     }, [isLogin, user])
+
+    const [cartCartDialogOpen, setCartDialogOpen] = React.useState(false);
+    const [cartDialogScroll, setCartDialogScroll] = React.useState('paper');
+
+    const handleCartDialogOpen = (scrollType) => () => {
+        setCartDialogOpen(true);
+        setCartDialogScroll(scrollType);
+    };
+
+    const handleCartDialogClose = () => {
+        setCartDialogOpen(false);
+    };
+
+    const [checkoutDialogOpen, setCheckoutDialogOpen] = React.useState(false)
+    const [checkoutDialogScroll, setCheckoutDialogScroll] = React.useState('paper');
+    const handleCheckoutDialogOpen = () => {
+        setCheckoutDialogOpen(true);
+        setCheckoutDialogScroll("paper");
+    };
+
+    const handleCheckoutDialogClose = () => {
+        setCheckoutDialogOpen(false);
+    };
+
+    const descriptionElementRef = React.useRef(null);
+    React.useEffect(() => {
+        if (cartCartDialogOpen) {
+            const {current: descriptionElement} = descriptionElementRef;
+            if (descriptionElement !== null) {
+                descriptionElement.focus();
+            }
+        }
+    }, [cartCartDialogOpen]);
+
+    const handleExit = () => {
+        dispatch(setLoginUser(null))
+        dispatch(setLogin(false))
+        localStorage.removeItem("user")
+        localStorage.removeItem("isLogin")
+        history.push("/customer")
+    }
+
     return (
         <AppBar position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: drawerStatus,})}>
             <Toolbar>
@@ -125,7 +199,7 @@ export default function Header(props) {
                     <MenuIcon/>
                 </IconButton>
                 <Typography variant="h6" noWrap className={classes.appBarTitle}>
-                    Food Hunting
+                    NEU Food Hunting
                 </Typography>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
@@ -151,22 +225,84 @@ export default function Header(props) {
                             <FaceIcon/>
                         </IconButton>
                     </Link>
-                    <IconButton
-                        color="inherit">
+                    <IconButton onClick={handleExit}
+                                color="inherit">
                         <ExitToAppIcon color="error"/>
                     </IconButton>
                 </div>
                 <div className={classes.appBarSectionMobile}>
-                    <IconButton
-                        color="inherit">
-                        <ShoppingCart/>
+                    <IconButton onClick={handleCartDialogOpen('paper')}
+                                color="inherit">
+                        <LocalMallIcon/>
                     </IconButton>
-                    <IconButton
-                        color="inherit">
+                    <IconButton onClick={handleClick}
+                                color="inherit">
                         <MoreIcon/>
                     </IconButton>
                 </div>
             </Toolbar>
+            <Menu id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleMenuClose}>
+                <MenuItem>
+                    <Link to={{
+                        pathname: getUserUrl(),
+                        state: {isLogin: true}
+                    }}>
+                        <div className={classes.menuItem}>
+                            {isLogin ? <FaceIcon/> : <AccountCircleIcon/>}
+                            <div className={classes.menuItemText}>
+                                {isLogin ? "Profile" : "Login"}
+                            </div>
+                        </div>
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <div className={classes.menuItem} style={{color: 'red'}} onClick={handleExit}>
+                        <ExitToAppIcon/>
+                        <div className={classes.menuItemText}>
+                            Exit
+                        </div>
+                    </div>
+                </MenuItem>
+            </Menu>
+            <Dialog fullWidth={true}
+                    open={cartCartDialogOpen}
+                    onClose={handleCartDialogClose}
+                    scroll={cartDialogScroll}>
+                <DialogTitle id="scroll-dialog-title">Shopping Cart</DialogTitle>
+                <DialogContent dividers={cartDialogScroll === 'paper'}>
+                    <ShoppingCart showTitle={false} showBottomMenu={false} wrapTitleText={false} checkoutFunc={handleCheckoutDialogOpen}/>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => {
+                        handleCartDialogClose()
+                        handleCheckoutDialogOpen()
+                    }} color="primary">
+                        Checkout
+                    </Button>
+                    <Button onClick={handleCartDialogClose} color="primary">
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog fullWidth={true}
+                    maxWidth={false}
+                    open={checkoutDialogOpen}
+                    onClose={handleCheckoutDialogClose}
+                    scroll={checkoutDialogScroll}>
+                <DialogTitle id="scroll-dialog-title">Checkout</DialogTitle>
+                <DialogContent dividers={checkoutDialogScroll === 'paper'}>
+                    <Checkout/>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCheckoutDialogClose} color="primary">
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </AppBar>
     )
 }

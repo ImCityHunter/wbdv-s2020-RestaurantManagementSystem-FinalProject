@@ -1,8 +1,8 @@
 import {
     ACTION_ADD_SHOPPING_CART,
     ACTION_REMOVE_SHOPPING_CART,
-    ACTION_SET_FOOD_LIST, ACTION_SET_IS_LOGIN, ACTION_SET_LOGIN_SER,
-    ACTION_SET_SELECTED_CATEGORY
+    ACTION_SET_FOOD_LIST, ACTION_SET_IS_LOGIN, ACTION_SET_LOGIN_SER, ACTION_SET_ORDERS,
+    ACTION_SET_SELECTED_CATEGORY, ACTION_CLEAR_SHOPPING_CART
 } from "./actions";
 
 export default {
@@ -54,6 +54,8 @@ export default {
                     })
                 }
             }
+            case ACTION_CLEAR_SHOPPING_CART:
+                return []
             default:
                 return state
         }
@@ -71,6 +73,15 @@ export default {
         const {type, payload} = action
         switch (type) {
             case ACTION_SET_IS_LOGIN:
+                return payload
+            default:
+                return state
+        }
+    },
+    orders(state = [], action) {
+        const {type, payload} = action
+        switch (type) {
+            case ACTION_SET_ORDERS:
                 return payload
             default:
                 return state

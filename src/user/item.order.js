@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import {photoUrls} from "../constants";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -63,7 +64,6 @@ const useStyles = makeStyles(theme => ({
     contentPreview: {
         display: 'flex',
         flexDirection: 'row',
-        // padding: theme.spacing(2),
     },
     contentDetailPic: {
         marginLeft: theme.spacing(2),
@@ -80,6 +80,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function OrderItem(props) {
     const classes = useStyles()
+    const getRandomUrl = () => {
+        return photoUrls[Math.floor(Math.random() * photoUrls.length)].small
+    }
     return (
         <Card className={classes.root}>
             <div className={classes.header}>
@@ -118,7 +121,7 @@ export default function OrderItem(props) {
                         <div className={classes.contentPreview}>
                             <Grid container>
                                 <Grid item xs={3} className={classes.contentDetailPic}>
-                                    <img width="120px" height="120px" src="https://source.unsplash.com/120x120/?food"
+                                    <img width="120px" height="120px" src={getRandomUrl()}
                                          alt=""/>
                                 </Grid>
                                 <Grid item xs={6}>

@@ -9,6 +9,7 @@ import {categories} from "../constants";
 import {useDispatch, useSelector} from "react-redux";
 import clsx from "clsx";
 import {setSelectedCategory} from "../actions";
+import {useHistory, useLocation} from "react-router";
 
 const useStyles = makeStyles((theme) => ({
     iconLarge: {
@@ -40,14 +41,24 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function LeftCategory(props) {
+    const history = useHistory();
+    const location = useLocation()
     const classes = useStyles()
     const selectedCategory = useSelector(state => state.selectedCategory)
     const dispatch = useDispatch()
+
+    const onItemClick = (category) => {
+        console.log(location)
+        dispatch(setSelectedCategory(category))
+        if (location.pathname !== "/customer") {
+            history.push('/customer')
+        }
+    }
     return (
         <List component="nav">
             {categories.map(category => {
                 return <ListItem className={clsx({[classes.selected]: category.key === selectedCategory})}
-                                 button key={category.key} onClick={() => dispatch(setSelectedCategory(category.key))}>
+                                 button key={category.key} onClick={() => onItemClick(category.key)}>
                     <ListItemIcon>
                         <Avatar src={category.src} className={classes.iconLarge}/>
                     </ListItemIcon>

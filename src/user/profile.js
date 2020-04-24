@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import LeftPanelWhenSM from "../home/left.panel.sm";
@@ -17,10 +17,12 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import CartList from "./list.cart";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
+import {getUserOrders} from "../service/user.service";
+import {setOrdersList} from "../actions";
 import Button from "@material-ui/core/Button";
-import {Link} from "react-router-dom";
-import {Alert} from "@material-ui/lab";
+import Alert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {},
@@ -105,13 +107,25 @@ function a11yProps(index) {
 }
 
 export default function Profile(props) {
+    const history = useHistory()
     const classes = useStyles()
     const theme = useTheme()
     const user = useSelector(state => state.user)
+    const isLogin = useSelector(state => state.isLogin)
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const dispatch = useDispatch()
+    useEffect(() => {
+        if (user) {
+            getUserOrders(user.id)
+                .then(orders => {
+                    dispatch(setOrdersList(orders))
+                })
+        }
+    }, [user, isLogin])
+
     return (
         <Container className={classes.cardGrid}>
             {!user &&
@@ -119,16 +133,18 @@ export default function Profile(props) {
                 <Paper className={classes.nothingContentWrapper}>
                     <Alert severity="error">please login!</Alert>
                     <div className={classes.nothingButtonMenu}>
-                        <Link to="/login">
-                            <Button variant="contained" color="primary" href="#contained-buttons">
-                                Login
-                            </Button>
-                        </Link>
-                        <Link to="/register">
-                            <Button variant="contained" color="primary" href="#contained-buttons">
-                                Register
-                            </Button>
-                        </Link>
+                        <Button variant="contained" color="primary" href="#contained-buttons"
+                                onClick={() => {
+                                    history.push({
+                                        pathname: "/login",
+                                        state: {isLogin: true}
+                                    }, '/login')
+                                }}>
+                            Login
+                        </Button>
+                        <Button variant="contained" color="primary" href="#contained-buttons">
+                            Register
+                        </Button>
                     </div>
                 </Paper>
             </div>
@@ -194,7 +210,6 @@ export default function Profile(props) {
                 </Grid>
             </Grid>
             }
-
         </Container>
     )
 }

@@ -18,6 +18,9 @@ import {login, register} from "../service/user.service";
 import {useDispatch} from "react-redux";
 import {setLogin, setLoginUser} from "../actions";
 import {useHistory} from "react-router-dom";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
 
 function Copyright() {
     return (
@@ -51,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         margin: theme.spacing(1),
-        // backgroundColor: theme.palette.secondary.main,
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -62,16 +64,20 @@ const useStyles = makeStyles((theme) => ({
     },
     hidden: {
         display: 'none'
+    },
+    roleWrapper: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(1)
     }
 }));
 
 export default function LoginRegister(props) {
     const isLogin = (props.location.state && props.location.state.isLogin) || false
-    // console.log("render login component", props)
     const classes = useStyles();
     const [username, setUsername] = useState("jack")
     const [password, setPassword] = useState("123")
     const [verify, setVerify] = useState("")
+    const [role, setRole] = useState("customer")
     const [nickName, setNickName] = useState("")
     const [displayError, setDisplayError] = useState(false)
     const [errorMsg, setErrorMsg] = useState("")
@@ -83,12 +89,7 @@ export default function LoginRegister(props) {
         setNickName("")
         setVerify("")
     }
-
-    useEffect(() => {
-        return () => {
-        }
-    }, [dispatch, history])
-    const onSubmit = useCallback((username, password, verify, nickname) => {
+    const onSubmit = useCallback((username, password, verify, nickname, role) => {
         if (username === "" || password === "") {
             setErrorMsg("Password and Username are required!")
             setDisplayError(true);
@@ -103,8 +104,8 @@ export default function LoginRegister(props) {
                 register({
                     username: username,
                     password: password,
-                    nickname: nickname
-                }).then(actualUser => {
+                    name: nickname,
+                }, role).then(actualUser => {
                     if (undefined === actualUser) {
                         setErrorMsg("Error occurred when registering!")
                     } else {
@@ -117,15 +118,14 @@ export default function LoginRegister(props) {
                 })
             }
         } else {
-            login(username, password)
+            login(username, password, role)
                 .then(actualUser => {
-                    console.log("login result", actualUser)
                     if (undefined === actualUser) {
                         setErrorMsg("Username or password is not correct!")
                         setDisplayError(true);
                     } else {
                         clearInput()
-                        setDisplayError(false);
+                        setDisplayError(false)
                         dispatch(setLoginUser(actualUser))
                         dispatch(setLogin(true))
                         history.push("/customer")
@@ -193,7 +193,27 @@ export default function LoginRegister(props) {
                             onChange={(e) => setNickName(e.target.value)}
                             id="nickname"
                             className={clsx({[classes.hidden]: isLogin})}/>
+                        <FormControl variant="outlined" fullWidth>
+                            <InputLabel htmlFor="simple-role">Role</InputLabel>
+                            <Select
+                                native
+                                variant="outlined"
+                                required
+                                fullWidth
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                                id="role"
+                                label="role"
+                                inputProps={{
+                                    name: 'role',
+                                    id: 'simple-role',
+                                }}>
+                                <option value="customer">Customer</option>
+                                <option value="restaurant">Restaurant</option>
+                            </Select>
+                        </FormControl>
                         <FormControlLabel
+                            className={clsx({[classes.hidden]: !isLogin})}
                             control={<Checkbox value="remember" color="primary"/>}
                             label="Remember me"/>
                         <Button
@@ -201,7 +221,7 @@ export default function LoginRegister(props) {
                             fullWidth
                             variant="contained"
                             color="primary"
-                            onClick={() => onSubmit(username, password, verify, nickName)}
+                            onClick={() => onSubmit(username, password, verify, nickName, role)}
                             className={classes.submit}>
                             {isLogin ? "Sign In" : "Register"}
                         </Button>

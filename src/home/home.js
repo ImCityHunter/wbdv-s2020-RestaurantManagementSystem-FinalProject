@@ -18,10 +18,13 @@ import LeftCategory from "./left.panel";
 import CategoryIcon from '@material-ui/icons/Category';
 import Header from "./header";
 import {useDispatch, useSelector} from "react-redux";
-import {setFoodList} from "../actions";
+import {setFoodList, setLogin, setLoginUser} from "../actions";
 import {findFakeFoodsByCategory, findFoodsByCategory} from "../service/food.search.service";
 import {Route} from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import DialogContent from "@material-ui/core/DialogContent";
+import ShoppingCart from "./right.panel";
+import Dialog from "@material-ui/core/Dialog";
 
 
 const drawerWidth = 240;
@@ -106,18 +109,33 @@ export default function Home(props) {
     // wjc 解构 props里面的内容
     const selectedCategory = useSelector(state => state.selectedCategory)
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
+    const isLogin = useSelector(state => state.isLogin)
     useEffect(() => {
         findFoodsByCategory(selectedCategory)
             .then(foodList => {
-                console.log("home food list", foodList)
                 dispatch(setFoodList(foodList))
             })
-        // dispatch(setFoodList(findFakeFoodsByCategory(selectedCategory).hints))
     }, [selectedCategory])
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user")) || undefined
+        const isLogin = localStorage.getItem("isLogin") || false
+        if (user !== undefined && isLogin !== false) {
+            dispatch(setLoginUser(user))
+            dispatch(setLogin(isLogin))
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("user", JSON.stringify(user))
+        localStorage.setItem("isLogin", isLogin)
+    }, [user, isLogin])
 
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
     return (
         <div className={classes.root}>
             <CssBaseline/>
@@ -170,6 +188,7 @@ export default function Home(props) {
                     <Copyright/>
                 </footer>
             </main>
+
         </div>
     );
 }

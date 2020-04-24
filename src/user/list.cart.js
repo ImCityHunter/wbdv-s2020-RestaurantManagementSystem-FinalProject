@@ -87,14 +87,14 @@ export default function CartList(props) {
                                             <ImageIcon/>
                                         </Avatar>
                                     </ListItemAvatar>
-                                    <Tooltip title={food.label} aria-label="add" className={classes.shoppingItemText}>
-                                        <ListItemText primary={food.label}
+                                    <Tooltip title={food.name} aria-label="add" className={classes.shoppingItemText}>
+                                        <ListItemText primary={food.name}
                                                       secondary={"Quan: " + food.count}/>
                                     </Tooltip>
                                     <ListItemSecondaryAction>
                                         <IconButton edge="end" aria-label="delete" size="small"
                                                     onClick={() => handleClick(food, 1)}>
-                                            <StyledBadge badgeContent={food.count} color="primary">
+                                            <StyledBadge badgeContent={food.amount} color="primary">
                                                 <AddIcon fontSize="large"/>
                                             </StyledBadge>
                                         </IconButton>
@@ -119,8 +119,7 @@ export default function CartList(props) {
                         Clear
                     </Button>
                 </div>
-            </div>
-            }
+            </div>}
         </div>
     );
 }

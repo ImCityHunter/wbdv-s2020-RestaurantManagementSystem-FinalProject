@@ -14,6 +14,7 @@ import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import Badge from "@material-ui/core/Badge";
 import {useDispatch, useSelector} from "react-redux";
 import {addShoppingCart, removeShoppingCart} from "../actions";
+import {useHistory} from "react-router";
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -41,28 +42,37 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function ItemFood(props) {
+    const history = useHistory()
     const classes = useStyles();
     const {food, imgUrl} = props
     const shoppingCart = useSelector(state => state.shoppingCart)
+    const isLogin = useSelector(state => state.isLogin)
     const getCount = useCallback(() => {
-        const filtered = shoppingCart.filter(item => item.foodId === food.id)
-        return filtered.length === 0 ? 0 : filtered[0].count
+        const filtered = shoppingCart.filter(item => item.id === food.id)
+        return filtered.length === 0 ? 0 : filtered[0].amount
     }, [shoppingCart])
     const dispatch = useDispatch()
     const handleClick = useCallback((delta) => {
-        const foodToAdd = {
-            id: food.id,
-            name: food.name,
-            price: food.price,
-            category: food.category,
-            calories: food.calories,
-            ingredient: food.ingredient,
-            description: food.description,
-            restaurant: food.restaurant,
-            amount: 1,
-            thumb: imgUrl.thumb
+        if (isLogin) {
+            const foodToAdd = {
+                id: food.id,
+                name: food.name,
+                price: food.price,
+                category: food.category,
+                calories: food.calories,
+                ingredient: food.ingredient,
+                description: food.description,
+                restaurant: food.restaurant,
+                amount: 1,
+                thumb: imgUrl.thumb
+            }
+            delta === 1 ? dispatch(addShoppingCart(foodToAdd)) : dispatch(removeShoppingCart(foodToAdd))
+        } else {
+            history.push({
+                pathname: "/login",
+                state: {isLogin: true}
+            }, '/login')
         }
-        delta === 1 ? dispatch(addShoppingCart(foodToAdd)) : dispatch(removeShoppingCart(foodToAdd))
     }, [dispatch, food])
 
     return (
