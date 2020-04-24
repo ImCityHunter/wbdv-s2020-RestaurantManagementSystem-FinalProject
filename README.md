@@ -47,6 +47,9 @@ We do have a payment page, it is just a template, do not submit your real inform
 All the incomplete orders for foodmax can be found here: <br />
 `https://web5610-final-project-backend.herokuapp.com/restaurant/1/orders/incomplete`  <br />
 
+And vice versa, checking the complete orders for foodmax can be found here: <br />
+`https://web5610-final-project-backend.herokuapp.com/restaurant/1/orders/completed`
+
 Instruction on how to access and view our backend is discussed below <br />
 
 
