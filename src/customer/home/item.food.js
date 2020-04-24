@@ -113,10 +113,10 @@ export default function ItemFood(props) {
                             {food.name}
                         </Typography>
                     </div>
-                    <Chip label={"Calories: " + food.calories}
+                    <Chip label={"Price: $" + food.price}
                           className={classes.cardChip} size="small"
                           color={"primary"}/>
-                    <Chip label={"Price: $" + food.price}
+                    <Chip label={"Calories: " + food.calories}
                           className={classes.cardChip} size="small"
                           color={"secondary"}/>
                     <div>

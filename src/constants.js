@@ -1,8 +1,8 @@
 import image1 from "./customer/images/1.png";
 import image2 from "./customer/images/2.png";
-import image3 from "./customer/images/3.png";
-import image4 from "./customer/images/4.png";
-import image5 from "./customer/images/5.png";
+import image3 from "./customer/images/4.png";
+import image4 from "./customer/images/5.png";
+import image5 from "./customer/images/6.png";
 import photos from './customer/resources/photos'
 
 import vegetables from './customer/resources/vegetables'
