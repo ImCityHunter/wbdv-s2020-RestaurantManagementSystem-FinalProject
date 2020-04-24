@@ -29,7 +29,8 @@ Project is launched on Heroku at [here](https://restaurant-management-menu.herok
 specific information can be found in our backend <br />
 
 #### BackEnd
-Our https://web5610-final-project-backend.herokuapp.com uses mybatis. <br />
+Our backend uses mybatis. <br />
+link is here https://web5610-final-project-backend.herokuapp.com <br />
 
 Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
 add `/${restaurant_id}` <br />
