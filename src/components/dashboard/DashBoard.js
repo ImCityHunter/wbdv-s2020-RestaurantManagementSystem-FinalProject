@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -72,6 +72,8 @@ export default function Dashboard() {
 
     let todayTotalSale = 0;
 
+    const [counter, setCounter] = React.useState(0)
+
     useEffect(() => {
         if (orderList.length>0 && todayTotalSale > 0) {
             const interval = setInterval(() => {
@@ -86,16 +88,37 @@ export default function Dashboard() {
                 .then(response => dispatch(setOrderList(response)))
             OrderService.getCurrentOrder(restaurantId)
                 .then(response => dispatch(setCurrentOrderList(response)))
+            setCounter(counter+1);
         }
-    }, [restaurantId])
+    }, [restaurantId, counter])
 
     const getTodayTotalSale = () => {
         const todayOrderList = orderList.filter(order => order.date.slice(0, 10) === today );
         todayOrderList.map((order) => {
             todayTotalSale += order.totalPrice
         })
-        return todayTotalSale
+        return todayTotalSale.toFixed(2)
     }
+
+    const [itemList, setItemList] = useState([{
+        itemName: '',
+        amount: 0
+    }])
+
+    const getPopularProducts = () => {
+        const productList = orderList.map(order => order.products);
+        const sampleList = productList.map(product => product.name)
+        // setItemList([
+        //     ...itemList,
+        //     productList.map(product => {
+        //         itemName: product.name,
+        //         amount:  product.amount
+        //     })
+        // ]);
+        return productList
+    }
+
+    console.log(getPopularProducts())
 
     return (
         <div className={classes.root}>

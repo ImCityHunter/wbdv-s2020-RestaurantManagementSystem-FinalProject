@@ -90,7 +90,6 @@ export default function InfoEditor() {
             .then(response => {
                 setRestaurantInfo(response)}
                 ).then(() => {
-                    console.log(restaurantInfo)
                     if (restaurantInfo.businessHours.length>0)
                     setBusinessHours(restaurantInfo.businessHours.split(","))
         })
@@ -130,9 +129,6 @@ export default function InfoEditor() {
             setBusinessHours(businessHours.slice(0,index).concat( [businessHours[index].slice(1)], [businessHours[index+1].slice(1)], businessHours.slice(index+2)))
         }
     };
-
-    console.log(businessHours)
-
 
     return (
         <div className={classes.root}>
