@@ -22,7 +22,7 @@ Project is launched on Heroku at [here](https://restaurant-management-menu.herok
 
 ## Testing Information
 
-#### Sample Accounts
+#### Sample Accounts for front end
 
 `customer`: username: customer, password: customer, type: customer <br />
 `restuarnt`: username: foodmax, password: foodmax, type: restaurant <br />
@@ -33,13 +33,13 @@ Our backend uses mybatis. <br />
 link is here https://web5610-final-project-backend.herokuapp.com <br />
 
 Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
-add `/${restaurant_id}` <br />
+add `restaurant/${restaurant_id}` <br />
 
 Find Info about all the orders of a restaurant: <br />
-add `/${restaurant_id}/orders` <br />
+add `restaurant/${restaurant_id}/orders` <br />
 
 Find Info about a specific Customer:  use `1` as user id <br />
-add `/${user_id}` <br />
+add `users/${user_id}` <br />
 
 
 
