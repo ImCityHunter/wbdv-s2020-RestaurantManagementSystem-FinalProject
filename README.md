@@ -29,14 +29,16 @@ Project is launched on Heroku at [here](https://restaurant-management-menu.herok
 specific information can be found in our backend <br />
 
 #### BackEnd
-Our [backend](https://web5610-final-project-backend.herokuapp.com/) uses mybatis. <br />
+Our https://web5610-final-project-backend.herokuapp.com uses mybatis. <br />
 
 Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
-https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurant_id}/orders <br/>
+add `/${restaurant_id}` <br />
 
-Find Info about a specific Customer: 
+Find Info about all the orders of a restaurant: <br />
+add `/${restaurant_id}/orders` <br />
 
-https://web5610-final-project-backend.herokuapp.com/users/${user_id} <br />
+Find Info about a specific Customer:  use `1` as user id
+add `/${user_id}` <br />
 
 
 
