@@ -39,10 +39,10 @@ We do have a payment page, it is just a template, do not submit your real inform
 
 #### Instructions on how to test and view result of orders 
 
-Step I: Open two different browswers such as chrome, incognito, firefox, safari <br/>
-Step II: Use google chrome to log in as customer (username: customer, password: customer). Use Safari/Firefox to log in as restaurant (username: restaurant, password: restaurant) <br />
-Step III: Use customer's page to order random stuffs on its homepage. At the moment, all the products on homepage are from foodmax's. Finish the shopping cart and payment. <br />
-Step IV: Use the other as restaurant, and click "orders" from the left bar, and you will see the newest orders, and click the 'nike check' to mark as complete. <br />
+- Step I: Open two different browswers such as chrome, incognito, firefox, safari <br/>
+- Step II: Use google chrome to log in as customer (username: customer, password: customer). Use Safari/Firefox to log in as restaurant (username: restaurant, password: restaurant) <br />
+- Step III: Use customer's page to order random stuffs on its homepage. At the moment, all the products on homepage are from foodmax's. Finish the shopping cart and payment. <br />
+- Step IV: Use the other as restaurant, and click "orders" from the left bar, and you will see the newest orders, and click the 'nike check' to mark as complete. <br />
 
 All the incomplete orders for foodmax can be found here: <br />
 `https://web5610-final-project-backend.herokuapp.com/restaurant/1/orders/incomplete`  <br />
