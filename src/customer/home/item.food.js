@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(0.5),
         marginBottom: theme.spacing(0.5),
         marginTop: theme.spacing(0.5),
-        marginLeft: theme.spacing(1)
+        marginLeft: theme.spacing(0.5),
     },
     foodTitle: {
         display: 'flex',
@@ -112,10 +112,13 @@ export default function ItemFood(props) {
                         <Typography variant="h6" noWrap={true}>
                             {food.name}
                         </Typography>
-                        <Chip label={"Calories: " + food.calories}
-                              className={classes.cardChip} size="small"
-                              color={"primary"}/>
                     </div>
+                    <Chip label={"Calories: " + food.calories}
+                          className={classes.cardChip} size="small"
+                          color={"primary"}/>
+                    <Chip label={"Price: $" + food.price}
+                          className={classes.cardChip} size="small"
+                          color={"secondary"}/>
                     <div>
                         <Typography variant={"caption"}>
                             {food.ingredient}

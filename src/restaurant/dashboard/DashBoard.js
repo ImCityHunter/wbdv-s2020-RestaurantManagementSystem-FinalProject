@@ -129,6 +129,7 @@ export default function Dashboard() {
     // const [itemList, setItemList] = React.useState([])
 
     useEffect(() => {
+        console.log('get all orders')
         OrderService.getAllOrder(restaurantId)
             .then(response => dispatch(setOrderList(response)))
         OrderService.getCurrentOrder(restaurantId)
@@ -136,8 +137,9 @@ export default function Dashboard() {
     }, [restaurantId])
 
     useEffect(() => {
+        console.log('get popular dish')
         getPopularDish()
-    }, [orderList])
+    }, [orderList,currentOrderList])
 
 
     return (
@@ -195,11 +197,13 @@ export default function Dashboard() {
                                 <Typography variant="h5" align="center">
                                     Popular Dishes
                                 </Typography>
-                                <hr/>
+                                <br/>
                                 <Table className={classes.table} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell>Item Name</TableCell>
+                                            <TableCell>
+                                                Item Name
+                                            </TableCell>
                                             <TableCell align="right">Amount</TableCell>
                                         </TableRow>
                                     </TableHead>
