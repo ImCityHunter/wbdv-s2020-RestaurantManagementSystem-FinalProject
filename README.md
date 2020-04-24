@@ -45,7 +45,7 @@ After logging in, each type should have different ways to navigate the dashboard
 ** special notes ** <br/>
 We do have a payment page, it is just a template, do not submit your real information. <br />
 
-### How two types of users interact with each other
+#### How two types of users interact with each other
 Customers can only order meals that have been created by restaurants. In depth information on how to test this is described in a paragraph below. Anonymous users are only cable of seeing the meals but cannot make an order. If an anonymous user want to order after viewing the meals, he/she will be prompted to register. <br />
 
 #### Instructions on how to test and view result of orders 
