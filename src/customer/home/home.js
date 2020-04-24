@@ -22,9 +22,6 @@ import {setFoodList, setLogin, setLoginUser} from "../../actions";
 import {findFakeFoodsByCategory, findFoodsByCategory} from "../service/food.search.service";
 import {Route} from "react-router-dom";
 import Link from "@material-ui/core/Link";
-import DialogContent from "@material-ui/core/DialogContent";
-import ShoppingCart from "./right.panel";
-import Dialog from "@material-ui/core/Dialog";
 
 
 const drawerWidth = 240;
