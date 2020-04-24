@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "clsx": "latest",
+    "material-ui": "^0.20.2",
     "moment": "^2.24.0",
     "prop-types": "latest",
     "react": "^16.13.0",
