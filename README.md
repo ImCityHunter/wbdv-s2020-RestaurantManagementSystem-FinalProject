@@ -36,20 +36,24 @@ codes is [here](https://github.com/yu2749luca/wbdv-s2020-RestaurantManagementSys
 Use the following link to have visual: https://web5610-final-project-backend.herokuapp.com <br />
 Add the following path after this above link to see specific data that you desire to see<br />
 
-- Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
-add `/restaurant/${restaurant_id}` <br />
+- Restaurant
+  - Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
+   add `/restaurant/${restaurant_id}` <br />
 
-- Find Info about all the orders of a restaurant: <br />
+  - Find Info about all the orders of a restaurant: <br />
 add `/restaurant/${restaurant_id}/orders` <br />
 
-- Find Info about a specific Customer:  use `6` as user id <br />
-add `/users/${user_id}` <br />
+- Customer
+  - Find Info about a specific Customer:  use `6` as user id <br />
+  add `/users/${user_id}` <br />
+  
+- Meal/Product  
 
-- Find Info about all products <br />
-add `/products/all` <br />
+  - Find Info about all products <br />
+  add `/products/all` <br />
 
-- Find Info about a specific item/meal/product: use `151` as an sample <br />
-add `/products/${product_id}`
+  - Find Info about a specific item/meal/product: use `151` as an sample <br />
+  add `/products/${product_id}`
 
 
 
