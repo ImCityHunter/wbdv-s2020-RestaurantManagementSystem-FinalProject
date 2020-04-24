@@ -45,6 +45,12 @@ add `/restaurant/${restaurant_id}/orders` <br />
 - Find Info about a specific Customer:  use `6` as user id <br />
 add `/users/${user_id}` <br />
 
+- Find Info about all products <br />
+add `/products/all` <br />
+
+- Find Info about a specific item/meal/product: use `151` as an sample <br />
+add `/products/${product_id}`
+
 
 
 
