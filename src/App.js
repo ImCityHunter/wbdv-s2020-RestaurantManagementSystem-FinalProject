@@ -1,13 +1,27 @@
 import React from 'react';
-import './App.css';
-import ShowMenu from "./restaurant/container/ShowMenu";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import LaunchPage from "./homepage/LaunchPage";
-import RestaurantHomePage from "./restaurant/container/RestaurantHomePage";
-import Whiteboard from "./restaurant/container/Whiteboard";
-const App = () =>
-    //<ShowMenu />
-    //<LaunchPage/>
-    //<RestaurantHomePage/>
-    <Whiteboard/>
-export default App;
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import routes from "./routes";
+
+export default function App(props) {
+    const {history} = props
+    return (
+        <Router history={history}>
+            {
+                routes.map((route, key) => {
+                    if (route.exact) {
+                        return <Route key={key} exact path={route.path}
+                                      render={props => (
+                                          <route.component {...props} history={history} routes={route.routes}/>
+                                      )}/>
+                    } else {
+                        return <Route key={key}
+                                      path={route.path}
+                                      render={props => (
+                                          <route.component {...props} history={history} routes={route.routes}/>
+                                      )}/>
+                    }
+                })
+            }
+        </Router>
+    );
+}

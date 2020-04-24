@@ -1,0 +1,856 @@
+{
+  "text": "burger",
+  "parsed": [],
+  "hints": [
+    {
+      "food": {
+        "foodId": "food_b2o9v6sazh5l0qbr1th82btysgxg",
+        "label": "Burger",
+        "nutrients": {
+          "ENERC_KCAL": 182.6625386996904,
+          "PROCNT": 14.241486068111456,
+          "FAT": 8.978328173374614,
+          "CHOCDF": 11.455108359133128,
+          "FIBTG": 0.6191950464396285
+        },
+        "brand": "Broadway Pizza Restaurant",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a2qh5rxba00t70avbkmbvbtt5by2",
+        "label": "Burger",
+        "nutrients": {
+          "ENERC_KCAL": 274.5098039215686,
+          "PROCNT": 27.45098039215686,
+          "FAT": 17.64705882352941,
+          "CHOCDF": 0.0,
+          "FIBTG": 0.0
+        },
+        "brand": "Calypso Cafe",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_aki88j3afqehwfab6voz2bksv29p",
+        "label": "Burger",
+        "nutrients": {
+          "ENERC_KCAL": 239.43661971830983,
+          "PROCNT": 15.492957746478872,
+          "FAT": 18.309859154929576,
+          "CHOCDF": 1.408450704225352,
+          "FIBTG": 0.0
+        },
+        "brand": "Tubby's",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_slice",
+          "label": "Slice"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_biyk0mvbad1h1dbbq4fwsb7ow8we",
+        "label": "soy burger",
+        "nutrients": {
+          "ENERC_KCAL": 177.0,
+          "PROCNT": 15.7,
+          "FAT": 6.3,
+          "CHOCDF": 14.27,
+          "FIBTG": 4.9
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/6d9/6d9e06129efd342f4e25f2496c2b737a.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_burger",
+          "label": "Burger"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pattie",
+          "label": "Pattie"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a3k9holaf8359hbtax7zsatpazgm",
+        "label": "Burger",
+        "nutrients": {
+          "ENERC_KCAL": 179.69753554039363,
+          "PROCNT": 17.30420712611198,
+          "FAT": 11.97983570269291,
+          "CHOCDF": 0.0,
+          "FIBTG": 0.0
+        },
+        "brand": "Mooyah",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_akfxjb5bf8tkv3al68zd6apf7inq",
+        "label": "Burger",
+        "nutrients": {
+          "ENERC_KCAL": 260.1626016260162,
+          "PROCNT": 19.10569105691057,
+          "FAT": 13.008130081300813,
+          "CHOCDF": 15.853658536585366,
+          "FIBTG": 1.2195121951219512
+        },
+        "brand": "Dickey's Barbecue Pit",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_aclmmbbau7q6x7bjfk2suaitn07z",
+        "label": "Beet Burgers",
+        "nutrients": {
+          "ENERC_KCAL": 136.5322960156659,
+          "PROCNT": 5.478604748858151,
+          "FAT": 5.106999041791736,
+          "CHOCDF": 17.526539345776197,
+          "FIBTG": 1.2890624556777444
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "beet; panko breadcrumb; goat cheese; egg white; cornstarch; salt; pepper; evoo; cucumber; garlic; plain greek yogurt; sour cream; dill; burger bun; feta"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bzk2xvjaz9o0x2bwnd6blaswct5p",
+        "label": "Taco Burgers",
+        "nutrients": {
+          "ENERC_KCAL": 188.40097066726895,
+          "PROCNT": 19.838774010382497,
+          "FAT": 8.029684959867932,
+          "CHOCDF": 9.136866631533966,
+          "FIBTG": 0.4483998730459231
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "beef; burger roll; salt; chilli powder; cumin; dried oregano; cheddar cheese"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b079sipb6mjdpoadjz7i7bcftgum",
+        "label": "Vegetable Burger",
+        "nutrients": {
+          "ENERC_KCAL": 150.6374182783344,
+          "PROCNT": 2.189432185778496,
+          "FAT": 10.99196440004572,
+          "CHOCDF": 11.762286969542098,
+          "FIBTG": 1.540715334487687
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "Burger rolls; Cucumber; tomatoes; Butter; Vegetable; cabbage; Potatoes; lemon; Pepper; all purpose Flour; Oil; salt"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_buqxxhubi47ecxbngv5xbbaes2o4",
+        "label": "Bbq Burgers",
+        "nutrients": {
+          "ENERC_KCAL": 180.93872391745413,
+          "PROCNT": 9.960001295731011,
+          "FAT": 10.49892346520587,
+          "CHOCDF": 11.457183650716997,
+          "FIBTG": 1.019465082671986
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "ground beef; Dijon mustard; lettuce; bbq sauce; Chilli; onions; black pepper; tomatoes; garlic; burger buns; cheese; salt"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a6yetplaweeg1sa5a4go2apq94nh",
+        "label": "Burger Sliders",
+        "nutrients": {
+          "ENERC_KCAL": 149.08866746675176,
+          "PROCNT": 7.914161802810588,
+          "FAT": 9.99261120401928,
+          "CHOCDF": 7.101914907360048,
+          "FIBTG": 0.9143940557121896
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "olive oil; red onions; burger buns; smoked paprika; gherkins; mayonnaise; lemon; chillies; tomatoes; Parmesan cheese; sea salt; crackers; lettuce; bacon; black pepper; beef; egg; tomato ketchup"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a1c0x7wboi3mc6a8ta51narhkjtg",
+        "label": "Nacho Burger",
+        "nutrients": {
+          "ENERC_KCAL": 161.86517711580228,
+          "PROCNT": 12.718188509098088,
+          "FAT": 9.269034540866508,
+          "CHOCDF": 7.077471736200902,
+          "FIBTG": 0.5746166821769974
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "red wine vinegar; canola oil; chipotle chile; plum tomato; red onion; cilantro; salt; butter; flour; milk; jack cheese; pecorino cheese; black pepper; ground chuck; burger bun; jalapeno; corn tortilla chip"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_awxjyjlbl0nuq5b8uzemib28ylpv",
+        "label": "BURGER",
+        "nutrients": {
+          "ENERC_KCAL": 278.0,
+          "PROCNT": 16.559999465942383,
+          "FAT": 23.18000030517578,
+          "CHOCDF": 0.0
+        },
+        "brand": "Hickory Foods, Inc.",
+        "category": "Packaged foods",
+        "categoryLabel": "food",
+        "foodContentsLabel": "100% USDA CHOICE CHUCK",
+        "image": "https://www.edamam.com/food-img/867/8671015714dfff029802b1ebe58cb299.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_burger",
+          "label": "Burger"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b4odt5sbuxcni0azyl7wdb32bpim",
+        "label": "BURGERS",
+        "nutrients": {
+          "ENERC_KCAL": 141.0,
+          "PROCNT": 15.869999885559082,
+          "FAT": 7.940000057220459,
+          "CHOCDF": 0.8799999952316284,
+          "FIBTG": 0.0
+        },
+        "brand": "BRAVA MEAT CO.",
+        "category": "Packaged foods",
+        "categoryLabel": "food",
+        "foodContentsLabel": "NATURAL BEEF*; MUSHROOMS; SEASONING (SALT; DEXTROSE; NATURAL FLAVORS; DEHYDRATED ONION; DEHYDRATED GARLIC; SPICES; CONTAINS 2% OR LESS OF: LARD; BEEF FAT; BACON FAT)."
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_burger",
+          "label": "Burger"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a7h1n1rbmobfkfa35cvycbzyesq1",
+        "label": "BURGER",
+        "nutrients": {
+          "ENERC_KCAL": 88.0,
+          "PROCNT": 0.0,
+          "FAT": 0.0,
+          "CHOCDF": 23.530000686645508,
+          "FIBTG": 5.900000095367432
+        },
+        "brand": "Kettle-cooked Crafters, LLC",
+        "category": "Packaged foods",
+        "categoryLabel": "food",
+        "foodContentsLabel": "WATER; SUGAR; SALT; TOMATO PASTE; SOY PROTEIN CONCENTRATE; VINEGAR; SPICES; CHIPOTLE PEPPER*; HONEY. CONTAINS 2% OR LESS OF EACH OF THE FOLLOWING: GARLIC*; NATURAL SMOKE FLAVOR WITH OTHER NATURAL FLAVOR; CITRIC ACID; FLAVORINGS; POTASSIUM SORBATE AND SODIUM BENZOATE (PRESERVATIVES); SUCRALOSE."
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon",
+          "label": "Tablespoon"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b10vw0ab28wae2bfty51xbgbighv",
+        "label": "BURGER",
+        "nutrients": {
+          "ENERC_KCAL": 133.0,
+          "PROCNT": 14.15999984741211,
+          "FAT": 7.960000038146973,
+          "CHOCDF": 0.0,
+          "FIBTG": 0.8999999761581421
+        },
+        "brand": "Nash Finch Company",
+        "category": "Packaged foods",
+        "categoryLabel": "food",
+        "foodContentsLabel": "SALMON; WHITE ONION; RED BELL PEPPER; CANOLA OIL; JALAPENO PEPPER; SALT; PARSLEY; CHIPOTLE PEPPER."
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a53o0rwbd3gsm1bpjeufxaikovq3",
+        "label": "BURGERS",
+        "nutrients": {
+          "ENERC_KCAL": 248.0,
+          "PROCNT": 17.209999084472656,
+          "FAT": 19.850000381469727,
+          "CHOCDF": 0.0
+        },
+        "brand": "WAHLBURGERS",
+        "category": "Packaged foods",
+        "categoryLabel": "food",
+        "foodContentsLabel": "BEEF"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_anc1dzvbesiuz5b0wwth3bz2p2zd",
+        "label": "Mexi Burger",
+        "nutrients": {
+          "ENERC_KCAL": 207.82519354845704,
+          "PROCNT": 13.717335558570333,
+          "FAT": 15.616260100617778,
+          "CHOCDF": 2.451054700980754,
+          "FIBTG": 0.5161785692539417
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "ground beef; onion; green chilies; garlic; salt; pepper; hot sauce; chili powder; cumin"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_aqg2wv0bn0ukv1awa0fvhb4w659r",
+        "label": "Burgers Stroganoff",
+        "nutrients": {
+          "ENERC_KCAL": 197.83212703615754,
+          "PROCNT": 9.975848976401679,
+          "FAT": 9.249580354643342,
+          "CHOCDF": 18.27760036780812,
+          "FIBTG": 0.5946308991841597
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "ground beef; Cream of Mushroom; ketchup; sour cream; Plain Bagels"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bdyc6loatozb8ubupb12bbtzeg92",
+        "label": "Burger Sauce",
+        "nutrients": {
+          "ENERC_KCAL": 418.02421412856154,
+          "PROCNT": 0.8769320856992039,
+          "FAT": 42.749644898974644,
+          "CHOCDF": 8.869851826940572,
+          "FIBTG": 0.7069655186065064
+        },
+        "category": "Generic meals",
+        "categoryLabel": "meal",
+        "foodContentsLabel": "mustard; mayonnaise; white vinegar; ketchup; onion; garlic"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    }
+  ],
+  "_links": {
+    "next": {
+      "title": "Next page",
+      "href": "https://api.edamam.com/api/food-database/parser?session=40&app_key=69d004c3e3c5b967261e625baea627fc&app_id=85b409cf&ingr=burger"
+    }
+  }
+}

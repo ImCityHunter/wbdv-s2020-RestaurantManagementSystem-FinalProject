@@ -1,0 +1,1001 @@
+{
+  "text": "fruit",
+  "parsed": [],
+  "hints": [
+    {
+      "food": {
+        "foodId": "food_bjl8sm6addvvqabpq6xavbou66pl",
+        "label": "FRUIT IN FRUIT JUICE",
+        "nutrients": {
+          "ENERC_KCAL": 48.0,
+          "PROCNT": 0.6100000143051147,
+          "FAT": 0.0,
+          "CHOCDF": 9.699999809265137,
+          "FIBTG": 0.30000001192092896
+        },
+        "brand": "Strategic Studies Group",
+        "category": "Packaged foods",
+        "categoryLabel": "food",
+        "foodContentsLabel": "(HAND SELECTED FRUITS); PINEAPPLE; APPLE; MANGO; WATER; PINEAPPLE JUICE CONCENTRATE; ASCORBIC ACID."
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_can",
+          "label": "Can"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_befaehuaxq45qqa9f0piuacg0krq",
+        "label": "Fruit",
+        "nutrients": {
+          "ENERC_KCAL": 70.54792389916082,
+          "PROCNT": 0.5878993658263402,
+          "FAT": 0.0,
+          "CHOCDF": 18.812779706442885,
+          "FIBTG": 2.3515974633053607
+        },
+        "brand": "Doolittles Restaurants",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bflhx19ar9dfj9bqd0tkfasu2y19",
+        "label": "Fruit Waffle with Fruit Coulis",
+        "nutrients": {
+          "ENERC_KCAL": 175.32467532467533,
+          "PROCNT": 3.0303030303030303,
+          "FAT": 6.0606060606060606,
+          "CHOCDF": 27.92207792207792,
+          "FIBTG": 1.2987012987012987
+        },
+        "brand": "Mike's Restaurants",
+        "category": "Fast foods",
+        "categoryLabel": "meal"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a2sndz3b13ty72a1st6y8an7vq1t",
+        "label": "fruit juice",
+        "nutrients": {
+          "ENERC_KCAL": 42.0,
+          "PROCNT": 0.07,
+          "FAT": 0.17,
+          "CHOCDF": 11.4,
+          "FIBTG": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/66e/66ebbfb337e3ba768925a2771b60cb49.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_fluid_ounce",
+          "label": "Fluid ounce"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bqpyr6kbiuv4vbakp3alzar92v6u",
+        "label": "fruit danish",
+        "nutrients": {},
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a9ryotlaj25sicbftnf5wbv3hnfk",
+        "label": "monk fruit",
+        "nutrients": {
+          "ENERC_KCAL": 0.0,
+          "PROCNT": 0.0,
+          "FAT": 0.0,
+          "CHOCDF": 100.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b8v6kxxaa97749a14ryuxbq7ah6m",
+        "label": "candied fruit",
+        "nutrients": {
+          "ENERC_KCAL": 322.0,
+          "PROCNT": 0.34,
+          "FAT": 0.07,
+          "CHOCDF": 82.74,
+          "FIBTG": 1.6
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/cf3/cf36eae076683f52a9a50bfbbe360efd.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon",
+          "label": "Tablespoon"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bu9968sazyto8eahl0cudbm09hx2",
+        "label": "fruit snack",
+        "nutrients": {
+          "ENERC_KCAL": 341.0,
+          "PROCNT": 4.4,
+          "FAT": 0.0,
+          "CHOCDF": 80.9
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pouch",
+          "label": "Pouch"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_bear",
+          "label": "Bear"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_worm",
+          "label": "Worm"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_bag",
+          "label": "Bag"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_packet",
+          "label": "Packet"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_box",
+          "label": "Box"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_agua7t3a4d9ohsa8elfu9bz68jd8",
+        "label": "fruit chews",
+        "nutrients": {
+          "ENERC_KCAL": 408.0,
+          "PROCNT": 0.41,
+          "FAT": 8.21,
+          "CHOCDF": 82.57,
+          "FIBTG": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_chew",
+          "label": "Chew"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_piece",
+          "label": "Piece"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_ao31x2kbxorsxea6nsx7sb3t1jz6",
+        "label": "chayote fruit",
+        "nutrients": {
+          "ENERC_KCAL": 19.0,
+          "PROCNT": 0.82,
+          "FAT": 0.13,
+          "CHOCDF": 4.51,
+          "FIBTG": 1.7
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/9fc/9fc1d63a6f67dce1b67476c455921cb1.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_squash",
+          "label": "Squash"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a8o30vdalx6w1abuf9rhqabdgid9",
+        "label": "fruit coffeecake",
+        "nutrients": {
+          "ENERC_KCAL": 311.0,
+          "PROCNT": 5.2,
+          "FAT": 10.2,
+          "CHOCDF": 51.5,
+          "FIBTG": 2.5
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/d67/d6749e8f4cc34bf85557726e53351360.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_piece",
+          "label": "Piece"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bnvehxibr1n9rubycoswmbjl6y5r",
+        "label": "Candied fruit",
+        "nutrients": {
+          "ENERC_KCAL": 322.0,
+          "PROCNT": 0.34,
+          "FAT": 0.07,
+          "CHOCDF": 82.74,
+          "FIBTG": 1.6
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/cf3/cf36eae076683f52a9a50bfbbe360efd.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon",
+          "label": "Tablespoon"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a3p9ag8bkpfd63b7icyuxbdqo5aq",
+        "label": "fruit leather",
+        "nutrients": {
+          "ENERC_KCAL": 371.0,
+          "PROCNT": 0.1,
+          "FAT": 3.0,
+          "CHOCDF": 85.8,
+          "FIBTG": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/72d/72d483f0ffa8f590323214faf28f0d45.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole",
+          "qualified": [
+            [
+              {
+                "uri": "http://www.edamam.com/ontologies/edamam.owl#Qualifier_small",
+                "label": "small"
+              }
+            ],
+            [
+              {
+                "uri": "http://www.edamam.com/ontologies/edamam.owl#Qualifier_large",
+                "label": "large"
+              }
+            ]
+          ]
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_leather",
+          "label": "Leather"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_roll",
+          "label": "Roll"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_piece",
+          "label": "Piece"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_slice",
+          "label": "Slice"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_auyhqnhbrh20lhbapq0vibas73au",
+        "label": "fruit gelatin",
+        "nutrients": {
+          "ENERC_KCAL": 381.0,
+          "PROCNT": 7.8,
+          "FAT": 0.0,
+          "CHOCDF": 90.5,
+          "FIBTG": 0.0
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pack",
+          "label": "Pack"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_portion",
+          "label": "Portion"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_box",
+          "label": "Box"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_packet",
+          "label": "Packet"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b3upky3ap07x08araghnzabtjngi",
+        "label": "fruit punch",
+        "nutrients": {
+          "ENERC_KCAL": 162.0,
+          "PROCNT": 0.2,
+          "FAT": 0.0,
+          "CHOCDF": 41.4,
+          "FIBTG": 0.4
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/1cc/1ccce23682daed665d661a24a4c33266.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_can",
+          "label": "Can"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_fluid_ounce",
+          "label": "Fluid ounce"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_b24foq3azhupxzb3cpug2bfog6em",
+        "label": "coffeecake, fruit",
+        "nutrients": {
+          "ENERC_KCAL": 311.0,
+          "PROCNT": 5.2,
+          "FAT": 10.2,
+          "CHOCDF": 51.5,
+          "FIBTG": 2.5
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/d67/d6749e8f4cc34bf85557726e53351360.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_piece",
+          "label": "Piece"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_biqs1hobapmhaeax0ybdwaoyd0jx",
+        "label": "Candied fruit",
+        "nutrients": {
+          "ENERC_KCAL": 322.0,
+          "PROCNT": 0.34,
+          "FAT": 0.07,
+          "CHOCDF": 82.74,
+          "FIBTG": 1.6
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/cf3/cf36eae076683f52a9a50bfbbe360efd.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_tablespoon",
+          "label": "Tablespoon"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_a7g51axaqt21eiadkh82nbuzez83",
+        "label": "fruit snack",
+        "nutrients": {
+          "ENERC_KCAL": 341.0,
+          "PROCNT": 4.4,
+          "FAT": 0.0,
+          "CHOCDF": 80.9
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pouch",
+          "label": "Pouch"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_bear",
+          "label": "Bear"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_worm",
+          "label": "Worm"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_bag",
+          "label": "Bag"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_packet",
+          "label": "Packet"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_box",
+          "label": "Box"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_btd7ck5bibsnllazjvaefbhfni7o",
+        "label": "fruit pastry",
+        "nutrients": {
+          "ENERC_KCAL": 371.0,
+          "PROCNT": 5.4,
+          "FAT": 18.5,
+          "CHOCDF": 47.8,
+          "FIBTG": 1.9
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food",
+        "image": "https://www.edamam.com/food-img/cdc/cdc6f64b3b608029ff2d0f1b580f9bd8.jpg"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_unit",
+          "label": "Whole",
+          "qualified": [
+            [
+              {
+                "uri": "http://www.edamam.com/ontologies/edamam.owl#LanguaL_J0136",
+                "label": "PRESERVED BY FREEZING"
+              },
+              {
+                "uri": "http://www.edamam.com/ontologies/edamam.owl#Qualifier_small",
+                "label": "small"
+              }
+            ],
+            [
+              {
+                "uri": "http://www.edamam.com/ontologies/edamam.owl#Qualifier_large",
+                "label": "large"
+              }
+            ]
+          ]
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pastry",
+          "label": "Pastry"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_piece",
+          "label": "Piece"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_strudel",
+          "label": "Strudel"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_box",
+          "label": "Box"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_package",
+          "label": "Package"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        }
+      ]
+    },
+    {
+      "food": {
+        "foodId": "food_bn3f9fabcqnst4bwbcotqb5cw6qo",
+        "label": "fruit loops",
+        "nutrients": {
+          "ENERC_KCAL": 375.0,
+          "PROCNT": 5.3,
+          "FAT": 3.4,
+          "CHOCDF": 88.0,
+          "FIBTG": 9.3
+        },
+        "category": "Generic foods",
+        "categoryLabel": "food"
+      },
+      "measures": [
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
+          "label": "Serving"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+          "label": "Gram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_ounce",
+          "label": "Ounce"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_pound",
+          "label": "Pound"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_kilogram",
+          "label": "Kilogram"
+        },
+        {
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#Measure_cup",
+          "label": "Cup"
+        }
+      ]
+    }
+  ],
+  "_links": {
+    "next": {
+      "title": "Next page",
+      "href": "https://api.edamam.com/api/food-database/parser?session=40&app_key=69d004c3e3c5b967261e625baea627fc&app_id=85b409cf&ingr=fruit"
+    }
+  }
+}
