@@ -1,6 +1,7 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import routes from "./routes";
+import {Alert} from "@material-ui/lab";
 
 export default function App(props) {
     const {history} = props
