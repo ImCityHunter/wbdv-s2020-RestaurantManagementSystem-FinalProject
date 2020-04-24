@@ -52,25 +52,32 @@ export default function OrderViewer() {
 
     const dispatch = useDispatch();
 
-    const [counter, setCounter] = React.useState(1)
+    // const [counter, setCounter] = React.useState(1)
+    //
+    // useEffect(() => {
+    //     if (currentOrderList.length>0 && pastOrderList.length>0) {
+    //         const interval = setInterval(() => {
+    //             OrderService.getPastOrder(restaurantId)
+    //                 .then(response => dispatch(setPastOrderList(response)))
+    //             OrderService.getCurrentOrder(restaurantId)
+    //                 .then(response => dispatch(setCurrentOrderList(response)))
+    //     }, 5000);
+    //         return () => clearInterval(interval)}
+    //     else {
+    //         OrderService.getPastOrder(restaurantId)
+    //             .then(response => dispatch(setPastOrderList(response)))
+    //         OrderService.getCurrentOrder(restaurantId)
+    //             .then(response => dispatch(setCurrentOrderList(response)))
+    //         setCounter(-counter)
+    //     }
+    // }, [restaurantId, counter])
 
     useEffect(() => {
-        if (currentOrderList.length>0 && pastOrderList.length>0) {
-            const interval = setInterval(() => {
-                OrderService.getPastOrder(restaurantId)
-                    .then(response => dispatch(setPastOrderList(response)))
-                OrderService.getCurrentOrder(restaurantId)
-                    .then(response => dispatch(setCurrentOrderList(response)))
-        }, 5000);
-            return () => clearInterval(interval)}
-        else {
-            OrderService.getPastOrder(restaurantId)
-                .then(response => dispatch(setPastOrderList(response)))
-            OrderService.getCurrentOrder(restaurantId)
-                .then(response => dispatch(setCurrentOrderList(response)))
-            setCounter(-counter)
-        }
-    }, [restaurantId, counter])
+        OrderService.getPastOrder(restaurantId)
+            .then(response => dispatch(setPastOrderList(response)))
+        OrderService.getCurrentOrder(restaurantId)
+            .then(response => dispatch(setCurrentOrderList(response)))
+    }, [restaurantId])
 
     return (
         <div className={classes.root}>

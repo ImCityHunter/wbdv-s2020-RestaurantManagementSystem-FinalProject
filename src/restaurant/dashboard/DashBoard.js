@@ -106,28 +106,38 @@ export default function Dashboard() {
         return todayTotalSale
     }
 
-    useEffect(() => {
-        if (orderList.length>0 || todayTotalSale > 0) {
-            const interval = setInterval(() => {
-                OrderService.getAllOrder(restaurantId)
-                    .then(response => dispatch(setOrderList(response)))
-                OrderService.getCurrentOrder(restaurantId)
-                    .then(response => dispatch(setCurrentOrderList(response)))
-                getPopularDish();
-            }, 5000);
-            return () => clearInterval(interval)}
-        else {
-            OrderService.getAllOrder(restaurantId)
-                .then(response => dispatch(setOrderList(response)))
-            OrderService.getCurrentOrder(restaurantId)
-                .then(response => dispatch(setCurrentOrderList(response)))
-            setCounter(-counter)
-        }
-    }, [restaurantId, counter, popularDishes])
+    // useEffect(() => {
+    //     if (orderList.length>0 || todayTotalSale > 0) {
+    //         const interval = setInterval(() => {
+    //             OrderService.getAllOrder(restaurantId)
+    //                 .then(response => dispatch(setOrderList(response)))
+    //             OrderService.getCurrentOrder(restaurantId)
+    //                 .then(response => dispatch(setCurrentOrderList(response)))
+    //             getPopularDish();
+    //         }, 5000);
+    //         return () => clearInterval(interval)}
+    //     else {
+    //         OrderService.getAllOrder(restaurantId)
+    //             .then(response => dispatch(setOrderList(response)))
+    //         OrderService.getCurrentOrder(restaurantId)
+    //             .then(response => dispatch(setCurrentOrderList(response)))
+    //         setCounter(-counter)
+    //     }
+    // }, [restaurantId, counter, popularDishes])
 
 
     // const [itemList, setItemList] = React.useState([])
 
+    useEffect(() => {
+        OrderService.getAllOrder(restaurantId)
+            .then(response => dispatch(setOrderList(response)))
+        OrderService.getCurrentOrder(restaurantId)
+            .then(response => dispatch(setCurrentOrderList(response)))
+    }, [restaurantId])
+
+    useEffect(() => {
+        getPopularDish()
+    }, [orderList])
 
 
     return (
