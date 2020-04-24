@@ -6,7 +6,7 @@ export default function App(props) {
     const {history} = props
     return (
         <Router history={history}>
-            <Route path="/" render={() => {
+            <Route path="/" exact render={() => {
                 return <Redirect to="/customer"/>
             }}/>
             {

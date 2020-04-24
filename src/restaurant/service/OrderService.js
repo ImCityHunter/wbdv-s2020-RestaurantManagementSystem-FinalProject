@@ -1,13 +1,3 @@
-// const getCurrentOrder = (restaurantId) =>
-//     fetch('', {
-//         "method": "GET",
-//     }).then(response => response.json())
-//
-// const getPastOrder = (restaurantId) =>
-//     fetch(`https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurantId}/orders/completed`, {
-//         "method": "GET",
-//     }).then(response => response.json())
-
 const getAllOrder = (restaurantId) =>
     fetch(`https://web5610-final-project-backend.herokuapp.com/restaurant/${restaurantId}/orders`, {
         "method": "GET",

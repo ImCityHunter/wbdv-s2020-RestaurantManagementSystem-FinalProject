@@ -234,6 +234,7 @@ export default function LoginRegister(props) {
                             className={classes.submit}>
                             {isLogin ? "Sign In" : "Register"}
                         </Button>
+
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
@@ -241,9 +242,15 @@ export default function LoginRegister(props) {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <RouterLink to="/register" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </RouterLink>
+                                {isLogin?
+                                    <RouterLink to="/register" variant="body2">
+                                        {"Don't have an account? Sign Up"}
+                                    </RouterLink>
+                                    :
+                                    <a href="#" onClick={() => history.goBack()}>
+                                        {"Back to Log In"}
+                                    </a>
+                                }
                             </Grid>
                         </Grid>
                         <Box mt={5}>

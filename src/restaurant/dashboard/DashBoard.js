@@ -78,8 +78,6 @@ export default function Dashboard() {
 
     let todayTotalSale = 0;
 
-    const [counter, setCounter] = React.useState(1)
-
     let itemList = new Map();
     const [popularDishes, setPopularDishes] = React.useState(new Map());
 
