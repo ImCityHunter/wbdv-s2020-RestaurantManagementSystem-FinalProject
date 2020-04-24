@@ -1,15 +1,15 @@
-import image1 from "./images/1.png";
-import image2 from "./images/2.png";
-import image3 from "./images/3.png";
-import image4 from "./images/4.png";
-import image5 from "./images/5.png";
-import image6 from "./images/6.png";
-import image7 from "./images/7.png";
-import photos from './resources/photos'
+import image1 from "./customer/images/1.png";
+import image2 from "./customer/images/2.png";
+import image3 from "./customer/images/3.png";
+import image4 from "./customer/images/4.png";
+import image5 from "./customer/images/5.png";
+import image6 from "./customer/images/6.png";
+import image7 from "./customer/images/7.png";
+import photos from './customer/resources/photos'
 
-import vegetables from './resources/vegetables'
-import burger from './resources/burger'
-import fruit from './resources/fruit'
+import vegetables from './customer/resources/vegetables'
+import burger from './customer/resources/burger'
+import fruit from './customer/resources/fruit'
 
 export const categories = [
     {id: 1, name: 'Veges', src: image1, key: 'vegetables'},
@@ -42,4 +42,4 @@ export const foodListUrl = CURRENT_URL + "/products/all"
 
 // wjc for restaurantService
 export const restaurantRegisterUrl = CURRENT_URL + "/restaurant/register"
-export const restaurantLoginUrl = CURRENT_URL + "'restaurant/login"
+export const restaurantLoginUrl = CURRENT_URL + "/restaurant/login"

@@ -18,7 +18,7 @@ import LeftCategory from "./left.panel";
 import CategoryIcon from '@material-ui/icons/Category';
 import Header from "./header";
 import {useDispatch, useSelector} from "react-redux";
-import {setFoodList, setLogin, setLoginUser} from "../actions";
+import {setFoodList, setLogin, setLoginUser} from "../../actions";
 import {findFakeFoodsByCategory, findFoodsByCategory} from "../service/food.search.service";
 import {Route} from "react-router-dom";
 import Link from "@material-ui/core/Link";
@@ -188,7 +188,6 @@ export default function Home(props) {
                     <Copyright/>
                 </footer>
             </main>
-
         </div>
     );
 }

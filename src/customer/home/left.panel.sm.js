@@ -11,7 +11,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
-import {categories} from '../constants'
+import {categories} from '../../constants'
 
 const useStyles = makeStyles(theme => ({
     rightPanelWhenSM: {

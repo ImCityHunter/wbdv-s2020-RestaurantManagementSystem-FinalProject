@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useSelector} from "react-redux";
-import {photoUrls} from "../constants";
+import {photoUrls} from "../../constants";
 import ItemFood from "./item.food";
 
 

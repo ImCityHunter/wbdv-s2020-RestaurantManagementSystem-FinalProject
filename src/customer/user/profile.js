@@ -20,7 +20,7 @@ import CartList from "./list.cart";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {getUserOrders} from "../service/user.service";
-import {setOrdersList} from "../actions";
+import {setOrdersList} from "../../actions";
 import Button from "@material-ui/core/Button";
 import Alert from "@material-ui/lab/Alert";
 

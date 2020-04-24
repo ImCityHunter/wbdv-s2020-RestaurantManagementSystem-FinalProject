@@ -13,7 +13,7 @@ import ImageIcon from '@material-ui/icons/Image';
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import IconButton from "@material-ui/core/IconButton";
 import AddIcon from '@material-ui/icons/Add';
-import {addShoppingCart, removeShoppingCart} from "../actions";
+import {addShoppingCart, removeShoppingCart} from "../../actions";
 
 const useStyles = makeStyles((theme) => ({
     contentWrapper: {

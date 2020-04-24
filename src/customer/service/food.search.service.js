@@ -1,4 +1,4 @@
-import {burgerData, foodListUrl, fruitData, vegetablesData} from "../constants";
+import {burgerData, foodListUrl, fruitData, vegetablesData} from "../../constants";
 
 export const findFoodsByCategory = (category) => {
     return fetch(foodListUrl)

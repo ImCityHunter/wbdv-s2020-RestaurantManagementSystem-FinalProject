@@ -13,7 +13,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import Badge from "@material-ui/core/Badge";
 import {useDispatch, useSelector} from "react-redux";
-import {addShoppingCart, removeShoppingCart} from "../actions";
+import {addShoppingCart, removeShoppingCart} from "../../actions";
 import {useHistory} from "react-router";
 
 const useStyles = makeStyles((theme) => ({

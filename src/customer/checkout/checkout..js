@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './form.address';
 import PaymentForm from './form.payment';
 import Review from './reviews';
+import {postOrder} from "../service/user.service";
+import {useSelector} from "react-redux";
 
 function Copyright() {
     return (
@@ -82,15 +84,18 @@ function getStepContent(step) {
 export default function Checkout() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
-
+    const shoppingList = useSelector(state => state.shoppingCart)
+    const user = useSelector(state => state.user)
     const handleNext = () => {
         setActiveStep(activeStep + 1);
+        if (activeStep === 2) {
+            postOrder(user, shoppingList)
+        }
     };
 
     const handleBack = () => {
         setActiveStep(activeStep - 1);
     };
-
     return (
         <main className={classes.layout}>
             <Paper className={classes.paper}>

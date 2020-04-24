@@ -15,7 +15,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import {Alert} from "@material-ui/lab";
 import clsx from "clsx";
-import {addShoppingCart, removeShoppingCart} from "../actions";
+import {addShoppingCart, removeShoppingCart} from "../../actions";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Badge from "@material-ui/core/Badge";
 import Button from "@material-ui/core/Button";

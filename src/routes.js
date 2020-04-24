@@ -1,7 +1,16 @@
-import LoginRegister from "./user/login.register";
-import Home from "./home/home";
-import Profile from "./user/profile";
-import MainContent from "./home/home.content";
+import LoginRegister from "./customer/user/login.register";
+import Home from "./customer/home/home";
+import Profile from "./customer/user/profile";
+import MainContent from "./customer/home/home.content";
+import DashBoard from "./restaurant/dashboard/DashBoard";
+import MenuEditor from "./restaurant/menuEditor/MenuEditor";
+import OrderViewer from "./restaurant/orderViewer/OrderViewer";
+import InfoEditor from "./restaurant/infoEditor/InfoEditor";
+
+// <Route path="/:rid/dashBoard" render={() => <DashBoard />} />
+// <Route path="/:rid/menuEditor" render={() => <MenuEditor />} />
+// <Route path="/:rid/orderViewer" render={() => <OrderViewer />} />
+// <Route path="/:rid/infoEditor" render={() => <InfoEditor />} />
 
 const routes = [
     {
@@ -16,6 +25,22 @@ const routes = [
                 component: Profile
             }
         ]
+    },
+    {
+        path: "/restaurant/:rid/dashBoard",
+        component: DashBoard
+    },
+    {
+        path: "/restaurant/:rid/menuEditor",
+        component: MenuEditor
+    },
+    {
+        path: "/restaurant/:rid/orderViewer",
+        component: OrderViewer
+    },
+    {
+        path: "/restaurant/:rid/infoEditor",
+        component: InfoEditor
     },
     {
         path: "/login",

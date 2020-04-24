@@ -19,7 +19,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import Badge from "@material-ui/core/Badge";
 import Tooltip from "@material-ui/core/Tooltip";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {addShoppingCart, clearCart, removeShoppingCart} from "../actions";
+import {addShoppingCart, clearCart, removeShoppingCart} from "../../actions";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
@@ -101,8 +101,9 @@ export default function ShoppingCart(props) {
     }, [dispatch])
 
     const placeOrder = useCallback(() => {
-        checkoutFunc()
-        // postOrder(user, shoppingCart)
+        if (shoppingCart.length > 0) {
+            checkoutFunc()
+        }
     }, [user, shoppingCart])
     const clearShoppingList = useCallback(() => {
         dispatch(clearCart())
@@ -152,10 +153,11 @@ export default function ShoppingCart(props) {
                      className={clsx({[classes.divider]: showBottomMenu, [classes.hidden]: !showBottomMenu})}/>
             <div className={clsx({[classes.hidden]: !showBottomMenu, [classes.buttonMenu]: showBottomMenu})}>
                 <Button variant="contained" color="primary" className={classes.buttonWrapper}
-                        onClick={() => placeOrder()}>
+                        onClick={() => placeOrder()} disabled={shoppingCart.length === 0}>
                     CheckOut
                 </Button>
-                <Button variant="contained" color="secondary" onClick={() => clearShoppingList()}>
+                <Button variant="contained" color="secondary" onClick={() => clearShoppingList()}
+                        disabled={shoppingCart.length === 0}>
                     Clear
                 </Button>
             </div>

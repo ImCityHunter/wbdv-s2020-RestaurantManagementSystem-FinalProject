@@ -5,7 +5,7 @@ import {
     userRegisterUrl,
     userLoginUrl,
     restaurantLoginUrl, userOrderUrl, getUserOrderUrl
-} from "../constants";
+} from "../../constants";
 
 export const login = (username, password, role) => {
     var url = new URL(role === "customer" ? userLoginUrl : restaurantLoginUrl)
@@ -17,11 +17,15 @@ export const login = (username, password, role) => {
 
 export const register = (user, role) => {
     let body = {
-        username: role.username,
-        password: role.password
+        username: user["username"],
+        password: user["password"]
     }
-    const name = role === "customer" ? "restaurantName" : "nickname"
-    body[name] = user.name
+    if (role === "customer") {
+        body["nickname"] = user["name"]
+    } else {
+        body["restaurantName"] = user["name"]
+        body["businessHours"] = "08:00,21:00,08:00,21:00,08:00,21:00,08:00,21:00,08:00,21:00,08:00,21:00,08:00,21:00"
+    }
     return fetch(role === "customer" ? userRegisterUrl : restaurantRegisterUrl, {
         method: "POST",
         body: JSON.stringify(body),
@@ -48,9 +52,8 @@ export const getUserOrders = (userId) => {
 }
 
 export const postOrder = (user, shoppingList) => {
-    if (shoppingList.length === 0)
-        return
-    const date = new Date().toISOString().slice(0, 19).replace(' ', 'T')
+    const DATE_FORMATER = require( 'dateformat' );
+    var date = DATE_FORMATER( new Date(), "yyyy-mm-dd HH:MM:ss" ).replace(' ', 'T');
     const order = {
         "date": date,
         "totalPrice": "100",

@@ -23,7 +23,7 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ShoppingCart from "./right.panel";
-import {setLogin, setLoginUser} from "../actions";
+import {setLogin, setLoginUser} from "../../actions";
 import Checkout from "../checkout/checkout.";
 
 const drawerWidth = 240;
@@ -128,6 +128,7 @@ export default function Header(props) {
     const classes = useStyles()
     const isLogin = useSelector(state => state.isLogin)
     const user = useSelector(state => state.user)
+    const shoppingCart = useSelector(state => state.shoppingCart)
     const {drawerStatus, handleDrawerOpen} = props
     const [anchorEl, setAnchorEl] = React.useState(null);
     const dispatch = useDispatch()
@@ -280,7 +281,7 @@ export default function Header(props) {
                     <Button onClick={() => {
                         handleCartDialogClose()
                         handleCheckoutDialogOpen()
-                    }} color="primary">
+                    }} color="primary" disabled={shoppingCart.length === 0}>
                         Checkout
                     </Button>
                     <Button onClick={handleCartDialogClose} color="primary">

@@ -5,10 +5,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import {makeStyles} from "@material-ui/core/styles";
-import {categories} from "../constants";
+import {categories} from "../../constants";
 import {useDispatch, useSelector} from "react-redux";
 import clsx from "clsx";
-import {setSelectedCategory} from "../actions";
+import {setSelectedCategory} from "../../actions";
 import {useHistory, useLocation} from "react-router";
 
 const useStyles = makeStyles((theme) => ({
@@ -48,7 +48,6 @@ function LeftCategory(props) {
     const dispatch = useDispatch()
 
     const onItemClick = (category) => {
-        console.log(location)
         dispatch(setSelectedCategory(category))
         if (location.pathname !== "/customer") {
             history.push('/customer')

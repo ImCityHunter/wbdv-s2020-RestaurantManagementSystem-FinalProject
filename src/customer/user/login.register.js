@@ -16,7 +16,7 @@ import clsx from "clsx";
 import {Alert} from "@material-ui/lab";
 import {login, register} from "../service/user.service";
 import {useDispatch} from "react-redux";
-import {setLogin, setLoginUser} from "../actions";
+import {setLogin, setLoginUser} from "../../actions";
 import {useHistory} from "react-router-dom";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -113,7 +113,11 @@ export default function LoginRegister(props) {
                         setDisplayError(false);
                         dispatch(setLoginUser(actualUser))
                         dispatch(setLogin(true))
-                        history.push("/customer")
+                        if (role === "customer") {
+                            history.push("/customer")
+                        } else {
+                            history.push("/restaurant/" + actualUser.id + "/dashBoard")
+                        }
                     }
                 })
             }
@@ -128,7 +132,11 @@ export default function LoginRegister(props) {
                         setDisplayError(false)
                         dispatch(setLoginUser(actualUser))
                         dispatch(setLogin(true))
-                        history.push("/customer")
+                        if (role === "customer") {
+                            history.push("/customer")
+                        } else {
+                            history.push("/restaurant/" + actualUser.id + "/dashBoard")
+                        }
                     }
                 })
         }
@@ -193,7 +201,7 @@ export default function LoginRegister(props) {
                             onChange={(e) => setNickName(e.target.value)}
                             id="nickname"
                             className={clsx({[classes.hidden]: isLogin})}/>
-                        <FormControl variant="outlined" fullWidth>
+                        <FormControl variant="outlined" fullWidth className={classes.roleWrapper}>
                             <InputLabel htmlFor="simple-role">Role</InputLabel>
                             <Select
                                 native

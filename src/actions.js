@@ -6,6 +6,7 @@ export const ACTION_SET_LOGIN_SER = "SET_LOGIN_USER"
 export const ACTION_SET_IS_LOGIN = "SET_IS_LOGIN"
 export const ACTION_SET_ORDERS = "SET_ORDERS_LIST"
 export const ACTION_CLEAR_SHOPPING_CART = "CLEAR_SHOPPING_CART"
+export const REMOVE_COMPLETED_ORDER = "REMOVE_COMPLETED_ORDER"
 
 export function setFoodList(foodList) {
     return {
@@ -63,3 +64,32 @@ export function clearCart() {
         type: ACTION_CLEAR_SHOPPING_CART
     }
 }
+
+export const removeCompletedOrder = (orderCompleted) => ({
+    type: REMOVE_COMPLETED_ORDER,
+    payload: orderCompleted
+})
+
+export const SET_ORDER_COMPLETED = "SET_ORDER_COMPLETED"
+export const setOrderCompleted = (orderCompleted) => ({
+    type: SET_ORDER_COMPLETED,
+    payload: orderCompleted
+})
+
+export const SET_ORDER_LIST = "SET_ORDER_LIST"
+export const setOrderList = (orderList) => ({
+    type: SET_ORDER_LIST,
+    payload: orderList
+})
+
+export const SET_CURRENT_ORDER_LIST = "SET_CURRENT_ORDER_LIST"
+export const setCurrentOrderList = (orderList) => ({
+    type: SET_CURRENT_ORDER_LIST,
+    payload: orderList
+})
+
+export const SET_PAST_ORDER_LIST = "SET_PAST_ORDER_LIST"
+export const setPastOrderList = (orderList) => ({
+    type: SET_PAST_ORDER_LIST,
+    payload: orderList
+})
