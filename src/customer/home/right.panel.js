@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import {Alert} from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
