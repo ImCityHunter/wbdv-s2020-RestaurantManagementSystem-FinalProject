@@ -23,7 +23,7 @@ Project is launched on Heroku at [here](https://restaurant-management-menu.herok
 ## Testing Information
 
 #### Sample Accounts for front end
-
+`Anonymous users`: even without logging in, the url will be redirected to `/customer`, but is not allowed to make any orders <br/>
 `customer`: username: customer, password: customer, type: customer <br />
 `restuarnt`: username: foodmax, password: foodmax, type: restaurant <br />
 specific information about an individual can be found in our backend <br />
