@@ -91,7 +91,7 @@ export default function OrderViewer() {
                     <Container component={Paper} className={classes.container}>
                         <br/>
                         <Typography variant="h5" align="center">
-                            Current Order
+                            Current Orders
                         </Typography>
                         <br/>
                         <CurrentOrder />
@@ -99,7 +99,7 @@ export default function OrderViewer() {
                     <div className={classes.appBarSpacer}/>
                     <Container component={Paper} className={classes.container}>
                         <Typography variant="h5" align="center">
-                            Completed Order
+                            Completed Orders
                         </Typography>
                         <br/>
                         <PastOrder />

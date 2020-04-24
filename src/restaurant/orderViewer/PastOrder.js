@@ -26,7 +26,7 @@ export default function PastOrder() {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Order Number</TableCell>
+                        <TableCell align="center">Order Number</TableCell>
                         <TableCell align="center">Date</TableCell>
                         {/*<TableCell align="center">Customer Id</TableCell>*/}
                         <TableCell align="center">Sale Amount</TableCell>
@@ -36,7 +36,7 @@ export default function PastOrder() {
                 <TableBody>
                     {pastOrderList && pastOrderList.map((pastOrder) => (
                         <TableRow key={pastOrder.id}>
-                            <TableCell component="th" scope="row">
+                            <TableCell component="th" scope="row" align="center">
                                 {pastOrder.id}
                             </TableCell>
                             <TableCell align="center">{pastOrder.date.slice(0,10)}</TableCell>
