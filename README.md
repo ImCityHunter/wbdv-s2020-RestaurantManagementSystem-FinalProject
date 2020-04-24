@@ -8,10 +8,10 @@ Jinyang Zheng, Sjyzheng <br />
 
 ## Summary
 This project uses material UI, and uses some of its template on its [website](https://material-ui.com/). We also uses an API from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database) to retrieve some information about a searched meal.  <br />
-Project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer) <br />
+This project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer). We have also found out that there are few functions that run perfectly when run locally, but act weird on heroku. We are doing our best to overcome. <br />
 Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5yPesEgzk-D3D3yEQ1pdv0/edit) is also written; howevever, due to simplicity of grading and checking bugs, we took out the encryption and decryption for password. <br />
 
-### The reasons we use a third party API
+#### The reasons we use a third party API
 We use a third party API, [Edamam Food and Grocery Database](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database). This API contains a lot of information regarding to meals around the world. This API is used to help restaurants to build their menu faster. This API contains information about a meal's ingredient, image, food calories, etc. 
 
 #### Restaurant Menu Management System
@@ -21,7 +21,9 @@ We use a third party API, [Edamam Food and Grocery Database](https://rapidapi.co
 #### Users: Customers/Restaurant Owners/Anonymous users
 `Anonymous users`: able to see what regular customers can see, but cannot make the final order <br/>
 `Customers`: able to add an order <br/>
-`Restaurant Owners`: able to edit its' restaurant's name, menu, open hours, etc. We uses an API as listed above to help restuarant owner to find template of its meal's default information. However, we also allows restaurants owners to change those information. And all the information is then added our database<br/>
+`Restaurant Owners`: able to edit its' restaurant's name, menu, open hours, etc. We uses an API as listed above to help restuarant owner to find template of its meal's default information. However, we also allows restaurants owners to change those information. And all the information is then added our database <br/>
+At the moment, as our current design, after registration, restaurant and customers are not interchangeable. This means, if an account is 'customer', it cannot switch to 'restaurant'. <br/>
+
 
 
 ## Testing Information
@@ -38,7 +40,8 @@ After logging in, each type should have different ways to navigate the dashboard
 ** special notes ** <br/>
 We do have a payment page, it is just a template, do not submit your real information. <br />
 
-
+### How two types of users interact with each other
+Customers can only order meals that have been created by restaurants. In depth information on how to test this is described in a paragraph below. Anonymous users are only cable of seeing the meals but cannot make an order. If an anonymous user want to order after viewing the meals, he/she will be prompted to register. <br />
 
 #### Instructions on how to test and view result of orders 
 
@@ -88,6 +91,12 @@ Add the following path after this above link to see specific data that you desir
 #### Database
 Our database is therefore also launched on heroku. The specific information is here `jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0a098ba37876f06serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true`
 
+
+## Future Improvement
+There are several features that we'd like to add in the future, but not a priority at the moment comparing to fixing some bugs. <br />
+
+First: adding a notification for a restaurant, after recieving a new order <br />
+Second: at the moment, a customer can make a order from multiple restaurants. in the future, an order from a customer should be only related to one restaurant. <br />
 
 
 
