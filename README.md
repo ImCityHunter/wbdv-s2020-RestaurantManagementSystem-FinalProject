@@ -33,6 +33,7 @@ After logging in, each type should have different ways to navigate the dashboard
 #### BackEnd
 Our backend uses mybatis. <br />
 link is here https://web5610-final-project-backend.herokuapp.com <br />
+codes is here https://github.com/yu2749luca/wbdv-s2020-RestaurantManagementSystem-FinalProject/tree/backend<br />
 
 Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
 add `/restaurant/${restaurant_id}` <br />
