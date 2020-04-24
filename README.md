@@ -94,7 +94,7 @@ Add the following path after this above link to see specific data that you desir
 
 
 #### Database
-Our database is therefore also launched on heroku. The specific information is here `jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0a098ba37876f06serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true`
+Our database is therefore also launched on heroku. In order to have a better visual for our database, a third party software such as [SQL workbench](https://dev.mysql.com/) is needed. And the link to our database is here: `jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0a098ba37876f06serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true`
 
 
 ## Future Improvement
