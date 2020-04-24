@@ -32,16 +32,17 @@ After logging in, each type should have different ways to navigate the dashboard
 
 #### BackEnd
 Our backend uses mybatis. <br />
-link is here https://web5610-final-project-backend.herokuapp.com <br />
-codes is here https://github.com/yu2749luca/wbdv-s2020-RestaurantManagementSystem-FinalProject/tree/backend<br />
+codes is [here](https://github.com/yu2749luca/wbdv-s2020-RestaurantManagementSystem-FinalProject/tree/backend)<br />
+Use the following link to have visual: https://web5610-final-project-backend.herokuapp.com <br />
+Add the following path after this above link to see specific data that you desire to see<br />
 
-Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
+- Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
 add `/restaurant/${restaurant_id}` <br />
 
-Find Info about all the orders of a restaurant: <br />
+- Find Info about all the orders of a restaurant: <br />
 add `/restaurant/${restaurant_id}/orders` <br />
 
-Find Info about a specific Customer:  use `1` as user id <br />
+- Find Info about a specific Customer:  use `1` as user id <br />
 add `/users/${user_id}` <br />
 
 
