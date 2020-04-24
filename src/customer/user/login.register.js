@@ -76,7 +76,7 @@ export default function LoginRegister(props) {
     const isLogin = (props.location.state && props.location.state.isLogin) || false
     const classes = useStyles();
     const [username, setUsername] = useState("jack")
-    const [password, setPassword] = useState("123")
+    const [password, setPassword] = useState("wjc123")
     const [verify, setVerify] = useState("")
     const [role, setRole] = useState("customer")
     const [nickName, setNickName] = useState("")
