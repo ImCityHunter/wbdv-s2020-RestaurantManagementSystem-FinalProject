@@ -14,7 +14,7 @@ Project Name: Restaurant Menu Management System <br />
 [Previous Prototype](https://e-menu-management.herokuapp.com/)
 
 ## Summary
-This web application is full a stack application. It uses React Hooks and Material UI for the front-end development. As for the backend, we use SpringMVC and MyBatis. Some pages of front-end uses templates from the official website of [Material UI](https://material-ui.com/). <br />
+This web application is a full stack application. It uses React Hooks and Material UI for the front-end development. As for the backend, we use SpringMVC and MyBatis. Some pages of front-end uses templates from the official website of [Material UI](https://material-ui.com/). <br />
 The recipe data comes from [RAPIDAPI](https://rapidapi.com/edamam/api/edamam-food-and-grocery-database).  <br />
 This project is launched on Heroku at [here](https://restaurant-management-menu.herokuapp.com/customer). We have also found out that there are few functions that run perfectly when run locally, but act weird on heroku. We are doing our best to overcome. <br />
 Our [privacy policy](https://docs.google.com/document/d/1z280aM4mzfZEtvh9HQbIw5yPesEgzk-D3D3yEQ1pdv0/edit) is also written; however, due to simplicity of grading and checking bugs, we took out the encryption and decryption for password. <br />
@@ -75,38 +75,39 @@ Add the following path after this above link to see specific data that you desir
 
 - Restaurant
   - Find Info about a specific Restaurant : use `1` as restaurant id to find info about foodmax <br/>
-   add `/restaurant/${restaurant_id}` <br />
+    add `/restaurant/${restaurant_id}` <br />
 
   - Find Info about all the orders of a restaurant: <br />
-  add `/restaurant/${restaurant_id}/orders` <br />
+    add `/restaurant/${restaurant_id}/orders` <br />
 
   - Find Menu about all the menu items of a restaruant <br />
-  add `/restaurant/${rid}/products` <br />
+    add `/restaurant/${rid}/products` <br />
   
-  - Restaurant Login GET
-    add `/restaurant/login?username=xxx&password=xxx`
+  - Restaurant Login GET <br />
+    add `/restaurant/login?username=xxx&password=xxx` <br />
     
-  - Restaurant Register POST
-    add `/restaurant/register` please do remember to put register info in the request body
+  - Restaurant Register POST <br />
+    add `/restaurant/register` please do remember to put register info in the request body <br />
 
-- Customer
+- Customer <br />
   - Find Info about a specific Customer:  use `6` as user id <br />
   add `/users/${user_id}` <br />
-  - Customer Login GET
+  - Customer Login GET <br />
     add `/users/login?username=xxx&password=xxx`
     
-  - Customer Register POST
-    add `/users/register` please do remember to put register info in the request body.
+  - Customer Register POST <br />
+    add `/users/register` <br />
+    please do remember to put register info in the request body. <br />
    
-  - User orders GET
+  - User orders GET <br />
     add `/users/{userId}/orders`
 
-- Meal/Product  
+- Meal/Product  <br />
   - Find Info about all products <br />
   add `/products/all` <br />
 
   - Find Info about a specific item/meal/product: use `151` as an sample <br />
-  add `/products/${product_id}`
+  add `/products/${product_id}` <br />
 #### Database
 Our database is therefore also launched on heroku. In order to have a better visual for our database, a third party software such as [SQL workbench](https://dev.mysql.com/) is needed. And the link to our database is here: `jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_0a098ba37876f06serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true`
 
