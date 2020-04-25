@@ -2,6 +2,7 @@
 
 [Description](https://docs.google.com/document/d/15MdexRhb_bj57tCSDTYnTVwqin9Y62oLSSEQn9sO9ZE/edit) <br />
 
+Project is launched [here](https://restaurant-management-menu.herokuapp.com/customer) <br />
 Project Name: Restaurant Menu Management System <br />
 
 | Teammates  | Github |
